@@ -1,0 +1,24 @@
+# Índice de boletines extraídos
+
+Fuente: Gmail (hilos enviados por los bots de curaduría desde julioe.castillomercedes@gmail.com). Extracción: 2026-09-21.
+
+| Especialidad | Fecha | Archivo | Título | audio_url | Adjunto de audio | Anomalías / notas |
+|---|---|---|---|---|---|---|
+| vascular | 2026-09-21 | `vascular/2026-09-21.md` | Boletín vascular semanal — 21 de septiembre de 2026 | Sí (claude.ai/artifact, 8 min) | No | Ninguna. 14 ítems. Hilo 1a0c4087000f8a9e. |
+| vascular | 2026-09-14 | `vascular/2026-09-14.md` | Boletín vascular semanal — 14 de septiembre de 2026 | Sí (claude.ai/code/artifact, 6 min) | No | Sin saludo nominal (greeting: null). 6 ítems. Hilo 1a0a039d671f70fe. |
+| vascular | 2026-09-07 | `vascular/2026-09-07.md` | Boletín vascular semanal — 7 de septiembre de 2026 (edición depurada, con audio) | Sí (claude.ai/code/artifact, 7 min 28 s) | No | Edición depurada que sustituye al hilo 1a07c788bc9c3964 (enviado a las 11:24, sin audio adjunto por límite de tamaño); ese hilo previo NO se extrajo (versión superada). Formato más comprimido que el resto (ítems de 1–2 líneas). Hilo 1a07cad96fa699bf. |
+| vascular | 2026-09-05 | `vascular/2026-09-05.md` | Boletín vascular semanal — 5 de septiembre de 2026 | No (audio_url: null) | No | Único número sin versión en audio. El texto anuncia "10 ítems" pero enumera 11. Hilo 1a0730f12eb7ac51. |
+| cirugia-general | 2026-09-16 | `cirugia-general/2026-09-16.md` | Boletín de cirugía general semanal — 16 de septiembre de 2026 | Sí (claude.ai/artifact, 6 min) | No | Texto tomado del hilo 1a0aabe25de811f0; el hilo 1a0aad0674e1ae54 ("audio corregido") trae texto idéntico, mismo enlace de audio, duración corregida a 6 min (antes 7) y saludo dirigido a la Escuela de Cirugía Dr. Chanlatte (greeting tomado de ahí). Existen dos envíos anteriores del mismo día (1a0aaa6e693ca5ff, 1a0aaaf16c311bfd) con otro audio — versiones superadas, no extraídas. Ítem 1 sin cifras (bloqueo de JAMA), tal como lo reporta el propio boletín. |
+| ginecologia | 2026-09-18 | `ginecologia/2026-09-18.md` | Boletín de ginecología y obstetricia — 18 de septiembre de 2026 | Sí (claude.ai/artifact, 6 min) | No | Incluye bloque "Texto para WhatsApp". Versión anterior 1a0b5cd933543c2d ignorada (definitiva completa). Ítem 5 (guía ACOG cerclaje) sin recomendaciones por acceso restringido, según el boletín. Hilo 1a0b5d18ae20bc9a. |
+| pediatria | 2026-09-18 | `pediatria/2026-09-18.md` | Boletín de pediatría — 18 de septiembre de 2026 | Sí (claude.ai/artifact, 6 min 33 s) | No | Incluye bloque "Texto para WhatsApp". Versión anterior 1a0b60f5c15c0dd3 ignorada. Hilo 1a0b6256e6e9dc83. |
+| cardiologia | 2026-09-18 | `cardiologia/2026-09-18.md` | Boletín de cardiología — 18 de septiembre de 2026 | Sí (claude.ai/artifact, 6 min) | No | Incluye bloque "Texto para WhatsApp". Enviado el 2026-09-21 09:41 UTC aunque el número lleva fecha 18 de septiembre. Versión anterior 1a0b62a069086db4 (18 sep) ignorada. Hilo 1a0c357febbe5d9c. |
+
+## Notas generales
+
+- **Adjuntos de audio:** ningún correo trae archivos adjuntos (los MP3/OGG quedaron "en el chat de la tarea"); el campo `attachments` es `[]` en todos los números. El audio solo está accesible por `audio_url` (artefacto de Claude, requiere cuenta).
+- **Enlaces:** todas las URL venían envueltas en redirecciones `google.com/url?q=...`; se desenvolvieron a la URL original (incluida la decodificación de `%3D` → `=`).
+- **Limpieza aplicada:** se quitó la línea "Versión en audio … (se abre con su cuenta de Claude…)" y la nota meta del hilo "audio corregido". Se conservó íntegro el resto: encabezado, ítems, "Por qué importa", fuentes, congresos, pie de curaduría, "Saludos cordiales" y los bloques de WhatsApp (incluida la firma "Enviado por el Dr. Julio E. Castillo Mercedes", que forma parte del texto a pegar).
+- **Formato markdown:** las secciones se marcaron con `##` y los ítems con `###`; el texto no se resumió ni reescribió. Las mayúsculas de los encabezados de sección se normalizaron a tipo oración (p. ej. "ÁREAS PRIORITARIAS" → "Áreas prioritarias").
+- **Títulos:** se eliminó el sufijo "(para revisar y reenviar)" de ginecología, pediatría y cardiología. El sufijo "(edición depurada, con audio)" de vascular 09-07 se conservó por ser distintivo de la edición.
+- **Boletines más antiguos:** las búsquedas `subject:(boletín OR boletin) older_than:60d` y `subject:(vascular OR "cirugía general") before:2026/09/05` solo devolvieron newsletters de terceros (Vidal Vademecum, Fisterra, Annals of Vascular Surgery, etc.) y correos no relacionados. Una búsqueda adicional `from:julioe.castillomercedes@gmail.com subject:boletín newer_than:120d` confirma que el primer boletín de los bots es el vascular del 2026-09-05. No hay números anteriores que extraer.
+- **Frontmatter extra:** cada archivo incluye `gmail_thread_id` (y `related_thread_ids` en cirugía general) para trazabilidad.

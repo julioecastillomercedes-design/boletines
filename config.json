@@ -1,0 +1,50 @@
+{
+  "site_name": "Boletines Médicos",
+  "site_tagline": "Lo nuevo y verificado en cada especialidad, cada mes, en español",
+  "site_url": "https://julioecastillomercedes-design.github.io/boletines",
+  "author": "Dr. Julio E. Castillo Mercedes",
+  "author_role": "Cirujano vascular · Centro Policlínico Nacional, Santo Domingo",
+  "description": "Portal de boletines médicos con la evidencia más reciente y verificada en cirugía vascular, cirugía general, ginecología y obstetricia, pediatría y cardiología. Texto completo y noticiero en audio.",
+  "specialties": {
+    "vascular": {
+      "name": "Cirugía vascular y endovascular",
+      "short": "Vascular",
+      "cadence": "Semanal · lunes",
+      "audience": "Cirugía vascular",
+      "blurb": "Arterial, aórtico, carotídeo, venoso y acceso para hemodiálisis. Cobertura mundial multilingüe con lectura crítica de cada estudio.",
+      "hue": 355
+    },
+    "cirugia-general": {
+      "name": "Cirugía general",
+      "short": "Cirugía general",
+      "cadence": "Mensual · día 1",
+      "audience": "Escuela de Cirugía Dr. Chanlatte",
+      "blurb": "Pared abdominal y hernias, hepatobiliar y páncreas, colorrectal y oncología digestiva, trauma, urgencias y bariátrica.",
+      "hue": 210
+    },
+    "ginecologia": {
+      "name": "Ginecología y obstetricia",
+      "short": "Ginecología",
+      "cadence": "Mensual · día 1",
+      "audience": "Ginecología · Centro Policlínico Nacional",
+      "blurb": "Obstetricia y medicina materno-fetal, ginecología oncológica, reproducción y endocrinología, cirugía mínimamente invasiva y piso pélvico.",
+      "hue": 320
+    },
+    "pediatria": {
+      "name": "Pediatría",
+      "short": "Pediatría",
+      "cadence": "Mensual · día 1",
+      "audience": "Pediatría · Centro Policlínico Nacional",
+      "blurb": "Neonatología, infectología y vacunas, pediatría general y desarrollo, cirugía pediátrica y subespecialidades.",
+      "hue": 150
+    },
+    "cardiologia": {
+      "name": "Cardiología",
+      "short": "Cardiología",
+      "cadence": "Mensual · día 1",
+      "audience": "Cardiología · Centro Policlínico Nacional",
+      "blurb": "Cardiología clínica e intervencionista, insuficiencia cardíaca, arritmias, prevención y guías.",
+      "hue": 25
+    }
+  }
+}

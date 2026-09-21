@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://julioecastillomercedes-design.github.io/boletines/sitemap.xml

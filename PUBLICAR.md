@@ -20,9 +20,9 @@ Este repositorio genera el portal de boletines (GitHub Pages). Para añadir un n
    ```
    No incluir la línea "Versión en audio…" ni saludos al Dr. Castillo: la página es pública.
 3. Copiar el MP3 del noticiero a `audio/<especialidad>-<AAAA-MM-DD>.mp3` (mismo nombre de fecha).
-4. `pip install markdown && python3 build.py` → regenera `site/`.
+4. `pip install markdown && python3 build.py` → regenera `docs/`.
 5. `git add -A && git commit -m "Boletín <especialidad> <fecha>" && git push`.
-   GitHub Pages publica `site/` en 1–2 minutos.
+   GitHub Pages publica `docs/` en 1–2 minutos.
 
 El enlace del número queda en `https://julioecastillomercedes-design.github.io/boletines/<especialidad>/<AAAA-MM-DD>.html`
 y el del audio en `https://julioecastillomercedes-design.github.io/boletines/audio/<especialidad>-<AAAA-MM-DD>.mp3`.

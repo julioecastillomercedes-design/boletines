@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generador del portal de boletines.
 
-Uso:  python3 build.py            -> escribe el sitio en ./site
+Uso:  python3 build.py            -> escribe el sitio en ./docs
 Entrada: issues/<especialidad>/<AAAA-MM-DD>.md  (frontmatter YAML simple + markdown)
          audio/<especialidad>-<AAAA-MM-DD>.mp3  (opcional)
          config.json
@@ -24,7 +24,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent
 ISSUES = ROOT / "issues"
 AUDIO = ROOT / "audio"
-OUT = ROOT / "site"
+OUT = ROOT / "docs"
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SITE_URL = CFG["site_url"].rstrip("/")
 

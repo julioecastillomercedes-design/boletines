@@ -20,10 +20,14 @@ Este repositorio genera el portal de boletines (GitHub Pages). Para añadir un n
    ```
    No incluir la línea "Versión en audio…" ni saludos al Dr. Castillo: la página es pública.
 3. Copiar el MP3 del noticiero a `audio/<especialidad>-<AAAA-MM-DD>.mp3` (mismo nombre de fecha).
+   Versión en inglés (opcional): `issues/<especialidad>/<AAAA-MM-DD>.en.md` con el mismo formato (títulos en inglés,
+   secciones finales `## Text for LinkedIn` y `## Text for X`) y audio `audio/<especialidad>-<AAAA-MM-DD>-en.mp3`.
+   Los bloques `## Texto para LinkedIn` y `## Texto para X` al final del .md en español se convierten en botones de copiar.
 4. `pip install markdown && python3 build.py` → regenera `docs/`.
 5. `git add -A && git commit -m "Boletín <especialidad> <fecha>" && git push`.
    GitHub Pages publica `docs/` en 1–2 minutos.
 
+La edición en inglés queda en `https://julioecastillomercedes-design.github.io/boletines/en/<especialidad>/<AAAA-MM-DD>.html`.
 El enlace del número queda en `https://julioecastillomercedes-design.github.io/boletines/<especialidad>/<AAAA-MM-DD>.html`
 y el del audio en `https://julioecastillomercedes-design.github.io/boletines/audio/<especialidad>-<AAAA-MM-DD>.mp3`.
 Incluir ambos enlaces en el correo y en el bloque de WhatsApp.

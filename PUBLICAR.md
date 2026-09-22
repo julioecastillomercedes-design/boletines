@@ -27,9 +27,9 @@ Este repositorio genera el portal de boletines (GitHub Pages). Para añadir un n
 5. `git add -A && git commit -m "Boletín <especialidad> <fecha>" && git push`.
    GitHub Pages publica `docs/` en 1–2 minutos.
 
-La edición en inglés queda en `https://julioecastillomercedes-design.github.io/boletines/en/<especialidad>/<AAAA-MM-DD>.html`.
-El enlace del número queda en `https://julioecastillomercedes-design.github.io/boletines/<especialidad>/<AAAA-MM-DD>.html`
-y el del audio en `https://julioecastillomercedes-design.github.io/boletines/audio/<especialidad>-<AAAA-MM-DD>.mp3`.
+La edición en inglés queda en `https://boletinesmedicos.com/en/<especialidad>/<AAAA-MM-DD>.html`.
+El enlace del número queda en `https://boletinesmedicos.com/<especialidad>/<AAAA-MM-DD>.html`
+y el del audio en `https://boletinesmedicos.com/audio/<especialidad>-<AAAA-MM-DD>.mp3`.
 Incluir ambos enlaces en el correo y en el bloque de WhatsApp.
 
 Para añadir una especialidad nueva: agregar su entrada en `config.json` (clave, nombre, cadencia, público, blurb, hue) y crear la carpeta `issues/<clave>/`.

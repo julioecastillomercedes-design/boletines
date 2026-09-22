@@ -371,6 +371,8 @@ def build():
     write(OUT / "sitemap.xml", sitemap(urls))
     write(OUT / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
     write(OUT / ".nojekyll", "")
+    if CFG.get("custom_domain"):
+        write(OUT / "CNAME", CFG["custom_domain"] + "\n")
     print(f"OK: {len(all_issues['es'])} números ES, {len(all_issues['en'])} EN, {len(urls)} páginas -> {OUT}")
 
 

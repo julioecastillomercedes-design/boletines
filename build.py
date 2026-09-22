@@ -52,6 +52,15 @@ T = {
         "only_in": "Este número solo está disponible en español.", "audio_tag": "audio",
         "no_en_yet": "The English edition of this issue is not available. Showing the Spanish original.",
         "bulletin": "Boletín",
+        "sub_title": "Reciba cada número por correo",
+        "sub_text": "Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin publicidad ni cesión de datos; se da de baja con un solo mensaje.",
+        "sub_btn": "Suscribirme por correo",
+        "sub_subject": "Suscripción a Boletines Médicos",
+        "sub_body": "Hola. Quiero recibir por correo los boletines de las siguientes especialidades (borre las que no le interesen): cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología.\n\nNombre:\nCiudad o institución (opcional):",
+        "sub_hint": "Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.",
+        "sponsor": "Patrocinio y colaboración institucional",
+        "subscribe": "Suscribirse",
+        "contact": "Contacto",
     },
     "en": {
         "lang_name": "English", "other_lang": "Español", "other_code": "es",
@@ -67,6 +76,15 @@ T = {
         "curated": "Curated by", "footer": "Each issue summarizes verified publications, guidelines, trials and regulatory notices, with a critical reading of their quality (design, sample size, funding). Informational material for professionals; it does not replace reading the primary source or clinical judgment.",
         "only_in": "This issue is only available in Spanish.", "audio_tag": "audio",
         "no_en_yet": "", "bulletin": "Bulletin",
+        "sub_title": "Get every issue by email",
+        "sub_text": "Free. One email per issue, with the full text and the audio link. No advertising, no data sharing; unsubscribe with a single message.",
+        "sub_btn": "Subscribe by email",
+        "sub_subject": "Subscription to Medical Bulletins",
+        "sub_body": "Hello. I would like to receive the bulletins for the following specialties by email (delete the ones you are not interested in): vascular surgery, general surgery, obstetrics and gynecology, pediatrics, cardiology.\n\nName:\nCity or institution (optional):",
+        "sub_hint": "Your email program will open with the message already written; just send it.",
+        "sponsor": "Sponsorship and institutional partnerships",
+        "subscribe": "Subscribe",
+        "contact": "Contact",
     },
 }
 
@@ -266,6 +284,12 @@ details.wa pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:0 16p
 .prevnext{display:flex;justify-content:space-between;gap:12px;margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-family:system-ui,sans-serif;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;font-family:system-ui,sans-serif;font-size:.85rem;color:var(--ink-3)}
 footer p{margin:.3em 0}
+.sub{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:26px 0 8px;font-family:system-ui,sans-serif}
+.sub h2{border:0;margin:0 0 .3em;padding:0;font-size:1.15rem}
+.sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
+.sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
+.sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font:600 .9rem system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 @media (max-width:520px){body{font-size:16px}h2{font-size:1.2rem}}
@@ -280,6 +304,54 @@ navigator.clipboard.writeText(t).then(function(){{aviso({json.dumps(t['copied'])
 function aviso(m){{var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){{t.classList.remove('show')}},2200)}}
 function compartir(title,url){{if(navigator.share){{navigator.share({{title:title,url:url}}).catch(function(){{}})}}else{{navigator.clipboard.writeText(url).then(function(){{aviso({json.dumps(t['link_copied'])})}})}}}}
 """
+
+
+# ---------------------------------------------------------------- suscripción / estáticas
+
+def mailto(subject, body=""):
+    from urllib.parse import quote
+    return f"mailto:{CFG.get('contact_email', '')}?subject={quote(subject)}" + (f"&body={quote(body)}" if body else "")
+
+
+def subscribe_block(lang, hue=None):
+    t = T[lang]
+    style = f' style="--h:{hue}"' if hue else ""
+    return f"""<section class="sub"{style}>
+<h2>{e(t['sub_title'])}</h2>
+<p>{e(t['sub_text'])}</p>
+<a class="btn" href="{e(mailto(t['sub_subject'], t['sub_body']))}">{e(t['sub_btn'])}</a>
+<small>{e(t['sub_hint'])}</small>
+</section>"""
+
+
+def analytics_html():
+    code = CFG.get("analytics_goatcounter")
+    if not code:
+        return ""
+    return f'<script data-goatcounter="https://{code}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+
+
+def static_pages(lang, urls):
+    """Páginas fijas (patrocinio, suscripción) desde issues/paginas/<slug>.<lang>.md"""
+    from datetime import date as _d
+    t = T[lang]
+    out = OUT if lang == "es" else OUT / "en"
+    other = t["other_code"]
+    pdir = ROOT / "issues" / "paginas"
+    if not pdir.exists():
+        return
+    for f in sorted(pdir.glob(f"*.{lang}.md")):
+        meta, body = parse_frontmatter(f.read_text(encoding="utf-8"))
+        slug = meta.get("slug") or f.name.split(".")[0]
+        alt_slug = meta.get("alt_slug") or slug
+        url = f"{base(lang)}/{slug}.html"
+        alt_url = f"{base(other)}/{alt_slug}.html"
+        html_body = f'<article class="static"><h1>{e(meta.get("title", slug))}</h1>{md_to_html(body)}</article>'
+        if meta.get("subscribe"):
+            html_body += subscribe_block(lang)
+        write(out / f"{slug}.html", page(meta.get("title", slug), html_body, lang=lang,
+                                         desc=meta.get("description", meta.get("title", slug)), url=url, alt_url=alt_url))
+        urls.append((url, _d.today(), "monthly", "0.5"))
 
 
 # ---------------------------------------------------------------- layout
@@ -319,6 +391,7 @@ def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
 <link rel="alternate" type="application/rss+xml" title="{e(site_name)}" href="{base(lang)}/feed.xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b8432f'/%3E%3Cpath d='M9 8h14M9 16h14M9 24h9' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 {extra_head}
+{analytics_html()}
 <style>{CSS}</style>
 </head>
 <body>
@@ -332,7 +405,7 @@ def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
 <footer><div class="wrap">
 <p><strong>{e(site_name)}</strong> · {e(t['curated'])} {e(CFG['author'])}, {e(cfg_field('author_role', lang))}.</p>
 <p>{e(t['footer'])}</p>
-<p><a href="{base(lang)}/feed.xml">RSS</a> · <a href="{e(alt_url)}" hreflang="{other}">{e(t['other_lang'])}</a></p>
+<p><a href="{base(lang)}/{'suscribirse' if lang == 'es' else 'subscribe'}.html">{e(t['subscribe'])}</a> · <a href="{base(lang)}/{'patrocinio' if lang == 'es' else 'sponsorship'}.html">{e(t['sponsor'])}</a> · <a href="{e(mailto(t['contact'] + ' — ' + site_name))}">{e(t['contact'])}</a> · <a href="{base(lang)}/feed.xml">RSS</a> · <a href="{e(alt_url)}" hreflang="{other}">{e(t['other_lang'])}</a></p>
 </div></footer>
 <div id="toast" class="toast" role="status"></div>
 <script>{js(lang)}</script>
@@ -405,6 +478,7 @@ def build_lang(lang, issues, urls, fallback=()):
 <p class="lead">{e(cfg_field('site_lead', lang))}</p>
 </section>
 <section class="grid">{''.join(cards)}</section>
+{subscribe_block(lang)}
 <section><h2>{e(t['latest'])}</h2><ul class="list">{recent}</ul></section>"""
     write(out / "index.html", page(site_name, home, lang=lang, desc=cfg_field("description", lang),
                                     url=f"{base(lang)}/", alt_url=f"{base(t['other_code'])}/"))
@@ -433,6 +507,7 @@ def build_lang(lang, issues, urls, fallback=()):
             urls.append((issue_url(it), it["date"], "never", "0.6"))
 
     write(out / "feed.xml", rss(issues, site_name, f"{base(lang)}/", lang))
+    static_pages(lang, urls)
 
 
 def issue_li(i, show_spec=True, ui=None):
@@ -501,6 +576,7 @@ def issue_page(it, s, prev_i, next_i):
 <div class="tools">{''.join(buttons)}</div>
 {it['body_html']}
 <div class="extras">{''.join(blocks)}</div>
+{subscribe_block(lang, s['hue'])}
 {nav}
 </article>"""
     extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'

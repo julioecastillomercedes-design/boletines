@@ -17,6 +17,7 @@
 <link rel="alternate" type="application/rss+xml" title="Medical Bulletins" href="https://boletinesmedicos.com/en/feed.xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b8432f'/%3E%3Cpath d='M9 8h14M9 16h14M9 24h9' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 
+<script data-goatcounter="https://boletinesmedicos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <style>
 :root{--bg:#f6f3ee;--surface:#fffdf9;--ink:#1d1a16;--ink-2:#5b554d;--ink-3:#8a837a;--line:#e4ddd2;--accent:hsl(var(--hue) 55% 42%);--accent-soft:hsl(var(--hue) 60% 94%);--radius:14px;--hue:20;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#15130f;--surface:#1e1b16;--ink:#efe9e0;--ink-2:#b8b0a4;--ink-3:#847d73;--line:#332e27;--accent:hsl(var(--hue) 60% 62%);--accent-soft:hsl(var(--hue) 35% 18%)}}
@@ -75,6 +76,12 @@ details.wa pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:0 16p
 .prevnext{display:flex;justify-content:space-between;gap:12px;margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-family:system-ui,sans-serif;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;font-family:system-ui,sans-serif;font-size:.85rem;color:var(--ink-3)}
 footer p{margin:.3em 0}
+.sub{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:26px 0 8px;font-family:system-ui,sans-serif}
+.sub h2{border:0;margin:0 0 .3em;padding:0;font-size:1.15rem}
+.sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
+.sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
+.sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font:600 .9rem system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 @media (max-width:520px){body{font-size:16px}h2{font-size:1.2rem}}
@@ -98,7 +105,7 @@ footer p{margin:.3em 0}
 <footer><div class="wrap">
 <p><strong>Medical Bulletins</strong> · Curated by Dr. Julio E. Castillo Mercedes, Vascular surgeon · Centro Policlínico Nacional, Santo Domingo.</p>
 <p>Each issue summarizes verified publications, guidelines, trials and regulatory notices, with a critical reading of their quality (design, sample size, funding). Informational material for professionals; it does not replace reading the primary source or clinical judgment.</p>
-<p><a href="https://boletinesmedicos.com/en/feed.xml">RSS</a> · <a href="https://boletinesmedicos.com/cirugia-general/" hreflang="es">Español</a></p>
+<p><a href="https://boletinesmedicos.com/en/subscribe.html">Subscribe</a> · <a href="https://boletinesmedicos.com/en/sponsorship.html">Sponsorship and institutional partnerships</a> · <a href="mailto:julioe.castillomercedes@gmail.com?subject=Contact%20%E2%80%94%20Medical%20Bulletins">Contact</a> · <a href="https://boletinesmedicos.com/en/feed.xml">RSS</a> · <a href="https://boletinesmedicos.com/cirugia-general/" hreflang="es">Español</a></p>
 </div></footer>
 <div id="toast" class="toast" role="status"></div>
 <script>

@@ -33,8 +33,8 @@
       "short_en": "General surgery",
       "cadence": "Mensual · día 1",
       "cadence_en": "Monthly · 1st",
-      "audience": "Escuela de Cirugía Dr. Chanlatte",
-      "audience_en": "Dr. Chanlatte School of Surgery",
+      "audience": "Cirugía general",
+      "audience_en": "General surgery",
       "blurb": "Pared abdominal y hernias, hepatobiliar y páncreas, colorrectal y oncología digestiva, trauma, urgencias y bariátrica.",
       "blurb_en": "Abdominal wall and hernias, hepatobiliary and pancreas, colorectal and digestive oncology, trauma, emergencies and bariatric surgery.",
       "hue": 210
@@ -46,8 +46,8 @@
       "short_en": "OB/GYN",
       "cadence": "Mensual · día 1",
       "cadence_en": "Monthly · 1st",
-      "audience": "Ginecología · Centro Policlínico Nacional",
-      "audience_en": "Gynecology · Centro Policlínico Nacional",
+      "audience": "Ginecología y obstetricia",
+      "audience_en": "Gynecology and obstetrics",
       "blurb": "Obstetricia y medicina materno-fetal, ginecología oncológica, reproducción y endocrinología, cirugía mínimamente invasiva y piso pélvico.",
       "blurb_en": "Obstetrics and maternal-fetal medicine, gynecologic oncology, reproduction and endocrinology, minimally invasive surgery and pelvic floor.",
       "hue": 320
@@ -59,8 +59,8 @@
       "short_en": "Pediatrics",
       "cadence": "Mensual · día 1",
       "cadence_en": "Monthly · 1st",
-      "audience": "Pediatría · Centro Policlínico Nacional",
-      "audience_en": "Pediatrics · Centro Policlínico Nacional",
+      "audience": "Pediatría",
+      "audience_en": "Pediatrics",
       "blurb": "Neonatología, infectología y vacunas, pediatría general y desarrollo, cirugía pediátrica y subespecialidades.",
       "blurb_en": "Neonatology, infectious diseases and vaccines, general pediatrics and development, pediatric surgery and subspecialties.",
       "hue": 150
@@ -72,8 +72,8 @@
       "short_en": "Cardiology",
       "cadence": "Mensual · día 1",
       "cadence_en": "Monthly · 1st",
-      "audience": "Cardiología · Centro Policlínico Nacional",
-      "audience_en": "Cardiology · Centro Policlínico Nacional",
+      "audience": "Cardiología",
+      "audience_en": "Cardiology",
       "blurb": "Cardiología clínica e intervencionista, insuficiencia cardíaca, arritmias, prevención y guías.",
       "blurb_en": "Clinical and interventional cardiology, heart failure, arrhythmias, prevention and guidelines.",
       "hue": 25

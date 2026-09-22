@@ -290,6 +290,8 @@ footer p{margin:.3em 0}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
+.mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
+.mini audio{flex:1 1 240px;height:36px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font:600 .9rem system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 @media (max-width:520px){body{font-size:16px}h2{font-size:1.2rem}}
@@ -519,7 +521,10 @@ def issue_li(i, show_spec=True, ui=None):
         audio += " · " + ("Español" if i["lang"] == "es" else "English")
     return (f'<li><div class="meta">{spec}<span>{e(fecha_larga(i["date"], lang))}{audio}</span></div>'
             f'<a class="t" href="{issue_url(i)}">{e(i["title"])}</a>'
-            f'<p>{e(i["summary"])}</p></li>')
+            f'<p>{e(i["summary"])}</p>'
+            + (f'<div class="mini" style="--h:{s["hue"]}"><audio controls preload="none" src="{SITE_URL}/audio/{i["audio"].name}"></audio>'
+               f'<a href="{SITE_URL}/audio/{i["audio"].name}" download>{e(T[lang]["download"])}</a></div>' if i["audio"] else "")
+            + '</li>')
 
 
 def extra_block(it, key, hue):

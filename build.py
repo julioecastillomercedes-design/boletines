@@ -48,7 +48,7 @@ T = {
         "share": "Compartir enlace", "wa_ready": "Texto listo para WhatsApp",
         "li_ready": "Texto listo para LinkedIn", "x_ready": "Texto listo para X (Twitter)",
         "copied": "Copiado.", "copy_fail": "No se pudo copiar", "link_copied": "Enlace copiado",
-        "curated": "Curaduría de", "footer": "Cada número resume publicaciones, guías, ensayos y avisos regulatorios verificados, con lectura crítica de su calidad (diseño, tamaño muestral, financiación). Es material informativo para profesionales; no sustituye la lectura de la fuente original ni el juicio clínico.",
+        "curated": "Curado por", "footer": "Cada número resume publicaciones, guías, ensayos y avisos regulatorios verificados, con lectura crítica de su calidad (diseño, tamaño muestral, financiación). Es material informativo para profesionales; no sustituye la lectura de la fuente original ni el juicio clínico.",
         "only_in": "Este número solo está disponible en español.", "audio_tag": "audio",
         "no_en_yet": "The English edition of this issue is not available. Showing the Spanish original.",
         "bulletin": "Boletín",
@@ -56,7 +56,7 @@ T = {
         "sub_text": "Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin publicidad ni cesión de datos; se da de baja con un solo mensaje.",
         "sub_btn": "Suscribirme por correo",
         "sub_subject": "Suscripción a Boletines Médicos",
-        "sub_body": "Hola. Quiero recibir por correo los boletines de las siguientes especialidades (borre las que no le interesen): cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología.\n\nNombre:\nCiudad o institución (opcional):",
+        "sub_body": "Hola. Quiero recibir por correo los boletines de estas especialidades: (escriba aquí las que le interesan, o «todas»).\n\nNombre:\nCiudad o institución (opcional):",
         "sub_hint": "Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.",
         "sponsor": "Patrocinio y colaboración institucional",
         "subscribe": "Suscribirse",
@@ -80,7 +80,7 @@ T = {
         "sub_text": "Free. One email per issue, with the full text and the audio link. No advertising, no data sharing; unsubscribe with a single message.",
         "sub_btn": "Subscribe by email",
         "sub_subject": "Subscription to Medical Bulletins",
-        "sub_body": "Hello. I would like to receive the bulletins for the following specialties by email (delete the ones you are not interested in): vascular surgery, general surgery, obstetrics and gynecology, pediatrics, cardiology.\n\nName:\nCity or institution (optional):",
+        "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
         "sub_hint": "Your email program will open with the message already written; just send it.",
         "sponsor": "Sponsorship and institutional partnerships",
         "subscribe": "Subscribe",
@@ -405,7 +405,7 @@ def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
 {body}
 </div></main>
 <footer><div class="wrap">
-<p><strong>{e(site_name)}</strong> · {e(t['curated'])} {e(CFG['author'])}, {e(cfg_field('author_role', lang))}.</p>
+<p><strong>{e(site_name)}</strong> · {e(t['curated'])} {e(CFG['author'])}{(', ' + e(cfg_field('author_role', lang))) if cfg_field('author_role', lang) else ''}.</p>
 <p>{e(t['footer'])}</p>
 <p><a href="{base(lang)}/{'suscribirse' if lang == 'es' else 'subscribe'}.html">{e(t['subscribe'])}</a> · <a href="{base(lang)}/{'patrocinio' if lang == 'es' else 'sponsorship'}.html">{e(t['sponsor'])}</a> · <a href="{e(mailto(t['contact'] + ' — ' + site_name))}">{e(t['contact'])}</a> · <a href="{base(lang)}/feed.xml">RSS</a> · <a href="{e(alt_url)}" hreflang="{other}">{e(t['other_lang'])}</a></p>
 </div></footer>
@@ -569,7 +569,7 @@ def issue_page(it, s, prev_i, next_i):
     ld = {
         "@context": "https://schema.org", "@type": "Article",
         "headline": it["title"], "datePublished": it["date"].isoformat(), "inLanguage": lang,
-        "author": {"@type": "Person", "name": CFG["author"]},
+        "author": {"@type": "Organization", "name": CFG["author"]},
         "publisher": {"@type": "Organization", "name": cfg_field("site_name", lang)},
         "mainEntityOfPage": url, "description": it["summary"],
     }

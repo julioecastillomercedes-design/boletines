@@ -1,15 +1,15 @@
 {
   "site_name": "Boletines Médicos",
   "site_name_en": "Medical Bulletins",
-  "site_tagline": "Lo nuevo y verificado en cada especialidad, cada mes, en español e inglés",
-  "site_tagline_en": "What is new and verified in each specialty, every month, in Spanish and English",
+  "site_tagline": "Lo nuevo y verificado en cada especialidad, en español e inglés",
+  "site_tagline_en": "What is new and verified in each specialty, in Spanish and English",
   "site_lead": "Boletines de actualización científica por especialidad, con texto completo y noticiero en audio, preparados para nuestros grupos de trabajo en Santo Domingo y abiertos a todo el que quiera leerlos.",
   "site_lead_en": "Scientific update bulletins by specialty, with full text and an audio newscast, prepared for our working groups in Santo Domingo and open to anyone who wants to read them.",
   "site_url": "https://boletinesmedicos.com",
   "custom_domain": "boletinesmedicos.com",
-  "author": "Dr. Julio E. Castillo Mercedes",
-  "author_role": "Cirujano vascular · Centro Policlínico Nacional, Santo Domingo",
-  "author_role_en": "Vascular surgeon · Centro Policlínico Nacional, Santo Domingo",
+  "author": "Aura Celeste Vascular",
+  "author_role": "",
+  "author_role_en": "",
   "description": "Portal de boletines médicos con la evidencia más reciente y verificada en 15 especialidades: cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología, medicina interna, neurología, oncología, ortopedia, urología, gastroenterología, nefrología, neumología, endocrinología y emergencias. Texto completo y noticiero en audio, en español e inglés.",
   "description_en": "Medical bulletin portal with the latest verified evidence across 15 specialties: vascular surgery, general surgery, OB/GYN, pediatrics, cardiology, internal medicine, neurology, oncology, orthopedics, urology, gastroenterology, nephrology, pulmonology, endocrinology and emergency medicine. Full text and audio newscast, in Spanish and English.",
   "specialties": {
@@ -208,5 +208,6 @@
       "blurb_en": "Resuscitation and cardiac arrest, sepsis, trauma, airway, ventilation, shock, stroke and MI in the ED, toxicology and point-of-care ultrasound.",
       "hue": 10
     }
-  }
+  },
+  "contact_email": "julioe.castillomercedes@gmail.com"
 }

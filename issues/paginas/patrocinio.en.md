@@ -35,6 +35,6 @@ The portal shares its reader and audio-download figures with anyone who asks; th
 
 ## Contact
 
-Write to Dr. Julio E. Castillo Mercedes, the portal's editor, stating the specialty and the kind of partnership you have in mind:
+Write to the portal's editor, stating the specialty and the kind of partnership you have in mind:
 
 [Write to the editor](mailto:julioe.castillomercedes@gmail.com?subject=Sponsorship%20or%20partnership%20%E2%80%94%20Medical%20Bulletins)

@@ -35,6 +35,6 @@ El portal publica sus cifras de lectores y descargas de audio a quien las solici
 
 ## Contacto
 
-Escriba al Dr. Julio E. Castillo Mercedes, editor del portal, indicando la especialidad y el tipo de colaboración que le interesa:
+Escriba al editor del portal, indicando la especialidad y el tipo de colaboración que le interesa:
 
 [Escribir al editor](mailto:julioe.castillomercedes@gmail.com?subject=Patrocinio%20o%20colaboraci%C3%B3n%20%E2%80%94%20Boletines%20M%C3%A9dicos)

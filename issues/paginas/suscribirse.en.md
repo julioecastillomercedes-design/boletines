@@ -2,11 +2,11 @@
 slug: subscribe
 alt_slug: suscribirse
 title: "Subscribe to the bulletins"
-description: "Get every issue of Medical Bulletins free by email: full text and a link to the audio newscast, by specialty."
+description: "Get every issue of MedBulletins free by email: full text and a link to the audio newscast, by specialty."
 subscribe: yes
 ---
 
-Subscribing is **free** and works by email: every time an issue is published in the specialties you choose, you receive a message with the full text, the link to the page and the link to the audio newscast to forward over WhatsApp.
+Subscribing is **free** and works by email: every time an issue is published in the specialties you choose, you receive a message with the full text, the link to the page and the link to the audio newscast.
 
 ## How it works
 
@@ -19,4 +19,4 @@ To unsubscribe, reply to any bulletin with the word **Unsubscribe**. Your addres
 ## Other ways to follow us
 
 - **RSS**: each specialty has its own feed, linked at the bottom of its page.
-- **WhatsApp**: every issue includes a ready-to-share text for your groups.
+- **Share**: every issue includes ready-to-post text for LinkedIn and X.

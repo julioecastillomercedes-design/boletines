@@ -79,7 +79,7 @@ T = {
         "sub_title": "Get every issue by email",
         "sub_text": "Free. One email per issue, with the full text and the audio link. No advertising, no data sharing; unsubscribe with a single message.",
         "sub_btn": "Subscribe by email",
-        "sub_subject": "Subscription to Medical Bulletins",
+        "sub_subject": "Subscription to MedBulletins",
         "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
         "sub_hint": "Your email program will open with the message already written; just send it.",
         "sponsor": "Sponsorship and institutional partnerships",
@@ -462,7 +462,8 @@ def build_lang(lang, issues, urls, fallback=()):
     out = OUT if lang == "es" else OUT / "en"
     by_spec = {k: [i for i in issues if i["spec"] == k] for k in CFG["specialties"]}
     # En la edición inglesa, los números que solo existen en español se listan igualmente (enlazan al original).
-    shown = sorted(list(issues) + [i for i in fallback if not i.get("alt")], key=lambda i: i["date"], reverse=True)
+    # Edición inglesa: solo números en inglés (nunca se enlaza contenido en español).
+    shown = sorted(list(issues), key=lambda i: i["date"], reverse=True)
     shown_by_spec = {k: [i for i in shown if i["spec"] == k] for k in CFG["specialties"]}
     site_name = cfg_field("site_name", lang)
 

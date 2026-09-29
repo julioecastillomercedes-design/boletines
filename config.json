@@ -1,10 +1,10 @@
 {
   "site_name": "Boletines Médicos",
-  "site_name_en": "Medical Bulletins",
+  "site_name_en": "MedBulletins",
   "site_tagline": "Lo nuevo y verificado en cada especialidad, en español e inglés",
-  "site_tagline_en": "What is new and verified in each specialty, in Spanish and English",
+  "site_tagline_en": "What is new and verified in each specialty",
   "site_lead": "Boletines de actualización científica por especialidad, con texto completo y noticiero en audio, preparados para nuestros grupos de trabajo en Santo Domingo y abiertos a todo el que quiera leerlos.",
-  "site_lead_en": "Scientific update bulletins by specialty, with full text and an audio newscast, prepared for our working groups in Santo Domingo and open to anyone who wants to read them.",
+  "site_lead_en": "Verified clinical update bulletins by specialty, with a critical reading of every study and a 5–7 minute audio newscast. Free to read, no account needed.",
   "site_url": "https://boletinesmedicos.com",
   "custom_domain": "boletinesmedicos.com",
   "author": "Aura Celeste Vascular",

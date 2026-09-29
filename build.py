@@ -389,7 +389,11 @@ def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
 <meta property="og:type" content="article">
 <meta property="og:locale" content="{'es_DO' if lang == 'es' else 'en_US'}">
 <meta property="og:site_name" content="{e(site_name)}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{CFG['site_url']}/og-{lang}.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{CFG['site_url']}/og-{lang}.png">
 <link rel="alternate" type="application/rss+xml" title="{e(site_name)}" href="{base(lang)}/feed.xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b8432f'/%3E%3Cpath d='M9 8h14M9 16h14M9 24h9' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 {extra_head}
@@ -446,6 +450,8 @@ def build():
     write(OUT / "sitemap.xml", sitemap(urls))
     write(OUT / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
     write(OUT / ".nojekyll", "")
+    for f in (ROOT_STATIC := OUT.parent / "static").glob("*"):
+        shutil.copy2(f, OUT / f.name)
     if CFG.get("custom_domain"):
         write(OUT / "CNAME", CFG["custom_domain"] + "\n")
     print(f"OK: {len(all_issues['es'])} números ES, {len(all_issues['en'])} EN, {len(urls)} páginas -> {OUT}")

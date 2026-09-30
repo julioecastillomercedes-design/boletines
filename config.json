@@ -25,7 +25,8 @@
       "blurb": "Arterial, aórtico, carotídeo, venoso y acceso para hemodiálisis. Cobertura mundial multilingüe con lectura crítica de cada estudio.",
       "blurb_en": "Arterial, aortic, carotid, venous and hemodialysis access. Worldwide multilingual coverage with a critical reading of every study.",
       "hue": 355,
-      "slug_en": "vascular"
+      "slug_en": "vascular",
+      "voice_es": "em_alex"
     },
     "cirugia-general": {
       "name": "Cirugía general",
@@ -39,7 +40,8 @@
       "blurb": "Pared abdominal y hernias, hepatobiliar y páncreas, colorrectal y oncología digestiva, trauma, urgencias y bariátrica.",
       "blurb_en": "Abdominal wall and hernias, hepatobiliary and pancreas, colorectal and digestive oncology, trauma, emergencies and bariatric surgery.",
       "hue": 210,
-      "slug_en": "general-surgery"
+      "slug_en": "general-surgery",
+      "voice_es": "em_alex"
     },
     "ginecologia": {
       "name": "Ginecología y obstetricia",
@@ -53,7 +55,8 @@
       "blurb": "Obstetricia y medicina materno-fetal, ginecología oncológica, reproducción y endocrinología, cirugía mínimamente invasiva y piso pélvico.",
       "blurb_en": "Obstetrics and maternal-fetal medicine, gynecologic oncology, reproduction and endocrinology, minimally invasive surgery and pelvic floor.",
       "hue": 320,
-      "slug_en": "obgyn"
+      "slug_en": "obgyn",
+      "voice_es": "em_santa"
     },
     "pediatria": {
       "name": "Pediatría",
@@ -67,7 +70,8 @@
       "blurb": "Neonatología, infectología y vacunas, pediatría general y desarrollo, cirugía pediátrica y subespecialidades.",
       "blurb_en": "Neonatology, infectious diseases and vaccines, general pediatrics and development, pediatric surgery and subspecialties.",
       "hue": 150,
-      "slug_en": "pediatrics"
+      "slug_en": "pediatrics",
+      "voice_es": "em_santa"
     },
     "cardiologia": {
       "name": "Cardiología",
@@ -81,7 +85,8 @@
       "blurb": "Cardiología clínica e intervencionista, insuficiencia cardíaca, arritmias, prevención y guías.",
       "blurb_en": "Clinical and interventional cardiology, heart failure, arrhythmias, prevention and guidelines.",
       "hue": 25,
-      "slug_en": "cardiology"
+      "slug_en": "cardiology",
+      "voice_es": "em_santa"
     },
     "medicina-interna": {
       "name": "Medicina interna",
@@ -95,7 +100,8 @@
       "blurb": "Hipertensión, diabetes, dislipidemia, enfermedad renal y hepática, infecciones, anticoagulación, hospitalización y guías de práctica.",
       "blurb_en": "Hypertension, diabetes, dyslipidemia, kidney and liver disease, infections, anticoagulation, hospital medicine and practice guidelines.",
       "hue": 200,
-      "slug_en": "internal-medicine"
+      "slug_en": "internal-medicine",
+      "voice_es": "em_alex"
     },
     "neurologia": {
       "name": "Neurología",
@@ -109,7 +115,8 @@
       "blurb": "Ictus y trombectomía, epilepsia, Parkinson, esclerosis múltiple, demencias y anticuerpos antiamiloide, cefaleas y neuromuscular.",
       "blurb_en": "Stroke and thrombectomy, epilepsy, Parkinson's, multiple sclerosis, dementias and anti-amyloid antibodies, headache and neuromuscular disease.",
       "hue": 270,
-      "slug_en": "neurology"
+      "slug_en": "neurology",
+      "voice_es": "em_alex"
     },
     "oncologia": {
       "name": "Oncología",
@@ -123,7 +130,8 @@
       "blurb": "Ensayos de fase 3, inmunoterapia, anticuerpos conjugados, terapias dirigidas, tumores sólidos y hematológicos, tamizaje y aprobaciones regulatorias.",
       "blurb_en": "Phase 3 trials, immunotherapy, antibody-drug conjugates, targeted therapies, solid and hematologic tumors, screening and regulatory approvals.",
       "hue": 300,
-      "slug_en": "oncology"
+      "slug_en": "oncology",
+      "voice_es": "em_alex"
     },
     "ortopedia": {
       "name": "Ortopedia y traumatología",
@@ -137,7 +145,8 @@
       "blurb": "Artroplastia de cadera y rodilla, fracturas y osteosíntesis, columna, hombro y medicina deportiva, artroscopia, osteoporosis y rehabilitación.",
       "blurb_en": "Hip and knee arthroplasty, fractures and fixation, spine, shoulder and sports medicine, arthroscopy, osteoporosis and rehabilitation.",
       "hue": 40,
-      "slug_en": "orthopedics"
+      "slug_en": "orthopedics",
+      "voice_es": "em_alex"
     },
     "urologia": {
       "name": "Urología",
@@ -151,7 +160,8 @@
       "blurb": "Cáncer de próstata, vejiga y riñón, hiperplasia prostática, litiasis, incontinencia, andrología y cirugía robótica.",
       "blurb_en": "Prostate, bladder and kidney cancer, benign prostatic hyperplasia, stone disease, incontinence, andrology and robotic surgery.",
       "hue": 185,
-      "slug_en": "urology"
+      "slug_en": "urology",
+      "voice_es": "em_alex"
     },
     "gastroenterologia": {
       "name": "Gastroenterología y hepatología",
@@ -165,7 +175,8 @@
       "blurb": "Enfermedad inflamatoria intestinal, hígado graso y cirrosis, hepatitis, endoscopia avanzada, Helicobacter, tamizaje de cáncer colorrectal y páncreas.",
       "blurb_en": "Inflammatory bowel disease, fatty liver and cirrhosis, hepatitis, advanced endoscopy, Helicobacter, colorectal cancer screening and pancreas.",
       "hue": 85,
-      "slug_en": "gastroenterology"
+      "slug_en": "gastroenterology",
+      "voice_es": "em_alex"
     },
     "nefrologia": {
       "name": "Nefrología",
@@ -179,7 +190,8 @@
       "blurb": "Enfermedad renal crónica, diálisis y accesos, trasplante, glomerulopatías, lesión renal aguda, nefropatía diabética e hipertensión renal.",
       "blurb_en": "Chronic kidney disease, dialysis and access, transplantation, glomerular disease, acute kidney injury, diabetic kidney disease and renal hypertension.",
       "hue": 230,
-      "slug_en": "nephrology"
+      "slug_en": "nephrology",
+      "voice_es": "em_alex"
     },
     "neumologia": {
       "name": "Neumología",
@@ -193,7 +205,8 @@
       "blurb": "Asma y EPOC, fibrosis pulmonar, cáncer de pulmón y tamizaje, apnea del sueño, tuberculosis e infecciones, ventilación y cuidados respiratorios.",
       "blurb_en": "Asthma and COPD, pulmonary fibrosis, lung cancer and screening, sleep apnea, tuberculosis and infections, ventilation and respiratory care.",
       "hue": 165,
-      "slug_en": "pulmonology"
+      "slug_en": "pulmonology",
+      "voice_es": "em_alex"
     },
     "endocrinologia": {
       "name": "Endocrinología y diabetes",
@@ -207,7 +220,8 @@
       "blurb": "Diabetes tipo 1 y 2, obesidad y GLP-1, tiroides, osteoporosis, suprarrenal e hipófisis, lípidos y endocrinología reproductiva.",
       "blurb_en": "Type 1 and 2 diabetes, obesity and GLP-1, thyroid, osteoporosis, adrenal and pituitary, lipids and reproductive endocrinology.",
       "hue": 330,
-      "slug_en": "endocrinology"
+      "slug_en": "endocrinology",
+      "voice_es": "em_alex"
     },
     "emergencias": {
       "name": "Emergencias y medicina crítica",
@@ -221,8 +235,10 @@
       "blurb": "Reanimación y paro cardíaco, sepsis, trauma, vía aérea, ventilación, shock, ictus e infarto en urgencias, toxicología y ultrasonido a pie de cama.",
       "blurb_en": "Resuscitation and cardiac arrest, sepsis, trauma, airway, ventilation, shock, stroke and MI in the ED, toxicology and point-of-care ultrasound.",
       "hue": 10,
-      "slug_en": "emergency-medicine"
+      "slug_en": "emergency-medicine",
+      "voice_es": "em_alex"
     }
   },
-  "contact_email": "julioe.castillomercedes@gmail.com"
+  "contact_email": "julioe.castillomercedes@gmail.com",
+  "voice_en": "am_michael"
 }

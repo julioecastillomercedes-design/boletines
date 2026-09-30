@@ -452,6 +452,8 @@ def build():
         for it in all_issues[lang]:
             if it["audio"]:
                 shutil.copy2(it["audio"], OUT / "audio" / it["audio"].name)
+    for lang in LANGS:
+        write((OUT if lang == "es" else OUT / "en") / "podcast.xml", podcast_feed(all_issues[lang], lang))
     write(OUT / "sitemap.xml", sitemap(urls))
     write(OUT / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
     write(OUT / ".nojekyll", "")
@@ -621,6 +623,52 @@ def rss(items, title, link, lang):
         enc = f'<enclosure url="{SITE_URL}/audio/{i["audio"].name}" length="{i["audio"].stat().st_size}" type="audio/mpeg"/>' if i["audio"] else ""
         out.append(f"<item><title>{e(i['title'])}</title><link>{url}</link><guid>{url}</guid><pubDate>{pub}</pubDate>"
                    f"<description>{e(i['summary'])}</description>{enc}</item>")
+    out.append("</channel></rss>")
+    return "".join(out)
+
+
+PODCAST = {
+    "es": {"title": "Boletines Médicos — noticiero", "cover": "podcast-es.jpg", "lang": "es",
+           "desc": "Noticiero en audio de Boletines Médicos: lo nuevo y verificado en 15 especialidades médicas, con lectura crítica de cada estudio. "
+                   "Material informativo para profesionales. Curado por Aura Celeste Vascular."},
+    "en": {"title": "MedBulletins — audio newscast", "cover": "podcast-en.jpg", "lang": "en-us",
+           "desc": "The MedBulletins audio newscast: what is new and verified across 15 medical specialties, with a critical reading of every study. "
+                   "Informational material for health professionals. Curated by Aura Celeste Vascular."},
+}
+PODCAST_EMAIL = "auracelestevascular@gmail.com"
+
+
+def podcast_feed(items, lang):
+    """Feed de podcast (Apple Podcasts, Spotify, YouTube Music): un episodio por cada número con audio."""
+    P = PODCAST[lang]
+    self_url = f"{base(lang)}/podcast.xml"
+    cover = f"{SITE_URL}/{P['cover']}"
+    out = ['<?xml version="1.0" encoding="UTF-8"?>'
+           '<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" '
+           'xmlns:atom="http://www.w3.org/2005/Atom" xmlns:podcast="https://podcastindex.org/namespace/1.0"><channel>',
+           f'<title>{e(P["title"])}</title><link>{base(lang)}/</link><language>{P["lang"]}</language>',
+           f'<atom:link href="{self_url}" rel="self" type="application/rss+xml"/>',
+           f'<description>{e(P["desc"])}</description><itunes:summary>{e(P["desc"])}</itunes:summary>',
+           '<itunes:author>Aura Celeste Vascular</itunes:author>',
+           f'<itunes:owner><itunes:name>Aura Celeste Vascular</itunes:name><itunes:email>{PODCAST_EMAIL}</itunes:email></itunes:owner>',
+           f'<itunes:image href="{cover}"/><image><url>{cover}</url><title>{e(P["title"])}</title><link>{base(lang)}/</link></image>',
+           '<itunes:category text="Health &amp; Fitness"><itunes:category text="Medicine"/></itunes:category>',
+           '<itunes:category text="Science"/>',
+           '<itunes:explicit>false</itunes:explicit><itunes:type>episodic</itunes:type>',
+           f'<copyright>Aura Celeste Vascular</copyright><podcast:locked>no</podcast:locked>']
+    for i in items:
+        if not i["audio"]:
+            continue
+        url = issue_url(i)
+        size = i["audio"].stat().st_size
+        secs = int(float(i["audio_minutes"]) * 60) if i.get("audio_minutes") else int(size * 8 / 48000)
+        pub = datetime.combine(i["date"], datetime.min.time(), tzinfo=timezone.utc).strftime("%a, %d %b %Y 11:30:00 +0000")
+        desc = f"{i['summary']} {url}"
+        out.append(f"<item><title>{e(i['title'])}</title><link>{url}</link><guid isPermaLink=\"false\">{i['audio'].name}</guid>"
+                   f"<pubDate>{pub}</pubDate><description>{e(desc)}</description><itunes:summary>{e(desc)}</itunes:summary>"
+                   f'<enclosure url="{SITE_URL}/audio/{i["audio"].name}" length="{size}" type="audio/mpeg"/>'
+                   f"<itunes:duration>{secs}</itunes:duration><itunes:explicit>false</itunes:explicit>"
+                   f"<itunes:episodeType>full</itunes:episodeType></item>")
     out.append("</channel></rss>")
     return "".join(out)
 

@@ -99,6 +99,11 @@ def base(lang):
     return SITE_URL if lang == "es" else f"{SITE_URL}/en"
 
 
+def seg(key, lang):
+    """Segmento de URL de la especialidad: clave en español; en la edición inglesa, su slug en inglés."""
+    return CFG["specialties"][key].get("slug_en", key) if lang == "en" else key
+
+
 def spec_field(s, field, lang):
     """Campo de la especialidad en el idioma pedido (name_en, blurb_en…), con fallback al español."""
     if lang == "en":
@@ -362,7 +367,7 @@ def nav_html(lang, current=None):
     links = []
     for key, s in CFG["specialties"].items():
         cur = ' aria-current="page"' if key == current else ""
-        links.append(f'<a href="{base(lang)}/{key}/" style="--h:{s["hue"]}"{cur}>{e(spec_field(s, "short", lang))}</a>')
+        links.append(f'<a href="{base(lang)}/{seg(key, lang)}/" style="--h:{s["hue"]}"{cur}>{e(spec_field(s, "short", lang))}</a>')
     return f'<nav class="specs" aria-label="{e(T[lang]["nav_label"])}">' + "".join(links) + "</nav>"
 
 
@@ -423,7 +428,7 @@ def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
 
 def issue_url(i, lang=None):
     lang = lang or i["lang"]
-    return f"{base(lang)}/{i['spec']}/{i['slug']}.html"
+    return f"{base(lang)}/{seg(i['spec'], lang)}/{i['slug']}.html"
 
 
 def alt_issue_url(i):
@@ -431,7 +436,7 @@ def alt_issue_url(i):
     other = T[i["lang"]]["other_code"]
     if i.get("alt"):
         return issue_url(i["alt"])
-    return f"{base(other)}/{i['spec']}/"
+    return f"{base(other)}/{seg(i['spec'], other)}/"
 
 
 def build():
@@ -477,7 +482,7 @@ def build_lang(lang, issues, urls, fallback=()):
                      f' · {n} {t["issues"] if n != 1 else t["issue"]}') if last else t["soon"]
         cards.append(f"""<div class="card" style="--h:{s['hue']}">
 <span class="pill">{e(spec_field(s, 'cadence', lang))}</span>
-<h2><a href="{base(lang)}/{key}/">{e(spec_field(s, 'name', lang))}</a></h2>
+<h2><a href="{base(lang)}/{seg(key, lang)}/">{e(spec_field(s, 'name', lang))}</a></h2>
 <p class="blurb">{e(spec_field(s, 'blurb', lang))}</p>
 <div class="last">{last_html}</div>
 </div>""")
@@ -503,17 +508,28 @@ def build_lang(lang, issues, urls, fallback=()):
 </section>
 <h2>{e(t['published'])}</h2>
 <ul class="list">{''.join(issue_li(i, show_spec=False, ui=lang) for i in shown_by_spec[key]) or f'<li>{e(t["none"])}</li>'}</ul>
-<p class="meta" style="margin-top:18px"><a href="{base(lang)}/{key}/feed.xml">{e(t['rss_spec'])}</a></p>"""
-        write(out / key / "index.html", page(spec_field(s, "name", lang), body, lang=lang, desc=spec_field(s, "blurb", lang),
-                                             url=f"{base(lang)}/{key}/", alt_url=f"{base(t['other_code'])}/{key}/", current=key))
-        urls.append((f"{base(lang)}/{key}/", lst[0]["date"] if lst else date.today(), "weekly", "0.8"))
-        write(out / key / "feed.xml", rss(lst, spec_field(s, "name", lang), f"{base(lang)}/{key}/", lang))
+<p class="meta" style="margin-top:18px"><a href="{base(lang)}/{seg(key, lang)}/feed.xml">{e(t['rss_spec'])}</a></p>"""
+        write(out / seg(key, lang) / "index.html", page(spec_field(s, "name", lang), body, lang=lang, desc=spec_field(s, "blurb", lang),
+                                             url=f"{base(lang)}/{seg(key, lang)}/", alt_url=f"{base(t['other_code'])}/{seg(key, t['other_code'])}/", current=key))
+        urls.append((f"{base(lang)}/{seg(key, lang)}/", lst[0]["date"] if lst else date.today(), "weekly", "0.8"))
+        write(out / seg(key, lang) / "feed.xml", rss(lst, spec_field(s, "name", lang), f"{base(lang)}/{seg(key, lang)}/", lang))
 
         for n, it in enumerate(lst):
             prev_i = lst[n + 1] if n + 1 < len(lst) else None
             next_i = lst[n - 1] if n > 0 else None
-            write(out / key / f"{it['slug']}.html", issue_page(it, s, prev_i, next_i))
+            write(out / seg(key, lang) / f"{it['slug']}.html", issue_page(it, s, prev_i, next_i))
             urls.append((issue_url(it), it["date"], "never", "0.6"))
+
+    if lang == "en":
+        # Redirecciones desde las antiguas direcciones en español de la edición inglesa (/en/<clave>/...)
+        for key in CFG["specialties"]:
+            new = seg(key, "en")
+            if new == key:
+                continue
+            targets = [("index.html", f"{base('en')}/{new}/")] + [
+                (f"{it['slug']}.html", issue_url(it)) for it in by_spec[key]]
+            for fname, target in targets:
+                write(out / key / fname, redirect_html(target))
 
     write(out / "feed.xml", rss(issues, site_name, f"{base(lang)}/", lang))
     static_pages(lang, urls)
@@ -607,6 +623,14 @@ def rss(items, title, link, lang):
                    f"<description>{e(i['summary'])}</description>{enc}</item>")
     out.append("</channel></rss>")
     return "".join(out)
+
+
+def redirect_html(target):
+    t = e(target)
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved</title>'
+            f'<link rel="canonical" href="{t}"><meta name="robots" content="noindex">'
+            f'<meta http-equiv="refresh" content="0; url={t}"></head>'
+            f'<body><p>This page has moved: <a href="{t}">{t}</a></p></body></html>')
 
 
 def sitemap(urls):

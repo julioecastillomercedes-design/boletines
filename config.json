@@ -11,7 +11,7 @@
   "author_role": "",
   "author_role_en": "",
   "description": "Portal de boletines médicos con la evidencia más reciente y verificada en 15 especialidades: cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología, medicina interna, neurología, oncología, ortopedia, urología, gastroenterología, nefrología, neumología, endocrinología y emergencias. Texto completo y noticiero en audio, en español e inglés.",
-  "description_en": "Medical bulletin portal with the latest verified evidence across 15 specialties: vascular surgery, general surgery, OB/GYN, pediatrics, cardiology, internal medicine, neurology, oncology, orthopedics, urology, gastroenterology, nephrology, pulmonology, endocrinology and emergency medicine. Full text and audio newscast, in Spanish and English.",
+  "description_en": "Medical bulletin portal with the latest verified evidence across 15 specialties: vascular surgery, general surgery, OB/GYN, pediatrics, cardiology, internal medicine, neurology, oncology, orthopedics, urology, gastroenterology, nephrology, pulmonology, endocrinology and emergency medicine. Full text and a short audio newscast for every issue.",
   "specialties": {
     "vascular": {
       "name": "Cirugía vascular y endovascular",
@@ -24,7 +24,8 @@
       "audience_en": "Vascular surgery",
       "blurb": "Arterial, aórtico, carotídeo, venoso y acceso para hemodiálisis. Cobertura mundial multilingüe con lectura crítica de cada estudio.",
       "blurb_en": "Arterial, aortic, carotid, venous and hemodialysis access. Worldwide multilingual coverage with a critical reading of every study.",
-      "hue": 355
+      "hue": 355,
+      "slug_en": "vascular"
     },
     "cirugia-general": {
       "name": "Cirugía general",
@@ -37,7 +38,8 @@
       "audience_en": "Dr. Chanlatte School of Surgery",
       "blurb": "Pared abdominal y hernias, hepatobiliar y páncreas, colorrectal y oncología digestiva, trauma, urgencias y bariátrica.",
       "blurb_en": "Abdominal wall and hernias, hepatobiliary and pancreas, colorectal and digestive oncology, trauma, emergencies and bariatric surgery.",
-      "hue": 210
+      "hue": 210,
+      "slug_en": "general-surgery"
     },
     "ginecologia": {
       "name": "Ginecología y obstetricia",
@@ -50,7 +52,8 @@
       "audience_en": "Gynecology · Centro Policlínico Nacional",
       "blurb": "Obstetricia y medicina materno-fetal, ginecología oncológica, reproducción y endocrinología, cirugía mínimamente invasiva y piso pélvico.",
       "blurb_en": "Obstetrics and maternal-fetal medicine, gynecologic oncology, reproduction and endocrinology, minimally invasive surgery and pelvic floor.",
-      "hue": 320
+      "hue": 320,
+      "slug_en": "obgyn"
     },
     "pediatria": {
       "name": "Pediatría",
@@ -63,7 +66,8 @@
       "audience_en": "Pediatrics · Centro Policlínico Nacional",
       "blurb": "Neonatología, infectología y vacunas, pediatría general y desarrollo, cirugía pediátrica y subespecialidades.",
       "blurb_en": "Neonatology, infectious diseases and vaccines, general pediatrics and development, pediatric surgery and subspecialties.",
-      "hue": 150
+      "hue": 150,
+      "slug_en": "pediatrics"
     },
     "cardiologia": {
       "name": "Cardiología",
@@ -76,7 +80,8 @@
       "audience_en": "Cardiology · Centro Policlínico Nacional",
       "blurb": "Cardiología clínica e intervencionista, insuficiencia cardíaca, arritmias, prevención y guías.",
       "blurb_en": "Clinical and interventional cardiology, heart failure, arrhythmias, prevention and guidelines.",
-      "hue": 25
+      "hue": 25,
+      "slug_en": "cardiology"
     },
     "medicina-interna": {
       "name": "Medicina interna",
@@ -89,7 +94,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Hipertensión, diabetes, dislipidemia, enfermedad renal y hepática, infecciones, anticoagulación, hospitalización y guías de práctica.",
       "blurb_en": "Hypertension, diabetes, dyslipidemia, kidney and liver disease, infections, anticoagulation, hospital medicine and practice guidelines.",
-      "hue": 200
+      "hue": 200,
+      "slug_en": "internal-medicine"
     },
     "neurologia": {
       "name": "Neurología",
@@ -102,7 +108,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Ictus y trombectomía, epilepsia, Parkinson, esclerosis múltiple, demencias y anticuerpos antiamiloide, cefaleas y neuromuscular.",
       "blurb_en": "Stroke and thrombectomy, epilepsy, Parkinson's, multiple sclerosis, dementias and anti-amyloid antibodies, headache and neuromuscular disease.",
-      "hue": 270
+      "hue": 270,
+      "slug_en": "neurology"
     },
     "oncologia": {
       "name": "Oncología",
@@ -115,7 +122,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Ensayos de fase 3, inmunoterapia, anticuerpos conjugados, terapias dirigidas, tumores sólidos y hematológicos, tamizaje y aprobaciones regulatorias.",
       "blurb_en": "Phase 3 trials, immunotherapy, antibody-drug conjugates, targeted therapies, solid and hematologic tumors, screening and regulatory approvals.",
-      "hue": 300
+      "hue": 300,
+      "slug_en": "oncology"
     },
     "ortopedia": {
       "name": "Ortopedia y traumatología",
@@ -128,7 +136,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Artroplastia de cadera y rodilla, fracturas y osteosíntesis, columna, hombro y medicina deportiva, artroscopia, osteoporosis y rehabilitación.",
       "blurb_en": "Hip and knee arthroplasty, fractures and fixation, spine, shoulder and sports medicine, arthroscopy, osteoporosis and rehabilitation.",
-      "hue": 40
+      "hue": 40,
+      "slug_en": "orthopedics"
     },
     "urologia": {
       "name": "Urología",
@@ -141,7 +150,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Cáncer de próstata, vejiga y riñón, hiperplasia prostática, litiasis, incontinencia, andrología y cirugía robótica.",
       "blurb_en": "Prostate, bladder and kidney cancer, benign prostatic hyperplasia, stone disease, incontinence, andrology and robotic surgery.",
-      "hue": 185
+      "hue": 185,
+      "slug_en": "urology"
     },
     "gastroenterologia": {
       "name": "Gastroenterología y hepatología",
@@ -154,7 +164,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Enfermedad inflamatoria intestinal, hígado graso y cirrosis, hepatitis, endoscopia avanzada, Helicobacter, tamizaje de cáncer colorrectal y páncreas.",
       "blurb_en": "Inflammatory bowel disease, fatty liver and cirrhosis, hepatitis, advanced endoscopy, Helicobacter, colorectal cancer screening and pancreas.",
-      "hue": 85
+      "hue": 85,
+      "slug_en": "gastroenterology"
     },
     "nefrologia": {
       "name": "Nefrología",
@@ -167,7 +178,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Enfermedad renal crónica, diálisis y accesos, trasplante, glomerulopatías, lesión renal aguda, nefropatía diabética e hipertensión renal.",
       "blurb_en": "Chronic kidney disease, dialysis and access, transplantation, glomerular disease, acute kidney injury, diabetic kidney disease and renal hypertension.",
-      "hue": 230
+      "hue": 230,
+      "slug_en": "nephrology"
     },
     "neumologia": {
       "name": "Neumología",
@@ -180,7 +192,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Asma y EPOC, fibrosis pulmonar, cáncer de pulmón y tamizaje, apnea del sueño, tuberculosis e infecciones, ventilación y cuidados respiratorios.",
       "blurb_en": "Asthma and COPD, pulmonary fibrosis, lung cancer and screening, sleep apnea, tuberculosis and infections, ventilation and respiratory care.",
-      "hue": 165
+      "hue": 165,
+      "slug_en": "pulmonology"
     },
     "endocrinologia": {
       "name": "Endocrinología y diabetes",
@@ -193,7 +206,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Diabetes tipo 1 y 2, obesidad y GLP-1, tiroides, osteoporosis, suprarrenal e hipófisis, lípidos y endocrinología reproductiva.",
       "blurb_en": "Type 1 and 2 diabetes, obesity and GLP-1, thyroid, osteoporosis, adrenal and pituitary, lipids and reproductive endocrinology.",
-      "hue": 330
+      "hue": 330,
+      "slug_en": "endocrinology"
     },
     "emergencias": {
       "name": "Emergencias y medicina crítica",
@@ -206,7 +220,8 @@
       "audience_en": "Specialists and residents",
       "blurb": "Reanimación y paro cardíaco, sepsis, trauma, vía aérea, ventilación, shock, ictus e infarto en urgencias, toxicología y ultrasonido a pie de cama.",
       "blurb_en": "Resuscitation and cardiac arrest, sepsis, trauma, airway, ventilation, shock, stroke and MI in the ED, toxicology and point-of-care ultrasound.",
-      "hue": 10
+      "hue": 10,
+      "slug_en": "emergency-medicine"
     }
   },
   "contact_email": "julioe.castillomercedes@gmail.com"

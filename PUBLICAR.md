@@ -33,3 +33,7 @@ y el del audio en `https://boletinesmedicos.com/audio/<especialidad>-<AAAA-MM-DD
 Incluir ambos enlaces en el correo y en el bloque de WhatsApp.
 
 Para añadir una especialidad nueva: agregar su entrada en `config.json` (clave, nombre, cadencia, público, blurb, hue) y crear la carpeta `issues/<clave>/`.
+
+Direcciones de la edición inglesa: cada especialidad tiene su `slug_en` en `config.json` (p. ej. `pediatria` → `/en/pediatrics/`).
+Los archivos se siguen nombrando con la clave en español (`issues/pediatria/...en.md`); `build.py` genera la dirección inglesa
+y deja redirecciones desde las antiguas (`/en/pediatria/...`). En los textos .en.md, enlazar con la dirección inglesa.

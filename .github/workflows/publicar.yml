@@ -1,0 +1,63 @@
+name: Publicar boletines desde Drive
+
+on:
+  schedule:
+    - cron: "17 * * * *"      # cada hora
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: [".github/workflows/publicar.yml", "tools/importar_drive.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      DRIVE_PENDIENTES: https://drive.google.com/drive/folders/13Pw4VkCwnX0TZXIQ5sDM1x_q33ZDBYkN
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar herramientas
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q gdown markdown kokoro-onnx soundfile
+
+      - name: Descargar pendientes de Drive
+        run: |
+          mkdir -p entrada
+          gdown --folder "$DRIVE_PENDIENTES" -O entrada --remaining-ok --quiet || echo "::warning::No se pudo leer la carpeta de Drive (¿está compartida con enlace?)"
+          ls -la entrada || true
+
+      - name: Descargar modelo de voz (solo si hay guiones)
+        run: |
+          if ls entrada/**/*.guion.txt entrada/*.guion.txt >/dev/null 2>&1; then
+            curl -sSL -o kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+            curl -sSL -o voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+          fi
+
+      - name: Importar números y generar audio
+        run: python tools/importar_drive.py entrada
+
+      - name: Construir el sitio
+        run: python build.py
+
+      - name: Publicar
+        run: |
+          rm -rf entrada kokoro-v1.0.onnx voices-v1.0.bin
+          git config user.name "Publicador de boletines"
+          git config user.email "julioe.castillomercedes@gmail.com"
+          git add -A issues audio docs
+          if git diff --cached --quiet; then echo "Nada nuevo que publicar"; exit 0; fi
+          git commit -q -m "Publicación automática: $(git diff --cached --name-only -- issues audio | xargs -n1 basename | tr '\n' ' ')"
+          git push -q origin HEAD:main

@@ -12,6 +12,7 @@ Salida: issues/<esp>/<fecha>(.en).md y audio/<esp>-<fecha>(-en).mp3
 Nunca sobrescribe un número o un audio que ya esté en el repositorio (ni los borra de Drive).
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -47,6 +48,12 @@ def sintetizar(guion: Path, destino: Path, esp: str, en: bool) -> bool:
     global _kokoro
     import soundfile as sf
     if _kokoro is None:
+        import urllib.request
+        base = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
+        for nombre in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+            if not (ROOT / nombre).exists():
+                print(f"  descargando {nombre}…")
+                urllib.request.urlretrieve(base + nombre, ROOT / nombre)
         from kokoro_onnx import Kokoro
         _kokoro = Kokoro(str(ROOT / "kokoro-v1.0.onnx"), str(ROOT / "voices-v1.0.bin"))
     v, lang = voz(esp, en)
@@ -79,7 +86,24 @@ def sintetizar(guion: Path, destino: Path, esp: str, en: bool) -> bool:
     return True
 
 
+def descargar(entrada: Path) -> None:
+    """Descarga la carpeta pública de Drive si el paso anterior del workflow no lo hizo."""
+    if entrada.exists() and any(p.is_file() for p in entrada.rglob("*")):
+        return
+    url = os.environ.get("DRIVE_PENDIENTES")
+    if not url:
+        return
+    import gdown
+    entrada.mkdir(parents=True, exist_ok=True)
+    try:
+        gdown.download_folder(url=url, output=str(entrada), quiet=True)
+    except Exception as ex:
+        print(f"  ! no se pudo leer la carpeta de Drive: {ex}")
+    print("Archivos en Drive:", sorted(p.name for p in entrada.rglob("*") if p.is_file()) or "ninguno")
+
+
 def main(entrada: Path) -> None:
+    descargar(entrada)
     nuevos, guiones = [], []
     for f in sorted(entrada.rglob("*")):
         m = NAME.match(f.name)

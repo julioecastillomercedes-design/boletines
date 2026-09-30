@@ -9,7 +9,7 @@ Entrada (carpeta descargada de Drive, argumento 1):
   <esp>-<AAAA-MM-DD>.guion.txt     guion del noticiero en español (un párrafo por bloque)
   <esp>-<AAAA-MM-DD>.en.guion.txt  guion del noticiero en inglés
 Salida: issues/<esp>/<fecha>(.en).md y audio/<esp>-<fecha>(-en).mp3
-Nunca sobrescribe un número o un audio que ya esté en el repositorio.
+Nunca sobrescribe un número o un audio que ya esté en el repositorio (ni los borra de Drive).
 """
 import json
 import re

@@ -334,6 +334,8 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 @media (prefers-reduced-motion:reduce){.listen .play{animation:none}}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font:600 .9rem system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
+@media (max-width:640px){header.top .wrap{padding:10px 16px;gap:8px}.navs{width:100%;min-width:0;flex-wrap:nowrap}nav.specs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;min-width:0;flex:1 1 auto;padding:2px}nav.specs::-webkit-scrollbar{display:none}}
+.hsub{display:inline-block;margin:12px 0 0 2px;font:600 .92rem system-ui,sans-serif}
 @media (max-width:520px){body{font-size:16px}h2{font-size:1.2rem}}
 """
 
@@ -355,6 +357,15 @@ function compartir(title,url){{if(navigator.share){{navigator.share({{title:titl
 
 # ---------------------------------------------------------------- suscripción / estáticas
 
+def sub_body(lang):
+    names = "\n".join(f"- {spec_field(s, 'name', lang)}" for s in CFG["specialties"].values())
+    if lang == "es":
+        return ("Hola. Quiero recibir por correo los boletines de estas especialidades "
+                "(borre las que no le interesen):\n" + names + "\n\nNombre:\nCiudad o institución (opcional):")
+    return ("Hello. I would like to receive the bulletins for these specialties by email "
+            "(delete the ones you do not want):\n" + names + "\n\nName:\nCity or institution (optional):")
+
+
 def mailto(subject, body=""):
     from urllib.parse import quote
     return f"mailto:{CFG.get('contact_email', '')}?subject={quote(subject)}" + (f"&body={quote(body)}" if body else "")
@@ -363,10 +374,10 @@ def mailto(subject, body=""):
 def subscribe_block(lang, hue=None):
     t = T[lang]
     style = f' style="--h:{hue}"' if hue else ""
-    return f"""<section class="sub"{style}>
+    return f"""<section class="sub" id="suscribir"{style}>
 <h2>{e(t['sub_title'])}</h2>
 <p>{e(t['sub_text'])}</p>
-<a class="btn" href="{e(mailto(t['sub_subject'], t['sub_body']))}">{e(t['sub_btn'])}</a>
+<a class="btn" href="{e(mailto(t['sub_subject'], sub_body(lang)))}">{e(t['sub_btn'])}</a>
 <small>{e(t['sub_hint'])}</small>
 </section>"""
 
@@ -534,6 +545,7 @@ def build_lang(lang, issues, urls, fallback=()):
 <h1>{e(cfg_field('site_tagline', lang))}</h1>
 <p class="lead">{e(cfg_field('site_lead', lang))}</p>
 <p class="abanner"><b>🎧</b><span>{e(t['audio_banner'])}</span></p>
+<a class="hsub" href="#suscribir">✉ {e(t['sub_title'])} →</a>
 </section>
 <section class="grid">{''.join(cards)}</section>
 {subscribe_block(lang)}

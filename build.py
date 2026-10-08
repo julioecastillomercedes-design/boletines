@@ -208,7 +208,10 @@ def summary_of(body: str) -> str:
 
 def load_issue_file(f: Path, spec: str, lang: str):
     # El crédito oficial es "Aura Celeste" (sin "Vascular"), aunque un bot lo escriba con el nombre antiguo
-    meta, body = parse_frontmatter(f.read_text(encoding="utf-8").replace("Aura Celeste Vascular", "Aura Celeste"))
+    meta, body = parse_frontmatter(f.read_text(encoding="utf-8").replace("Aura Celeste Vascular", "Aura Celeste")
+                                       .replace("enlaces a las fuentes primarias", "enlaces a sus fuentes")
+                                       .replace("links to the primary sources", "links to their sources")
+                                       .replace("links to primary sources", "links to their sources"))
     d = datetime.strptime(meta["date"], "%Y-%m-%d").date()
     body, extras = split_extras(body)
     body = strip_redundant_title(body)

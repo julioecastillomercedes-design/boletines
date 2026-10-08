@@ -148,8 +148,8 @@ navigator.clipboard.writeText(t).then(function(){aviso("Copiado.")},function(){a
 function tocar(b){var w=b.closest('.listen'),a=w.querySelector('audio');
 document.querySelectorAll('.listen audio').forEach(function(o){if(o!==a&&!o.paused)o.pause()});
 if(a.paused){a.play()}else{a.pause()}}
-document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.add('on')},true);
-document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.remove('on')},true);
+document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w){w.classList.add('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.pause)}},true);
+document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w){w.classList.remove('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.play)}},true);
 function aviso(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200)}
 function compartir(title,url){if(navigator.share){navigator.share({title:title,url:url}).catch(function(){})}else{navigator.clipboard.writeText(url).then(function(){aviso("Enlace copiado")})}}
 </script>

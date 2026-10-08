@@ -121,7 +121,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <div class="meta"><span class="pill">Vascular</span><time datetime="2026-09-05">September 5, 2026</time></div>
 <h1>Weekly vascular bulletin — September 5, 2026</h1>
 
-
+<div class="listen" style="--h:355"><button class="play" type="button" onclick="tocar(this)" aria-label="Listen to this issue: Vascular, September 5, 2026" data-play="Listen to this issue: Vascular, September 5, 2026" data-pause="Pause: Vascular, September 5, 2026"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><div class="lb"><strong>🎧 Listen to this issue</strong><span>Audio newscast · 5 min</span><audio controls preload="none" src="https://boletinesmedicos.com/audio/vascular-2026-09-05-en.mp3"></audio><div class="dl"><a href="https://boletinesmedicos.com/audio/vascular-2026-09-05-en.mp3" download>Download MP3</a><a href="https://wa.me/?text=Weekly vascular bulletin — September 5, 2026%20https://boletinesmedicos.com/audio/vascular-2026-09-05-en.mp3" target="_blank" rel="noopener">Send audio via WhatsApp</a></div></div></div>
 <div class="tools"><button class="btn secondary" style="--h:355" onclick="copiar('x-linkedin')">Copy for LinkedIn</button><button class="btn secondary" style="--h:355" onclick="copiar('x-x')">Copy for X</button><button class="btn secondary" style="--h:355" onclick="compartir("Weekly vascular bulletin \u2014 September 5, 2026","https://boletinesmedicos.com/en/vascular/2026-09-05.html")">Share link</button></div>
 <p>Slow week for hard evidence: between August 29 and September 5 I found no new randomized trials in peripheral, aortic, carotid or venous disease. ESC 2026 (Munich, Aug 28–31) brought no vascular Hot Lines, and CIRSE 2026 opens today in Copenhagen, so its data will fall in next week's bulletin. What there was, was mostly regulatory and industry news. Ten items, no filler, priority areas first.</p>
 <h2>Priority areas: PAD/CLTI, calcium, BTK</h2>
@@ -208,8 +208,8 @@ navigator.clipboard.writeText(t).then(function(){aviso("Copied.")},function(){av
 function tocar(b){var w=b.closest('.listen'),a=w.querySelector('audio');
 document.querySelectorAll('.listen audio').forEach(function(o){if(o!==a&&!o.paused)o.pause()});
 if(a.paused){a.play()}else{a.pause()}}
-document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.add('on')},true);
-document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.remove('on')},true);
+document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w){w.classList.add('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.pause)}},true);
+document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w){w.classList.remove('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.play)}},true);
 function aviso(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200)}
 function compartir(title,url){if(navigator.share){navigator.share({title:title,url:url}).catch(function(){})}else{navigator.clipboard.writeText(url).then(function(){aviso("Link copied")})}}
 </script>

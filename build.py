@@ -141,11 +141,22 @@ def parse_frontmatter(text: str):
     return meta, m.group(2)
 
 
-URL_RE = re.compile(r"(?<![\"'>(])(https?://[^\s<>\)\]]+)")
+# URL con paréntesis equilibrados dentro (DOI de Lancet "(26)01861-1", "(utis)"...)
+URL_RE = re.compile(r"(?<![\"'>(\]])(https?://(?:[^\s<>()\[\]]|\([^\s<>()\[\]]*\))+)")
+TRAIL = ".,;:!?\u00bb\u201d'\""
+
+
+def _link(m):
+    url = m.group(1)
+    tail = ""
+    while url and url[-1] in TRAIL:
+        tail = url[-1] + tail
+        url = url[:-1]
+    return f'<a href="{html.escape(url, quote=True)}">{html.escape(url)}</a>{tail}'
 
 
 def linkify(text: str) -> str:
-    return URL_RE.sub(lambda m: f'<{m.group(1)}>', text)
+    return URL_RE.sub(_link, text)
 
 
 EXTRA_HEADINGS = {
@@ -335,8 +346,8 @@ navigator.clipboard.writeText(t).then(function(){{aviso({json.dumps(t['copied'])
 function tocar(b){{var w=b.closest('.listen'),a=w.querySelector('audio');
 document.querySelectorAll('.listen audio').forEach(function(o){{if(o!==a&&!o.paused)o.pause()}});
 if(a.paused){{a.play()}}else{{a.pause()}}}}
-document.addEventListener('play',function(ev){{var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.add('on')}},true);
-document.addEventListener('pause',function(ev){{var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.remove('on')}},true);
+document.addEventListener('play',function(ev){{var w=ev.target.closest&&ev.target.closest('.listen');if(w){{w.classList.add('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.pause)}}}},true);
+document.addEventListener('pause',function(ev){{var w=ev.target.closest&&ev.target.closest('.listen');if(w){{w.classList.remove('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.play)}}}},true);
 function aviso(m){{var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){{t.classList.remove('show')}},2200)}}
 function compartir(title,url){{if(navigator.share){{navigator.share({{title:title,url:url}}).catch(function(){{}})}}else{{navigator.clipboard.writeText(url).then(function(){{aviso({json.dumps(t['link_copied'])})}})}}}}
 """
@@ -587,8 +598,12 @@ def listen_block(i, lang, hue, small=False, extra=""):
     m = audio_minutes(i)
     sub = t["listen_sub"] + (f" · {m} {t['min']}" if m else "")
     title = t["listen_short"] if small else t["listen"]
+    sp = spec_field(CFG["specialties"][i["spec"]], "short", lang)
+    when = fecha_larga(i["date"], lang)
+    lbl = f'{t["listen"]}: {sp}, {when}'
+    plbl = f'{t["pause"]}: {sp}, {when}'
     return (f'<div class="listen{" sm" if small else ""}" style="--h:{hue}">'
-            f'<button class="play" type="button" onclick="tocar(this)" aria-label="{e(t["listen"])}">{PLAY_SVG}</button>'
+            f'<button class="play" type="button" onclick="tocar(this)" aria-label="{e(lbl)}" data-play="{e(lbl)}" data-pause="{e(plbl)}">{PLAY_SVG}</button>'
             f'<div class="lb"><strong>🎧 {e(title)}</strong><span>{e(sub)}</span>'
             f'<audio controls preload="none" src="{aurl}"></audio>{extra}</div></div>')
 

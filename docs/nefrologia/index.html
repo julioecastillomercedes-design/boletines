@@ -123,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <p class="lead">Enfermedad renal crónica, diálisis y accesos, trasplante, glomerulopatías, lesión renal aguda, nefropatía diabética e hipertensión renal.</p>
 </section>
 <h2>Números publicados</h2>
-<ul class="list"><li><div class="meta"><span>29 de septiembre de 2026</span></div><a class="t" href="https://boletinesmedicos.com/nefrologia/2026-09-29.html">Boletín de nefrología — 29 de septiembre de 2026</a><p>Boletín mensual de nefrología con los avances verificados entre el 30 de agosto y el 29 de septiembre de 2026. Nota del mes: fue un mes fuerte en regulación (dos aprobaciones de la FDA) y en enfermedad glomerular, y…</p><div class="listen sm" style="--h:230"><button class="play" type="button" onclick="tocar(this)" aria-label="Escuchar el boletín"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><div class="lb"><strong>🎧 Escuchar</strong><span>Noticiero en audio · 7 min</span><audio controls preload="none" src="https://boletinesmedicos.com/audio/nefrologia-2026-09-29.mp3"></audio></div></div></li></ul>
+<ul class="list"><li><div class="meta"><span>29 de septiembre de 2026</span></div><a class="t" href="https://boletinesmedicos.com/nefrologia/2026-09-29.html">Boletín de nefrología — 29 de septiembre de 2026</a><p>Boletín mensual de nefrología con los avances verificados entre el 30 de agosto y el 29 de septiembre de 2026. Nota del mes: fue un mes fuerte en regulación (dos aprobaciones de la FDA) y en enfermedad glomerular, y…</p><div class="listen sm" style="--h:230"><button class="play" type="button" onclick="tocar(this)" aria-label="Escuchar el boletín: Nefrología, 29 de septiembre de 2026" data-play="Escuchar el boletín: Nefrología, 29 de septiembre de 2026" data-pause="Pausa: Nefrología, 29 de septiembre de 2026"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><div class="lb"><strong>🎧 Escuchar</strong><span>Noticiero en audio · 7 min</span><audio controls preload="none" src="https://boletinesmedicos.com/audio/nefrologia-2026-09-29.mp3"></audio></div></div></li></ul>
 <p class="meta" style="margin-top:18px"><a href="https://boletinesmedicos.com/nefrologia/feed.xml">RSS de esta especialidad</a></p>
 </div></main>
 <footer><div class="wrap">
@@ -138,8 +138,8 @@ navigator.clipboard.writeText(t).then(function(){aviso("Copiado.")},function(){a
 function tocar(b){var w=b.closest('.listen'),a=w.querySelector('audio');
 document.querySelectorAll('.listen audio').forEach(function(o){if(o!==a&&!o.paused)o.pause()});
 if(a.paused){a.play()}else{a.pause()}}
-document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.add('on')},true);
-document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.remove('on')},true);
+document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w){w.classList.add('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.pause)}},true);
+document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w){w.classList.remove('on');var b=w.querySelector('.play');b.setAttribute('aria-label',b.dataset.play)}},true);
 function aviso(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200)}
 function compartir(title,url){if(navigator.share){navigator.share({title:title,url:url}).catch(function(){})}else{navigator.clipboard.writeText(url).then(function(){aviso("Enlace copiado")})}}
 </script>

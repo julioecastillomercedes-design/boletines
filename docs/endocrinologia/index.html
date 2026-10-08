@@ -88,6 +88,24 @@ footer p{margin:.3em 0}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
+.listen{--hue:var(--h);display:flex;align-items:center;gap:14px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:var(--radius);padding:14px 16px;margin:18px 0 10px;font-family:system-ui,sans-serif}
+.listen .play{flex:0 0 auto;width:64px;height:64px;border-radius:50%;border:0;background:var(--accent);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px hsl(var(--h,20) 55% 30% / .35);animation:pulso 2.4s ease-out 3}
+.listen .play svg{width:28px;height:28px;fill:currentColor}
+.listen .play .i-pause{display:none}.listen.on .play .i-play{display:none}.listen.on .play .i-pause{display:block}
+.listen .lb{flex:1 1 auto;min-width:0}
+.listen .lb strong{display:block;font-size:1.12rem;color:var(--ink);line-height:1.25}
+.listen .lb span{display:block;font-size:.88rem;color:var(--ink-2);margin-bottom:6px}
+.listen audio{width:100%;height:36px;display:block}
+.listen .dl{font-size:.85rem;margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}
+.listen.sm{padding:10px 12px;gap:12px;margin:10px 0 0;border-width:1px}
+.listen.sm .play{width:46px;height:46px;animation:none}
+.listen.sm .play svg{width:20px;height:20px}
+.listen.sm .lb strong{font-size:.98rem}
+.card .listen.sm{margin-top:4px}
+.abanner{display:flex;align-items:center;gap:10px;margin:16px 0 0;font:600 .98rem system-ui,sans-serif;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px;width:fit-content;max-width:100%}
+.abanner b{font-size:1.2rem}
+@keyframes pulso{0%{box-shadow:0 0 0 0 hsl(var(--h,20) 55% 42% / .55)}100%{box-shadow:0 0 0 18px hsl(var(--h,20) 55% 42% / 0)}}
+@media (prefers-reduced-motion:reduce){.listen .play{animation:none}}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font:600 .9rem system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 @media (max-width:520px){body{font-size:16px}h2{font-size:1.2rem}}
@@ -105,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <p class="lead">Diabetes tipo 1 y 2, obesidad y GLP-1, tiroides, osteoporosis, suprarrenal e hipófisis, lípidos y endocrinología reproductiva.</p>
 </section>
 <h2>Números publicados</h2>
-<ul class="list"><li><div class="meta"><span>29 de septiembre de 2026 · 🎧 audio</span></div><a class="t" href="https://boletinesmedicos.com/endocrinologia/2026-09-29.html">Boletín de endocrinología — 29 de septiembre de 2026</a><p>Colegas: este número cubre lo publicado, presentado o aprobado entre el 30 de agosto y el 29 de septiembre de 2026. Fue un mes cargado en diabetes (tres decisiones de la FDA, un consenso ADA/EASD y el arranque del…</p><div class="mini" style="--h:330"><audio controls preload="none" src="https://boletinesmedicos.com/audio/endocrinologia-2026-09-29.mp3"></audio><a href="https://boletinesmedicos.com/audio/endocrinologia-2026-09-29.mp3" download>Descargar MP3</a></div></li></ul>
+<ul class="list"><li><div class="meta"><span>29 de septiembre de 2026</span></div><a class="t" href="https://boletinesmedicos.com/endocrinologia/2026-09-29.html">Boletín de endocrinología — 29 de septiembre de 2026</a><p>Colegas: este número cubre lo publicado, presentado o aprobado entre el 30 de agosto y el 29 de septiembre de 2026. Fue un mes cargado en diabetes (tres decisiones de la FDA, un consenso ADA/EASD y el arranque del…</p><div class="listen sm" style="--h:330"><button class="play" type="button" onclick="tocar(this)" aria-label="Escuchar el boletín"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><div class="lb"><strong>🎧 Escuchar</strong><span>Noticiero en audio · 6 min</span><audio controls preload="none" src="https://boletinesmedicos.com/audio/endocrinologia-2026-09-29.mp3"></audio></div></div></li></ul>
 <p class="meta" style="margin-top:18px"><a href="https://boletinesmedicos.com/endocrinologia/feed.xml">RSS de esta especialidad</a></p>
 </div></main>
 <footer><div class="wrap">
@@ -117,6 +135,11 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <script>
 function copiar(id){var t=document.getElementById(id).textContent;
 navigator.clipboard.writeText(t).then(function(){aviso("Copiado.")},function(){aviso("No se pudo copiar")})}
+function tocar(b){var w=b.closest('.listen'),a=w.querySelector('audio');
+document.querySelectorAll('.listen audio').forEach(function(o){if(o!==a&&!o.paused)o.pause()});
+if(a.paused){a.play()}else{a.pause()}}
+document.addEventListener('play',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.add('on')},true);
+document.addEventListener('pause',function(ev){var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.remove('on')},true);
 function aviso(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200)}
 function compartir(title,url){if(navigator.share){navigator.share({title:title,url:url}).catch(function(){})}else{navigator.clipboard.writeText(url).then(function(){aviso("Enlace copiado")})}}
 </script>

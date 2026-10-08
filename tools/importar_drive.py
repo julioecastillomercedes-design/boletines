@@ -4,10 +4,11 @@ Importa al repositorio los números que los bots dejan en Google Drive ("Portal 
 y genera el audio que falte a partir de los guiones. Lo ejecuta GitHub Actions cada hora.
 
 Entrada (carpeta descargada de Drive, argumento 1):
-  <esp>-<AAAA-MM-DD>.md            boletín en español
-  <esp>-<AAAA-MM-DD>.en.md         boletín en inglés
-  <esp>-<AAAA-MM-DD>.guion.txt     guion del noticiero en español (un párrafo por bloque)
-  <esp>-<AAAA-MM-DD>.en.guion.txt  guion del noticiero en inglés
+  <esp>-<AAAA-MM-DD>.v.md            boletín en español VERIFICADO
+  <esp>-<AAAA-MM-DD>.en.v.md         boletín en inglés VERIFICADO
+  <esp>-<AAAA-MM-DD>.v.guion.txt     guion verificado del noticiero en español (un párrafo por bloque)
+  <esp>-<AAAA-MM-DD>.en.v.guion.txt  guion verificado del noticiero en inglés
+  (Los borradores sin ".v" que dejan los bots NO se publican.)
 Salida: issues/<esp>/<fecha>(.en).md y audio/<esp>-<fecha>(-en).mp3
 Nunca sobrescribe un número o un audio que ya esté en el repositorio (ni los borra de Drive).
 """
@@ -22,7 +23,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SPECS = set(CFG["specialties"])
-NAME = re.compile(r"^(?P<esp>[a-z-]+?)-(?P<fecha>\d{4}-\d{2}-\d{2})(?P<en>\.en)?(?P<guion>\.guion\.txt|\.md)$")
+# Solo se publican archivos VERIFICADOS (sufijo ".v"): el verificador los crea tras cotejar
+# cada cifra, fecha y población con su fuente. Los borradores de los bots (sin ".v") se ignoran.
+NAME = re.compile(r"^(?P<esp>[a-z-]+?)-(?P<fecha>\d{4}-\d{2}-\d{2})(?P<en>\.en)?\.v(?P<guion>\.guion\.txt|\.md)$")
 
 # Líneas que nunca deben llegar a la página pública
 LIMPIAR = re.compile(r"^(audio_url:.*|.*claude\.ai/artifact.*|Versión en audio.*|Audio version.*|"

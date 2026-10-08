@@ -61,6 +61,9 @@ T = {
         "sponsor": "Patrocinio y colaboración institucional",
         "subscribe": "Suscribirse",
         "contact": "Contacto",
+        "listen": "Escuchar el boletín", "listen_short": "Escuchar", "pause": "Pausa",
+        "listen_sub": "Noticiero en audio",
+        "audio_banner": "Cada boletín tiene su versión en audio: pulse ▶ Escuchar y óigalo en el carro o entre consultas.",
     },
     "en": {
         "lang_name": "English", "other_lang": "Español", "other_code": "es",
@@ -85,6 +88,9 @@ T = {
         "sponsor": "Sponsorship and institutional partnerships",
         "subscribe": "Subscribe",
         "contact": "Contact",
+        "listen": "Listen to this issue", "listen_short": "Listen", "pause": "Pause",
+        "listen_sub": "Audio newscast",
+        "audio_banner": "Every bulletin comes with an audio version: press ▶ Listen and hear it in the car or between patients.",
     },
 }
 
@@ -297,6 +303,24 @@ footer p{margin:.3em 0}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
+.listen{--hue:var(--h);display:flex;align-items:center;gap:14px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:var(--radius);padding:14px 16px;margin:18px 0 10px;font-family:system-ui,sans-serif}
+.listen .play{flex:0 0 auto;width:64px;height:64px;border-radius:50%;border:0;background:var(--accent);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px hsl(var(--h,20) 55% 30% / .35);animation:pulso 2.4s ease-out 3}
+.listen .play svg{width:28px;height:28px;fill:currentColor}
+.listen .play .i-pause{display:none}.listen.on .play .i-play{display:none}.listen.on .play .i-pause{display:block}
+.listen .lb{flex:1 1 auto;min-width:0}
+.listen .lb strong{display:block;font-size:1.12rem;color:var(--ink);line-height:1.25}
+.listen .lb span{display:block;font-size:.88rem;color:var(--ink-2);margin-bottom:6px}
+.listen audio{width:100%;height:36px;display:block}
+.listen .dl{font-size:.85rem;margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}
+.listen.sm{padding:10px 12px;gap:12px;margin:10px 0 0;border-width:1px}
+.listen.sm .play{width:46px;height:46px;animation:none}
+.listen.sm .play svg{width:20px;height:20px}
+.listen.sm .lb strong{font-size:.98rem}
+.card .listen.sm{margin-top:4px}
+.abanner{display:flex;align-items:center;gap:10px;margin:16px 0 0;font:600 .98rem system-ui,sans-serif;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px;width:fit-content;max-width:100%}
+.abanner b{font-size:1.2rem}
+@keyframes pulso{0%{box-shadow:0 0 0 0 hsl(var(--h,20) 55% 42% / .55)}100%{box-shadow:0 0 0 18px hsl(var(--h,20) 55% 42% / 0)}}
+@media (prefers-reduced-motion:reduce){.listen .play{animation:none}}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font:600 .9rem system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 @media (max-width:520px){body{font-size:16px}h2{font-size:1.2rem}}
@@ -308,6 +332,11 @@ def js(lang):
     return f"""
 function copiar(id){{var t=document.getElementById(id).textContent;
 navigator.clipboard.writeText(t).then(function(){{aviso({json.dumps(t['copied'])})}},function(){{aviso({json.dumps(t['copy_fail'])})}})}}
+function tocar(b){{var w=b.closest('.listen'),a=w.querySelector('audio');
+document.querySelectorAll('.listen audio').forEach(function(o){{if(o!==a&&!o.paused)o.pause()}});
+if(a.paused){{a.play()}}else{{a.pause()}}}}
+document.addEventListener('play',function(ev){{var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.add('on')}},true);
+document.addEventListener('pause',function(ev){{var w=ev.target.closest&&ev.target.closest('.listen');if(w)w.classList.remove('on')}},true);
 function aviso(m){{var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){{t.classList.remove('show')}},2200)}}
 function compartir(title,url){{if(navigator.share){{navigator.share({{title:title,url:url}}).catch(function(){{}})}}else{{navigator.clipboard.writeText(url).then(function(){{aviso({json.dumps(t['link_copied'])})}})}}}}
 """
@@ -487,11 +516,13 @@ def build_lang(lang, issues, urls, fallback=()):
 <h2><a href="{base(lang)}/{seg(key, lang)}/">{e(spec_field(s, 'name', lang))}</a></h2>
 <p class="blurb">{e(spec_field(s, 'blurb', lang))}</p>
 <div class="last">{last_html}</div>
+{listen_block(last, lang, s['hue'], small=True) if last and last.get("audio") else ""}
 </div>""")
     recent = "".join(issue_li(i, ui=lang) for i in shown[:6])
     home = f"""<section class="hero">
 <h1>{e(cfg_field('site_tagline', lang))}</h1>
 <p class="lead">{e(cfg_field('site_lead', lang))}</p>
+<p class="abanner"><b>🎧</b><span>{e(t['audio_banner'])}</span></p>
 </section>
 <section class="grid">{''.join(cards)}</section>
 {subscribe_block(lang)}
@@ -537,18 +568,42 @@ def build_lang(lang, issues, urls, fallback=()):
     static_pages(lang, urls)
 
 
+PLAY_SVG = ('<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
+            '<svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>')
+
+
+def audio_minutes(i):
+    if i.get("audio_minutes"):
+        return round(float(i["audio_minutes"]))
+    if i.get("audio"):
+        return max(1, round(i["audio"].stat().st_size * 8 / 48000 / 60))
+    return None
+
+
+def listen_block(i, lang, hue, small=False, extra=""):
+    """Reproductor destacado: botón grande ▶ + reproductor nativo debajo."""
+    t = T[lang]
+    aurl = f"{SITE_URL}/audio/{i['audio'].name}"
+    m = audio_minutes(i)
+    sub = t["listen_sub"] + (f" · {m} {t['min']}" if m else "")
+    title = t["listen_short"] if small else t["listen"]
+    return (f'<div class="listen{" sm" if small else ""}" style="--h:{hue}">'
+            f'<button class="play" type="button" onclick="tocar(this)" aria-label="{e(t["listen"])}">{PLAY_SVG}</button>'
+            f'<div class="lb"><strong>🎧 {e(title)}</strong><span>{e(sub)}</span>'
+            f'<audio controls preload="none" src="{aurl}"></audio>{extra}</div></div>')
+
+
 def issue_li(i, show_spec=True, ui=None):
     lang = ui or i["lang"]
     s = CFG["specialties"][i["spec"]]
     spec = f'<span class="pill" style="--h:{s["hue"]}">{e(spec_field(s, "short", lang))}</span> ' if show_spec else ""
-    audio = f" · 🎧 {T[lang]['audio_tag']}" if i["audio"] else ""
+    audio = ""
     if i["lang"] != lang:
         audio += " · " + ("Español" if i["lang"] == "es" else "English")
     return (f'<li><div class="meta">{spec}<span>{e(fecha_larga(i["date"], lang))}{audio}</span></div>'
             f'<a class="t" href="{issue_url(i)}">{e(i["title"])}</a>'
             f'<p>{e(i["summary"])}</p>'
-            + (f'<div class="mini" style="--h:{s["hue"]}"><audio controls preload="none" src="{SITE_URL}/audio/{i["audio"].name}"></audio>'
-               f'<a href="{SITE_URL}/audio/{i["audio"].name}" download>{e(T[lang]["download"])}</a></div>' if i["audio"] else "")
+            + (listen_block(i, lang, s["hue"], small=True) if i["audio"] else "")
             + '</li>')
 
 
@@ -572,12 +627,9 @@ def issue_page(it, s, prev_i, next_i):
     audio_html = ""
     if it["audio"]:
         aurl = f"{SITE_URL}/audio/{it['audio'].name}"
-        mins = f" · {round(float(it['audio_minutes']))} {t['min']}" if it["audio_minutes"] else ""
-        audio_html = f"""<div class="audio" style="--h:{s['hue']}">
-<strong>{t['audio']}{mins}</strong>
-<audio controls preload="none" src="{aurl}"></audio>
-<div class="dl"><a href="{aurl}" download>{e(t['download'])}</a><a href="https://wa.me/?text={e(html.escape(it['title']))}%20{aurl}" target="_blank" rel="noopener">{e(t['send_wa'])}</a></div>
-</div>"""
+        dl = (f'<div class="dl"><a href="{aurl}" download>{e(t["download"])}</a>'
+              f'<a href="https://wa.me/?text={e(html.escape(it["title"]))}%20{aurl}" target="_blank" rel="noopener">{e(t["send_wa"])}</a></div>')
+        audio_html = listen_block(it, lang, s["hue"], extra=dl)
     buttons, blocks = [], []
     for key in ("whatsapp", "linkedin", "x"):
         b, blk = extra_block(it, key, s["hue"])

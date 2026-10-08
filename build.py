@@ -53,14 +53,14 @@ T = {
         "no_en_yet": "The English edition of this issue is not available. Showing the Spanish original.",
         "bulletin": "Boletín",
         "sub_title": "Reciba cada número por correo",
-        "sub_text": "Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin publicidad ni cesión de datos; se da de baja con un solo mensaje.",
+        "sub_text": "Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin anuncios dentro del contenido: si hay un patrocinador, se identifica y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.",
         "sub_btn": "Suscribirme por correo",
         "sub_subject": "Suscripción a Boletines Médicos",
         "sub_body": "Hola. Quiero recibir por correo los boletines de estas especialidades: (escriba aquí las que le interesan, o «todas»).\n\nNombre:\nCiudad o institución (opcional):",
         "sub_hint": "Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.",
         "sponsor": "Patrocinio y colaboración institucional",
         "subscribe": "Suscribirse",
-        "contact": "Contacto", "about": "Quiénes somos y cómo trabajamos",
+        "contact": "Contacto", "about": "Quiénes somos y cómo trabajamos", "all_specs": "Todas",
         "listen": "Escuchar el boletín", "listen_short": "Escuchar", "pause": "Pausa",
         "listen_sub": "Noticiero en audio",
         "audio_banner": "Cada boletín tiene su versión en audio: pulse ▶ Escuchar y óigalo en el carro o entre consultas.",
@@ -80,14 +80,14 @@ T = {
         "only_in": "This issue is only available in Spanish.", "audio_tag": "audio",
         "no_en_yet": "", "bulletin": "Bulletin",
         "sub_title": "Get every issue by email",
-        "sub_text": "Free. One email per issue, with the full text and the audio link. No advertising, no data sharing; unsubscribe with a single message.",
+        "sub_text": "Free. One email per issue, with the full text and the audio link. No ads inside the content: any sponsor is identified and has no say in the selection. We do not share your data; unsubscribe with a single message.",
         "sub_btn": "Subscribe by email",
         "sub_subject": "Subscription to MedBulletins",
         "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
         "sub_hint": "Your email program will open with the message already written; just send it.",
         "sponsor": "Sponsorship and institutional partnerships",
         "subscribe": "Subscribe",
-        "contact": "Contact", "about": "About us and how we work",
+        "contact": "Contact", "about": "About us and how we work", "all_specs": "All",
         "listen": "Listen to this issue", "listen_short": "Listen", "pause": "Pause",
         "listen_sub": "Audio newscast",
         "audio_banner": "Every bulletin comes with an audio version: press ▶ Listen and hear it in the car or between patients.",
@@ -269,6 +269,7 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav.specs{display:flex;gap:6px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:.82rem}
 nav.specs a{--hue:var(--h);padding:5px 11px;border-radius:999px;background:var(--accent-soft);color:var(--accent);text-decoration:none;font-weight:600;white-space:nowrap}
 nav.specs a[aria-current]{outline:2px solid var(--accent)}
+nav.specs a.all{background:var(--ink);color:var(--bg)}
 a.lang{font:600 .8rem system-ui,sans-serif;border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
 a.lang:hover{border-color:var(--ink-3);color:var(--ink)}
 main{padding:28px 0 56px}
@@ -423,7 +424,8 @@ def nav_html(lang, current=None):
     for key, s in CFG["specialties"].items():
         cur = ' aria-current="page"' if key == current else ""
         links.append(f'<a href="{base(lang)}/{seg(key, lang)}/" style="--h:{s["hue"]}"{cur}>{e(spec_field(s, "short", lang))}</a>')
-    return f'<nav class="specs" aria-label="{e(T[lang]["nav_label"])}">' + "".join(links) + "</nav>"
+    allc = f'<a class="all" href="{base(lang)}/#especialidades" style="--h:220">☰ {e(T[lang]["all_specs"])} ({len(CFG["specialties"])})</a>'
+    return f'<nav class="specs" aria-label="{e(T[lang]["nav_label"])}">' + allc + "".join(links) + "</nav>"
 
 
 def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
@@ -551,7 +553,7 @@ def build_lang(lang, issues, urls, fallback=()):
 <p class="abanner"><b>🎧</b><span>{e(t['audio_banner'])}</span></p>
 <a class="hsub" href="#suscribir">✉ {e(t['sub_title'])} →</a>
 </section>
-<section class="grid">{''.join(cards)}</section>
+<section class="grid" id="especialidades">{''.join(cards)}</section>
 {subscribe_block(lang)}
 <section><h2>{e(t['latest'])}</h2><ul class="list">{recent}</ul></section>"""
     write(out / "index.html", page(site_name, home, lang=lang, desc=cfg_field("description", lang),

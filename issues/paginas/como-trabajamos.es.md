@@ -15,7 +15,9 @@ Un boletín por especialidad (semanal en cirugía vascular, mensual en las demá
 ## Cómo seleccionamos y verificamos
 
 - Buscamos en revistas, sociedades científicas, agencias reguladoras (FDA, EMA y otras) y congresos de todo el mundo, también en idiomas distintos del inglés.
-- Solo entra lo que corresponde al periodo cubierto. Cada dato se comprueba en su fuente antes de incluirlo; si no se puede confirmar la fecha o la cifra, se deja fuera.
+- Solo entra lo que corresponde al periodo cubierto. Excepción: un ítem de hasta 35 días puede incluirse si su importancia lo justifica, y entonces se marca como «Fuera del periodo» con su fecha.
+- Cada dato se comprueba en su fuente antes de incluirlo; si no se puede confirmar la fecha o la cifra, se deja fuera.
+- En las decisiones regulatorias enlazamos, cuando existe, la comunicación oficial del regulador o del fabricante, además de la prensa médica.
 - Cada ítem lleva una lectura crítica: diseño del estudio, tamaño de la muestra, financiación y conflicto de interés del fabricante, y si cambia o no la práctica en nuestro medio.
 - Cuando no tenemos acceso al texto completo y trabajamos con un resumen o con prensa médica, lo decimos en el propio ítem.
 - Preferimos publicar menos ítems a rellenar un mes flojo.
@@ -28,6 +30,7 @@ La búsqueda, el primer borrador, la traducción al inglés y la voz del audio s
 
 Si detecta un error, escríbanos a julioe.castillomercedes@gmail.com. Corregimos el texto, la versión en inglés y, cuando hace falta, el audio, y lo anotamos aquí.
 
+- **8 de octubre de 2026.** Nefrología, 8 de octubre: se añadieron las fuentes oficiales de las decisiones regulatorias (Bayer, PMDA, Roche) y se marcó como fuera del periodo el ítem de xenotrasplante del 3 de septiembre.
 - **8 de octubre de 2026.** Vascular, 5 de octubre: en el ensayo C-TRACT se aclaró que el sangrado mayor (4,1 % frente a 2,0 %) no difirió entre grupos según la fuente, y que la calidad de vida se analizó en los primeros 197 de 225 pacientes. Pediatría, 6 de octubre: se matizó la aplicabilidad local de la nueva guía de la AAP sobre infección urinaria. Todo el portal: se repararon los enlaces cuyas direcciones contenían paréntesis.
 
 ## Independencia

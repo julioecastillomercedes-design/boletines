@@ -60,9 +60,9 @@ def cover(name, title, lines, credit):
 
 og("og-en.png", "MedBulletins", "What is new and verified in each specialty",
    ["15 specialties, with critical appraisal", "5–7 minute audio newscast", "Free, no account needed"],
-   "boletinesmedicos.com/en", "Curated by Aura Celeste Vascular")
+   "boletinesmedicos.com/en", "Curated by Aura Celeste")
 cover("podcast-en.jpg", "MedBulletins", ["Verified medical updates", "15 specialties · audio newscast"],
-      "Curated by Aura Celeste Vascular")
+      "Curated by Aura Celeste")
 cover("podcast-es.jpg", "Boletines Médicos", ["Actualización médica verificada", "15 especialidades · noticiero"],
-      "Curado por Aura Celeste Vascular")
+      "Curado por Aura Celeste")
 print("ok")

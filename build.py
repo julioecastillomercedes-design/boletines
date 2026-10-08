@@ -60,7 +60,7 @@ T = {
         "sub_hint": "Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.",
         "sponsor": "Patrocinio y colaboración institucional",
         "subscribe": "Suscribirse",
-        "contact": "Contacto",
+        "contact": "Contacto", "about": "Quiénes somos y cómo trabajamos",
         "listen": "Escuchar el boletín", "listen_short": "Escuchar", "pause": "Pausa",
         "listen_sub": "Noticiero en audio",
         "audio_banner": "Cada boletín tiene su versión en audio: pulse ▶ Escuchar y óigalo en el carro o entre consultas.",
@@ -87,7 +87,7 @@ T = {
         "sub_hint": "Your email program will open with the message already written; just send it.",
         "sponsor": "Sponsorship and institutional partnerships",
         "subscribe": "Subscribe",
-        "contact": "Contact",
+        "contact": "Contact", "about": "About us and how we work",
         "listen": "Listen to this issue", "listen_short": "Listen", "pause": "Pause",
         "listen_sub": "Audio newscast",
         "audio_banner": "Every bulletin comes with an audio version: press ▶ Listen and hear it in the car or between patients.",
@@ -467,7 +467,7 @@ def page(title, body, *, lang, desc, url, alt_url, current=None, extra_head=""):
 <footer><div class="wrap">
 <p><strong>{e(site_name)}</strong> · {e(t['curated'])} {e(CFG['author'])}{(', ' + e(cfg_field('author_role', lang))) if cfg_field('author_role', lang) else ''}.</p>
 <p>{e(t['footer'])}</p>
-<p><a href="{base(lang)}/{'suscribirse' if lang == 'es' else 'subscribe'}.html">{e(t['subscribe'])}</a> · <a href="{base(lang)}/{'patrocinio' if lang == 'es' else 'sponsorship'}.html">{e(t['sponsor'])}</a> · <a href="{e(mailto(t['contact'] + ' — ' + site_name))}">{e(t['contact'])}</a> · <a href="{base(lang)}/feed.xml">RSS</a> · <a href="{e(alt_url)}" hreflang="{other}">{e(t['other_lang'])}</a></p>
+<p><a href="{base(lang)}/{'como-trabajamos' if lang == 'es' else 'how-we-work'}.html">{e(t['about'])}</a> · <a href="{base(lang)}/{'suscribirse' if lang == 'es' else 'subscribe'}.html">{e(t['subscribe'])}</a> · <a href="{base(lang)}/{'patrocinio' if lang == 'es' else 'sponsorship'}.html">{e(t['sponsor'])}</a> · <a href="{e(mailto(t['contact'] + ' — ' + site_name))}">{e(t['contact'])}</a> · <a href="{base(lang)}/feed.xml">RSS</a> · <a href="{e(alt_url)}" hreflang="{other}">{e(t['other_lang'])}</a></p>
 </div></footer>
 <div id="toast" class="toast" role="status"></div>
 <script>{js(lang)}</script>
@@ -709,10 +709,10 @@ def rss(items, title, link, lang):
 PODCAST = {
     "es": {"title": "Boletines Médicos — noticiero", "cover": "podcast-es.jpg", "lang": "es",
            "desc": "Noticiero en audio de Boletines Médicos: lo nuevo y verificado en 15 especialidades médicas, con lectura crítica de cada estudio. "
-                   "Material informativo para profesionales. Curado por Aura Celeste Vascular."},
+                   "Material informativo para profesionales. Curado por Aura Celeste."},
     "en": {"title": "MedBulletins — audio newscast", "cover": "podcast-en.jpg", "lang": "en-us",
            "desc": "The MedBulletins audio newscast: what is new and verified across 15 medical specialties, with a critical reading of every study. "
-                   "Informational material for health professionals. Curated by Aura Celeste Vascular."},
+                   "Informational material for health professionals. Curated by Aura Celeste."},
 }
 PODCAST_EMAIL = "auracelestevascular@gmail.com"
 
@@ -728,13 +728,13 @@ def podcast_feed(items, lang):
            f'<title>{e(P["title"])}</title><link>{base(lang)}/</link><language>{P["lang"]}</language>',
            f'<atom:link href="{self_url}" rel="self" type="application/rss+xml"/>',
            f'<description>{e(P["desc"])}</description><itunes:summary>{e(P["desc"])}</itunes:summary>',
-           '<itunes:author>Aura Celeste Vascular</itunes:author>',
-           f'<itunes:owner><itunes:name>Aura Celeste Vascular</itunes:name><itunes:email>{PODCAST_EMAIL}</itunes:email></itunes:owner>',
+           '<itunes:author>Aura Celeste</itunes:author>',
+           f'<itunes:owner><itunes:name>Aura Celeste</itunes:name><itunes:email>{PODCAST_EMAIL}</itunes:email></itunes:owner>',
            f'<itunes:image href="{cover}"/><image><url>{cover}</url><title>{e(P["title"])}</title><link>{base(lang)}/</link></image>',
            '<itunes:category text="Health &amp; Fitness"><itunes:category text="Medicine"/></itunes:category>',
            '<itunes:category text="Science"/>',
            '<itunes:explicit>false</itunes:explicit><itunes:type>episodic</itunes:type>',
-           f'<copyright>Aura Celeste Vascular</copyright><podcast:locked>no</podcast:locked>']
+           f'<copyright>Aura Celeste</copyright><podcast:locked>no</podcast:locked>']
     for i in items:
         if not i["audio"]:
             continue

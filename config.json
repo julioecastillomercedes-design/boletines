@@ -7,9 +7,9 @@
   "site_lead_en": "Verified clinical update bulletins by specialty, with a critical reading of every study and a 5–7 minute audio newscast. Free to read, no account needed.",
   "site_url": "https://boletinesmedicos.com",
   "custom_domain": "boletinesmedicos.com",
-  "author": "Aura Celeste Vascular",
-  "author_role": "",
-  "author_role_en": "",
+  "author": "Aura Celeste",
+  "author_role": "con ayuda de inteligencia artificial",
+  "author_role_en": "with the help of artificial intelligence",
   "description": "Portal de boletines médicos con la evidencia más reciente y verificada en 15 especialidades: cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología, medicina interna, neurología, oncología, ortopedia, urología, gastroenterología, nefrología, neumología, endocrinología y emergencias. Texto completo y noticiero en audio, en español e inglés.",
   "description_en": "Medical bulletin portal with the latest verified evidence across 15 specialties: vascular surgery, general surgery, OB/GYN, pediatrics, cardiology, internal medicine, neurology, oncology, orthopedics, urology, gastroenterology, nephrology, pulmonology, endocrinology and emergency medicine. Full text and a short audio newscast for every issue.",
   "specialties": {

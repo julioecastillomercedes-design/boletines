@@ -30,7 +30,8 @@ Searching, the first draft, the translation and the audio voice are prepared wit
 
 If you spot an error, write to julioe.castillomercedes@gmail.com. We correct the text, the Spanish edition and, when needed, the audio, and we log it here.
 
-- **October 8, 2026.** Nephrology, October 8: official sources added for the regulatory items (Bayer, PMDA, Roche) and the September 3 xenotransplant item labeled as outside the period.
+- **October 8, 2026.** Cardiology, October 1: AIR-STEMI was presented on August 29, not 30. Vascular, September 7: the XplantR De Novo authorization is dated April 17, not 29; and the DEEPER REVEAL figures refer to vessels of 2.5 mm or more and to the paired wound analysis, not to all 130 patients.
+- **October 8, 2026.** Nephrology, October 8: official sources added for the regulatory items (Bayer, PMDA, Genentech) and the September 3 xenotransplant item labeled as outside the period.
 - **October 8, 2026.** Vascular, October 5: for the C-TRACT trial we clarified that major bleeding (4.1% vs 2.0%) did not differ between groups according to the source, and that quality of life was analyzed in the first 197 of 225 patients. Pediatrics, October 6: we qualified the local applicability of the new AAP urinary tract infection guideline. Whole site: links whose addresses contained parentheses were repaired.
 
 ## Independence

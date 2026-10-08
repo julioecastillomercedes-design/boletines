@@ -30,7 +30,8 @@ La búsqueda, el primer borrador, la traducción al inglés y la voz del audio s
 
 Si detecta un error, escríbanos a julioe.castillomercedes@gmail.com. Corregimos el texto, la versión en inglés y, cuando hace falta, el audio, y lo anotamos aquí.
 
-- **8 de octubre de 2026.** Nefrología, 8 de octubre: se añadieron las fuentes oficiales de las decisiones regulatorias (Bayer, PMDA, Roche) y se marcó como fuera del periodo el ítem de xenotrasplante del 3 de septiembre.
+- **8 de octubre de 2026.** Cardiología, 1 de octubre: AIR-STEMI se presentó el 29 de agosto, no el 30. Vascular, 7 de septiembre: la autorización De Novo de XplantR es del 17 de abril, no del 29; y las cifras de DEEPER REVEAL corresponden a vasos de 2,5 mm o más y al análisis pareado de heridas, no al total de 130 pacientes.
+- **8 de octubre de 2026.** Nefrología, 8 de octubre: se añadieron las fuentes oficiales de las decisiones regulatorias (Bayer, PMDA, Genentech) y se marcó como fuera del periodo el ítem de xenotrasplante del 3 de septiembre.
 - **8 de octubre de 2026.** Vascular, 5 de octubre: en el ensayo C-TRACT se aclaró que el sangrado mayor (4,1 % frente a 2,0 %) no difirió entre grupos según la fuente, y que la calidad de vida se analizó en los primeros 197 de 225 pacientes. Pediatría, 6 de octubre: se matizó la aplicabilidad local de la nueva guía de la AAP sobre infección urinaria. Todo el portal: se repararon los enlaces cuyas direcciones contenían paréntesis.
 
 ## Independencia

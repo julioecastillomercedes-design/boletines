@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Regenera audios a partir de guiones/<esp>-<slug>(.en).guion.txt (sobrescribe audio/<esp>-<slug>(-en).mp3).
 Uso: python tools/regen_audio.py <shard> <total>   (reparte los guiones entre trabajos en paralelo)"""
+import os
 import re
 import sys
 from pathlib import Path
@@ -14,6 +15,9 @@ PAT = re.compile(r"^(?P<esp>[a-z-]+?)-(?P<slug>\d{4}-\d{2}-\d{2}(?:-viene)?)(?P<
 
 def main(shard: int, total: int) -> None:
     files = sorted(p for p in (ROOT / "guiones").glob("*.guion.txt") if PAT.match(p.name))
+    solo = os.environ.get("SOLO", "").split()
+    if solo:
+        files = [p for p in files if p.name in solo]
     mine = [p for i, p in enumerate(files) if i % total == shard]
     print(f"shard {shard}/{total}: {len(mine)} guiones")
     for p in mine:

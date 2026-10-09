@@ -1,4 +1,4 @@
-Good morning, colleagues. This summary covers August twenty-ninth to September twenty-eighth, twenty twenty-six. We gathered fifteen verified items. In neonatology we found no new verifiable randomized trial, so that section relies on surveillance data.
+Good morning, colleagues. This summary covers August twenty-ninth to September twenty-eighth, twenty twenty-six. We gathered fifteen verified items. In neonatology there was no new verifiable randomized trial, so that section relies on surveillance data.
 
 The United States Centers for Disease Control and Prevention published eight years of the Champs network in seven countries of sub-Saharan Africa and Bangladesh. Eight thousand five hundred deaths were investigated in depth. Prematurity, perinatal asphyxia and sepsis dominated neonatal deaths. Experts judged eighty point seven percent of the assessed deaths preventable or possibly preventable. Critical reading: the sites are not representative and preventability is an expert judgment. The lesson is the weight of multidrug-resistant gram-negative sepsis and intrapartum asphyxia.
 
@@ -14,7 +14,7 @@ The Dominican bulletin reports three hundred thirty-eight dengue cases and one d
 
 Novo Nordisk reported topline results of the Step Young trial in one hundred sixty-five children aged six to under twelve with obesity. With semaglutide, forty point four percent fell below the ninety-fifth percentile, versus zero percent with placebo. Critical reading: this is a manufacturer press release, without the primary endpoint magnitude or adverse events.
 
-According to BioMarin, vosoritide increased growth velocity in hypochondroplasia by two point three three centimeters per year over placebo. Critical reading: it is a one-year, manufacturer-funded trial with no adult height data.
+In a trial of eighty-one children with hypochondroplasia, vosoritide increased growth velocity by two point three three centimeters per year over placebo, with no severe adverse events. Critical reading: it is a one-year, manufacturer-funded trial with no adult height data.
 
 Suicide-related emergency visits among United States children aged five to seventeen rose seventy-four percent between twenty sixteen and twenty twenty-two. About half occurred in departments with low pediatric volume. Critical reading: these are visit counts, not children, but any emergency department must be ready to screen for risk.
 

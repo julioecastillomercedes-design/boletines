@@ -12,7 +12,7 @@ The agency also approved Fayuvi, the first gene therapy for Sanfilippo syndrome 
 
 Novo Nordisk announced results of the Step Young trial of weekly semaglutide in one hundred sixty-five children aged six to eleven with obesity. At sixty-eight weeks, forty point four percent of treated children left the obesity range, versus zero percent with placebo. Critical reading: this is a preliminary announcement without peer review or the magnitude of the primary endpoint. Long-term safety on growth and puberty remains unresolved.
 
-In hypochondroplasia, a phase three vosoritide trial was published in New England Journal of Medicine Evidence. According to BioMarin, growth velocity was two point three three centimeters per year greater than with placebo. Critical reading: it is a one-year, manufacturer-sponsored trial with a surrogate endpoint, not adult height.
+In hypochondroplasia, a phase three vosoritide trial was published in New England Journal of Medicine Evidence. Eighty-one children were randomized, forty-one to vosoritide and forty to placebo. Growth velocity was two point three three centimeters per year greater than with placebo, with no severe adverse events. Critical reading: it is a one-year, manufacturer-sponsored trial with a surrogate endpoint, not adult height.
 
 In an adolescent subgroup of the Valiant trial, pegcetacoplan reduced proteinuria by seventy-five percent versus placebo at twenty-six weeks. It included fifty-five adolescents with complement three glomerulopathy or immune-complex membranoproliferative glomerulonephritis. Critical reading: the subgroup is underpowered, with nominal p values. Vaccination is required because of meningococcal infection risk.
 

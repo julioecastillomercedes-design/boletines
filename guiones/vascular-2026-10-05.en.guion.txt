@@ -1,4 +1,4 @@
-Good morning, colleagues. This summary covers September twenty-eighth to October fifth, twenty twenty-six. The week was dominated by venous disease, with eight late-breaking studies at The Veins meeting in Las Vegas. We gathered eleven verified items.
+Good morning, colleagues. This summary covers September twenty-eighth to October fifth, twenty twenty-six. The week was dominated by venous disease, with eight late-breaking studies at The Veins meeting in Las Vegas. We gathered ten verified items.
 
 The randomized C Tract trial presented its twenty-four-month follow-up. It enrolled two hundred twenty-five patients with post-thrombotic syndrome and iliac vein obstruction. It compared iliac vein stenting plus standard care with standard care alone. The Veines quality of life score was sixty-three point five versus fifty-three point zero. Recurrent symptomatic venous thromboembolism was two point one versus seven point one percent. Major bleeding was four point one versus two point zero percent, with no difference between groups according to the source. Critical reading: this is the best randomized evidence for stenting, and it is independent of industry. But the trial was open label, the outcome is subjective, and quality of life was analyzed in only one hundred ninety-seven patients.
 
@@ -10,15 +10,13 @@ According to trade press coverage, the United States Food and Drug Administratio
 
 The real-world registry of the Abre venous stent from Medtronic enrolled one hundred fifty-one patients. At thirty days there were no fractures and a single target lesion revascularization. Critical reading: thirty days say nothing about durability. What matters is that three of four implants were for nonthrombotic lesions, the indication with the weakest evidence.
 
-The Recana system was tested in chronic venous in-stent restenosis. Ninety-six point two percent of treated limbs were patent after the procedure. Critical reading: the release does not report the number of patients or late patency, and the endpoint is purely intraprocedural.
-
 In pulmonary embolism, the Strike study treated one thousand patients with vacuum thrombectomy, with five hundred twenty-two analyzed at one year. The right-to-left ventricular ratio fell from one point three eight to zero point nine seven at forty-eight hours. The Rapid study, using mechanically channeled thrombolysis, reported death or decompensation at seven days in one of one hundred fifty patients. Critical reading: these are manufacturer-sponsored single-arm series with surrogate endpoints. Only randomized trials can answer the clinical question.
 
 In peripheral arterial disease, Medtronic announced a breakthrough device designation for its In Pact below-the-knee paclitaxel balloon. It plans a randomized trial of about four hundred patients. Critical reading: the designation is not evidence of efficacy. The company's earlier balloon showed no benefit and was withdrawn more than a decade ago.
 
 In China, the national medical products regulator admitted an absorbable covered peripheral stent from Yuanxin Technology to its special review pathway. Critical reading: entering the priority pathway is not an approval, and no clinical data have been published. It signals that absorbable iron scaffolds are moving into the peripheral territory.
 
-In carotid disease, the Journal of the American Medical Association published the cognitive results of the Crest two trials. In severe asymptomatic stenosis, revascularization did not improve learning, attention, memory or executive function compared with medical therapy alone, with results maintained at four years. Critical reading: it removes a common argument for intervening; the indication should be discussed only in terms of stroke prevention.
+In carotid disease, the Journal of the American Medical Association published in September the cognitive results of the Crest two trials, with more than two thousand one hundred participants. In severe asymptomatic stenosis, revascularization did not improve learning, attention, memory or executive function compared with medical therapy alone, with results maintained at four years. Critical reading: it removes a common argument for intervening; the indication should be discussed only in terms of stroke prevention.
 
 Finally, Gore started the pivotal study of its Excluder iliac branch endoprosthesis for aortoiliac aneurysms, at about thirty United States sites. Critical reading: this is the start of enrollment, with no clinical data, and it does not change practice.
 

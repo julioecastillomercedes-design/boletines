@@ -1,0 +1,68 @@
+name: Regenerar audios desde guiones
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audio
+  cancel-in-progress: false
+
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Herramientas
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q kokoro-onnx soundfile markdown
+          curl -sSL -o kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+          curl -sSL -o voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+      - name: Sintetizar
+        run: |
+          mkdir -p salida
+          python tools/regen_audio.py ${{ matrix.shard }} 12
+          git status --porcelain -- audio | awk '{print $2}' | xargs -r -I{} cp {} salida/
+          ls salida
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audio-${{ matrix.shard }}
+          path: salida/
+          if-no-files-found: ignore
+
+  publicar:
+    needs: tts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q markdown
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: audio-*
+          path: nuevos
+          merge-multiple: true
+      - name: Publicar
+        run: |
+          ls nuevos | wc -l
+          cp nuevos/*.mp3 audio/ 2>/dev/null || true
+          python build.py
+          git config user.name "Publicador de boletines"
+          git config user.email "julioe.castillomercedes@gmail.com"
+          git add -A audio docs
+          if git diff --cached --quiet; then echo "Nada nuevo"; exit 0; fi
+          git commit -q -m "Audios regenerados desde los guiones corregidos"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 10; done

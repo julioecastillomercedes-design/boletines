@@ -86,6 +86,12 @@ footer p{margin:.3em 0}
 .sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+.subf .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:10px 0 14px}
+.subf label{font-size:.95rem;display:flex;gap:8px;align-items:center}
+.subf label.txt{flex-direction:column;align-items:stretch;gap:4px;margin:8px 0}
+.subf input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.subf button.btn{margin-top:10px;font-size:1rem;padding:11px 20px}
+.subf .priv{font-size:.82rem;color:var(--ink-3);margin-top:10px}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
@@ -117,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="https://boletinesmedicos.com/">Boletines Médicos<small>Aura Celeste</small></a>
-<div class="navs"><nav class="specs" aria-label="Especialidades"><a class="all" href="https://boletinesmedicos.com/#especialidades" style="--h:220">☰ Todas (15)</a><a href="https://boletinesmedicos.com/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/cirugia-general/" style="--h:210">Cirugía general</a><a href="https://boletinesmedicos.com/ginecologia/" style="--h:320">Ginecología</a><a href="https://boletinesmedicos.com/pediatria/" style="--h:150">Pediatría</a><a href="https://boletinesmedicos.com/cardiologia/" style="--h:25">Cardiología</a><a href="https://boletinesmedicos.com/medicina-interna/" style="--h:200">Medicina interna</a><a href="https://boletinesmedicos.com/neurologia/" style="--h:270">Neurología</a><a href="https://boletinesmedicos.com/oncologia/" style="--h:300">Oncología</a><a href="https://boletinesmedicos.com/ortopedia/" style="--h:40">Ortopedia</a><a href="https://boletinesmedicos.com/urologia/" style="--h:185">Urología</a><a href="https://boletinesmedicos.com/gastroenterologia/" style="--h:85">Gastro</a><a href="https://boletinesmedicos.com/nefrologia/" style="--h:230" aria-current="page">Nefrología</a><a href="https://boletinesmedicos.com/neumologia/" style="--h:165">Neumología</a><a href="https://boletinesmedicos.com/endocrinologia/" style="--h:330">Endocrino</a><a href="https://boletinesmedicos.com/emergencias/" style="--h:10">Emergencias</a></nav><a class="lang" href="https://boletinesmedicos.com/en/nephrology/2026-09-29.html" hreflang="en" lang="en">English</a></div>
+<div class="navs"><nav class="specs" aria-label="Especialidades"><a class="all" href="https://boletinesmedicos.com/#especialidades" style="--h:220">☰ Todas (19)</a><a href="https://boletinesmedicos.com/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/hitos/" style="--h:45">Hitos</a><a href="https://boletinesmedicos.com/cirugia-general/" style="--h:210">Cirugía general</a><a href="https://boletinesmedicos.com/ginecologia/" style="--h:320">Ginecología</a><a href="https://boletinesmedicos.com/pediatria/" style="--h:150">Pediatría</a><a href="https://boletinesmedicos.com/cardiologia/" style="--h:25">Cardiología</a><a href="https://boletinesmedicos.com/medicina-interna/" style="--h:200">Medicina interna</a><a href="https://boletinesmedicos.com/neurologia/" style="--h:270">Neurología</a><a href="https://boletinesmedicos.com/oncologia/" style="--h:300">Oncología</a><a href="https://boletinesmedicos.com/ortopedia/" style="--h:40">Ortopedia</a><a href="https://boletinesmedicos.com/urologia/" style="--h:185">Urología</a><a href="https://boletinesmedicos.com/gastroenterologia/" style="--h:85">Gastro</a><a href="https://boletinesmedicos.com/nefrologia/" style="--h:230" aria-current="page">Nefrología</a><a href="https://boletinesmedicos.com/neumologia/" style="--h:165">Neumología</a><a href="https://boletinesmedicos.com/endocrinologia/" style="--h:330">Endocrino</a><a href="https://boletinesmedicos.com/emergencias/" style="--h:10">Emergencias</a><a href="https://boletinesmedicos.com/infectologia/" style="--h:95">Infectología</a><a href="https://boletinesmedicos.com/dermatologia/" style="--h:25">Dermatología</a><a href="https://boletinesmedicos.com/psiquiatria/" style="--h:265">Psiquiatría</a><a href="https://boletinesmedicos.com/reumatologia/" style="--h:340">Reumatología</a></nav><a class="lang" href="https://boletinesmedicos.com/en/nephrology/2026-09-29.html" hreflang="en" lang="en">English</a></div>
 </div></header>
 <main><div class="wrap">
 <article class="issue" style="--h:230">
@@ -144,49 +150,39 @@ Por qué importa: solo hay titular, sin cifras ni revisión por pares, pero es u
 Metaanálisis bayesiano en red (Frontiers in Pharmacology, 24 de septiembre) con seis conjuntos de datos a nivel de ensayo y 20.521 participantes con diabetes tipo 2 y ERC. Frente a placebo, el desenlace renal compuesto se redujo con SGLT2i (HR 0,70; ICr 95 % 0,64–0,76), semaglutida (HR 0,76; 0,66–0,88) y finerenona (HR 0,84; 0,77–0,92).<br>
 Por qué importa: son comparaciones indirectas con pocos ensayos y definiciones heterogéneas del desenlace, así que no sustituyen a un ensayo cara a cara; financiación pública china. Refuerza la jerarquía práctica: SGLT2i primero, y los otros dos como complemento. (Fuente en inglés, grupo de Pekín).<br>
 <a href="https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2026.1882227/full">https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2026.1882227/full</a></p>
-<h3>4. Nueve de cada diez adultos con ERC en Estados Unidos no lo saben</h3>
-<p>[Publicación] [Estados Unidos] [Fuera del periodo: 31 de marzo]<br>
-Según el informe de vigilancia de los CDC "Chronic Kidney Disease in the United States, 2026" (actualizado el 31 de marzo), citado en una entrevista del 24 de septiembre, unos 37 millones de adultos (14 %) tienen ERC y el 87 % lo desconoce; en atención primaria se mide la TFGe anualmente en el 89,5 % de los pacientes con diabetes tipo 2, pero el cociente albúmina/creatinina solo en el 52,9 % (estudio en 24 organizaciones sanitarias, Diabetes Care 2021).<br>
-Por qué importa: son estimaciones de vigilancia y la fuente es una entrevista, pero el mensaje es transferible a nuestro medio: el tamizaje de albuminuria sigue siendo la brecha más grande y más barata de cerrar.<br>
-<a href="https://www.hcplive.com/view/nearly-9-in-10-us-adults-with-ckd-don-t-know-they-have-it-with-pranav-garimella">https://www.hcplive.com/view/nearly-9-in-10-us-adults-with-ckd-don-t-know-they-have-it-with-pranav-garimella</a></p>
 <h2>Diálisis y acceso vascular</h2>
 <p>Este mes no se identificó ningún ensayo aleatorizado nuevo ni aprobación regulatoria verificable en hemodiálisis, diálisis peritoneal o acceso vascular dentro de la ventana. Tampoco se incluye ningún otro ítem en esta sección.</p>
 <h2>Trasplante renal e inmunología</h2>
-<h3>5. Riñón de cerdo editado genéticamente como puente al trasplante humano</h3>
+<h3>4. Riñón de cerdo editado genéticamente como puente al trasplante humano</h3>
 <p>[Publicación] [Estados Unidos]<br>
 Mass General Brigham publicó en The Lancet (comunicado del 3 de septiembre) el primer caso documentado de xenotrasplante renal porcino como puente a un alotrasplante. Un hombre de 66 años recibió el riñón porcino en enero de 2025, estuvo 271 días sin diálisis, superó un rechazo celular temprano y, tras reducir la inmunosupresión por una infección, el injerto desarrolló daño microvascular y falló; en enero de 2026 recibió un riñón de donante fallecido con función inmediata y sin sensibilización.<br>
 Por qué importa: es un solo caso bajo acceso expandido de la FDA, financiado por el Massachusetts General Hospital y eGenesis, pero demuestra que el xenoinjerto puede ganar tiempo sin comprometer el trasplante posterior, algo especialmente relevante donde la lista de espera es larga y la donación escasa.<br>
 <a href="https://doi.org/10.1016/S0140-6736(26)01295-X">https://doi.org/10.1016/S0140-6736(26)01295-X</a><br>
 <a href="https://news.massgeneralbrigham.org/en/pig-kidney-xenotransplant-bridge-to-human-transplant">https://news.massgeneralbrigham.org/en/pig-kidney-xenotransplant-bridge-to-human-transplant</a></p>
-<h3>6. Atacicept en nefropatía por IgA: datos finales a 104 semanas de ORIGIN 3</h3>
+<h3>5. Atacicept en nefropatía por IgA: datos finales a 104 semanas de ORIGIN 3</h3>
 <p>[Industria] [Estados Unidos, multicéntrico]<br>
 Vera Therapeutics comunicó el 15 de septiembre los resultados finales del ensayo de fase 3 ORIGIN 3 (n = 428, aleatorizado 1:1, doble ciego, atacicept 150 mg subcutáneo semanal frente a placebo). Pendiente de TFGe a 104 semanas −0,6 frente a −5,6 ml/min/1,73 m² por año (p &lt; 0,0001); cambio de TFGe a 52 semanas −0,1 frente a −5,7 (diferencia 5,6; IC 95 % 3,7–7,5); progresión renal compuesta 11 frente a 38 eventos (HR 0,24; IC 95 % 0,12–0,48).<br>
 Por qué importa: es nota de prensa sin revisión por pares y financiada por el fabricante; si se confirma, el efecto sobre la pendiente de TFGe es grande, y la solicitud de aprobación plena está prevista para el cuarto trimestre de 2026.<br>
 <a href="https://www.hcplive.com/view/atacicept-cuts-igan-progression-risk-76-in-origin-3-final-data">https://www.hcplive.com/view/atacicept-cuts-igan-progression-risk-76-in-origin-3-final-data</a></p>
 <h2>Lesión renal aguda y cuidados críticos, nefrología pediátrica y genética</h2>
-<h3>7. MERCURI-2: dapagliflozina perioperatoria previene la LRA tras cirugía cardíaca</h3>
-<p>[Ensayo clínico] [Países Bajos] [Fuera del periodo: 30 de julio]<br>
-Ensayo multicéntrico, doble ciego y controlado con placebo (JAMA, número del 1 de septiembre; en línea desde el 30 de julio) con 784 pacientes sometidos a cirugía cardíaca, aleatorizados a dapagliflozina 10 mg en cuatro dosis perioperatorias o placebo. LRA en los primeros 7 días: 28 % frente a 52 % (RR 0,54; IC 95 % 0,45–0,65; p &lt; 0,001).<br>
-Por qué importa: el desenlace es la definición KDIGO de LRA y no diálisis ni mortalidad, pero la reducción relativa del 46 % con una intervención barata y de cuatro dosis es de las mayores vistas en prevención de LRA, y es aplicable de inmediato en los centros dominicanos con cirugía cardíaca.<br>
-<a href="https://jamanetwork.com/journals/jama/article-abstract/2852324">https://jamanetwork.com/journals/jama/article-abstract/2852324</a></p>
-<h3>8. La FDA aprueba obinutuzumab para el síndrome nefrótico idiopático infantil</h3>
+<h3>6. La FDA aprueba obinutuzumab para el síndrome nefrótico idiopático infantil</h3>
 <p>[Regulatorio FDA] [Estados Unidos / Suiza]<br>
 Aprobado el 25 de septiembre para reducir el riesgo de recaída en adultos y niños desde los 2 años con síndrome nefrótico idiopático de inicio en la infancia, frecuentemente recidivante o corticodependiente, en remisión completa. En el fase 3 INShore, frente a micofenolato de mofetilo, la remisión completa a la semana 52 fue del 95 % con obinutuzumab frente al 73 %, según Genentech.<br>
 Por qué importa: ensayo del fabricante (Roche/Genentech) y el comunicado no da tamaño muestral ni diseño detallado, pero según Genentech es la primera terapia aprobada para el síndrome nefrótico idiopático en 70 años y ofrece una alternativa con menos exposición a esteroides; el costo del biológico limitará su uso en nuestro medio.<br>
 <a href="https://www.gene.com/media/statements/ps_092526">https://www.gene.com/media/statements/ps_092526</a></p>
-<h3>9. Inaxaplin en enfermedad renal mediada por APOL1: fase 2b AMPLIFIED</h3>
+<h3>7. Inaxaplin en enfermedad renal mediada por APOL1: fase 2b AMPLIFIED</h3>
 <p>[Industria] [Estados Unidos]<br>
 Vertex comunicó el 22 de septiembre los resultados del estudio de fase 2b de un solo brazo con inaxaplin 45 mg/día durante 13 semanas en 41 pacientes. En la cohorte sin diabetes (albuminuria 0,1–0,42 g/g) el cociente albúmina/creatinina bajó un 42,7 % (IC 95 % −58,3 a −21,1); en la cohorte con diabetes tipo 2 bajó un 17,3 % (IC 95 % −36,3 a +7,2), sin significación. Sin eventos adversos graves relacionados.<br>
 Por qué importa: sin grupo control, muy pocos pacientes, 13 semanas y marcador sustituto; con todo, es la primera diana genética específica en una enfermedad que afecta sobre todo a personas de ascendencia africana, con alta prevalencia potencial en el Caribe. Los datos del análisis intermedio de fase 3 (AMPLITUDE) se esperan a inicios de 2027.<br>
 <a href="https://news.vrtx.com/news-releases/news-release-details/vertex-announces-positive-results-phase-2b-amplified-study">https://news.vrtx.com/news-releases/news-release-details/vertex-announces-positive-results-phase-2b-amplified-study</a></p>
 <h2>Transversal</h2>
-<h3>10. Guía ESC/ERA sobre enfermedad cardiovascular en la ERC y compendio de enfermedades glomerulares de la ASN</h3>
+<h3>8. Guía ESC/ERA sobre enfermedad cardiovascular en la ERC y compendio de enfermedades glomerulares de la ASN</h3>
 <p>[Guía] [Europa / Estados Unidos] [Fuera del periodo: 29 de agosto]<br>
 La Sociedad Europea de Cardiología y la Asociación Renal Europea publicaron el 29 de agosto (European Heart Journal, congreso ESC) la primera guía conjunta sobre enfermedad cardiovascular en la ERC, con el marco "STAMP". Por su parte, la Sociedad Americana de Nefrología presentó el compendio de su Colaborativa de Enfermedades Glomerulares (GD-C), una plataforma sobre vasculitis ANCA, nefropatía por IgA, nefritis lúpica, glomerulopatía C3 y nefropatía membranosa, con vías de derivación, ensayos clave y terapias nuevas.<br>
 Por qué importa: ambos son documentos de consenso, no evidencia nueva; la guía europea fija por fin un estándar compartido cardio-renal y el compendio es una referencia útil para residentes.<br>
 <a href="https://www.hcplive.com/view/faq-understanding-new-esc-era-guideline-on-cardiovascular-disease-and-chronic-kidney-disease">https://www.hcplive.com/view/faq-understanding-new-esc-era-guideline-on-cardiovascular-disease-and-chronic-kidney-disease</a><br>
 <a href="https://www.hcplive.com/view/how-the-asn-s-gd-c-compendium-aims-to-unify-glomerular-disease-care">https://www.hcplive.com/view/how-the-asn-s-gd-c-compendium-aims-to-unify-glomerular-disease-care</a></p>
-<h3>11. América Latina y Asia: congreso brasileño y lista china de medicamentos esenciales</h3>
+<h3>9. América Latina y Asia: congreso brasileño y lista china de medicamentos esenciales</h3>
 <p>[Congreso] [Brasil / China]<br>
 La Sociedad Brasileña de Nefrología celebró el XXXIII Congreso Brasileño de Nefrología del 16 al 19 de septiembre en Belo Horizonte (Minascentro). En China entró en vigor el 1 de septiembre la Lista Nacional de Medicamentos Esenciales 2026 (794 fármacos, 109 más que en 2018), que incorpora finerenona, roxadustat y sevelámero. En Japón, Corea, India, Rusia y Oriente Medio no se encontraron ensayos ni aprobaciones verificables en la ventana.<br>
 Por qué importa: la lista china es política sanitaria, no evidencia, pero muestra cómo los grandes sistemas incorporan los pilares de la nefroprotección al acceso público, algo pendiente en varios países de la región. (Fuentes en portugués y chino).<br>
@@ -221,11 +217,7 @@ https://doi.org/10.1016/S0140-6736(26)01295-X
 n=428: pendiente de TFGe −0,6 vs −5,6 ml/min/año; progresión renal HR 0,24.
 https://www.hcplive.com/view/atacicept-cuts-igan-progression-risk-76-in-origin-3-final-data
 
-🚑 LRA, pediatría y genética
-*MERCURI-2 (JAMA): dapagliflozina perioperatoria en cirugía cardíaca*
-n=784: LRA a 7 días 28% vs 52%, RR 0,54.
-https://jamanetwork.com/journals/jama/article-abstract/2852324
-
+🚑 Pediatría y genética
 *FDA aprueba obinutuzumab en síndrome nefrótico infantil*
 INShore: remisión completa a 52 semanas 95% vs 73% con micofenolato (datos de Genentech).
 https://www.gene.com/media/statements/ps_092526
@@ -238,21 +230,20 @@ https://news.vrtx.com/news-releases/news-release-details/vertex-announces-positi
 
 Boletín completo y audio: https://boletinesmedicos.com/nefrologia/2026-09-29.html
 Boletines Médicos · boletinesmedicos.com</pre></details><details class="wa"><summary>Texto listo para LinkedIn</summary><pre id="x-linkedin">Boletín de nefrología — 29 de septiembre de 2026
-11 ítems verificados del último mes, con fuentes en NEJM, The Lancet, JAMA, Frontiers in Pharmacology y comunicados de la FDA y de las sociedades.
+9 ítems verificados del último mes, con fuentes en NEJM, The Lancet, Frontiers in Pharmacology y comunicados de la FDA y de las sociedades.
 
 Tres que valen el tiempo:
 • La FDA aprobó finerenona en ERC con diabetes tipo 1 (FINE-ONE, n=242): albuminuria −28 % a 6 meses; hiperpotasemia 10 % vs 3 %. Desenlace sustituto y ensayo corto, financiado por el fabricante.
-• MERCURI-2 (JAMA, n=784): cuatro dosis perioperatorias de dapagliflozina redujeron la LRA tras cirugía cardíaca del 52 % al 28 % (RR 0,54). Desenlace por criterios de laboratorio, no diálisis ni mortalidad.
+• Atacicept en nefropatía por IgA (ORIGIN 3, n = 428): pendiente de TFGe a 104 semanas −0,6 frente a −5,6 ml/min/1,73 m² por año; progresión renal compuesta HR 0,24 (IC 95 % 0,12–0,48). Nota de prensa del fabricante, sin revisión por pares.
 • Primer riñón de cerdo usado como puente al trasplante humano (Lancet): 271 días sin diálisis y alotrasplante con función inmediata. Un solo caso, bajo acceso expandido.
 
 Boletín completo, con lectura crítica de cada estudio y enlaces a sus fuentes:
 https://boletinesmedicos.com/nefrologia/2026-09-29.html
-#Nefrología #EnfermedadRenal #Diálisis #TrasplanteRenal #NefropatíaIgA</pre></details><details class="wa"><summary>Texto listo para X (Twitter)</summary><pre id="x-x">Nefrología, septiembre 2026: FDA aprueba finerenona en ERC con diabetes tipo 1 (albuminuria −28 %, n=242). MERCURI-2 (JAMA, n=784): dapagliflozina perioperatoria baja la LRA poscirugía cardíaca de 52 % a 28 %. Boletín: https://boletinesmedicos.com/nefrologia/2026-09-29.html</pre></details></div>
+#Nefrología #EnfermedadRenal #Diálisis #TrasplanteRenal #NefropatíaIgA</pre></details><details class="wa"><summary>Texto listo para X (Twitter)</summary><pre id="x-x">Nefrología, septiembre 2026: FDA aprueba finerenona en ERC con diabetes tipo 1 (albuminuria −28 %, n=242). Atacicept en nefropatía por IgA (ORIGIN 3, n = 428): progresión renal HR 0,24. Boletín: https://boletinesmedicos.com/nefrologia/2026-09-29.html</pre></details></div>
 <section class="sub" id="suscribir" style="--h:230">
 <h2>Reciba cada número por correo</h2>
 <p>Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin anuncios dentro del contenido: si hay un patrocinador, se identifica y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.</p>
-<a class="btn" href="mailto:julioe.castillomercedes@gmail.com?subject=Suscripci%C3%B3n%20a%20Boletines%20M%C3%A9dicos&amp;body=Hola.%20Quiero%20recibir%20por%20correo%20los%20boletines%20de%20estas%20especialidades%20%28borre%20las%20que%20no%20le%20interesen%29%3A%0A-%20Cirug%C3%ADa%20vascular%20y%20endovascular%0A-%20Cirug%C3%ADa%20general%0A-%20Ginecolog%C3%ADa%20y%20obstetricia%0A-%20Pediatr%C3%ADa%0A-%20Cardiolog%C3%ADa%0A-%20Medicina%20interna%0A-%20Neurolog%C3%ADa%0A-%20Oncolog%C3%ADa%0A-%20Ortopedia%20y%20traumatolog%C3%ADa%0A-%20Urolog%C3%ADa%0A-%20Gastroenterolog%C3%ADa%20y%20hepatolog%C3%ADa%0A-%20Nefrolog%C3%ADa%0A-%20Neumolog%C3%ADa%0A-%20Endocrinolog%C3%ADa%20y%20diabetes%0A-%20Emergencias%20y%20medicina%20cr%C3%ADtica%0A%0ANombre%3A%0ACiudad%20o%20instituci%C3%B3n%20%28opcional%29%3A">Suscribirme por correo</a>
-<small>Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.</small>
+<a class="btn" href="https://boletinesmedicos.com/suscribirse.html#formulario">Suscribirme por correo</a>
 </section>
 <div class="prevnext"><span></span><a href="https://boletinesmedicos.com/nefrologia/2026-10-08.html">8 de octubre de 2026 →</a></div>
 </article>

@@ -86,6 +86,12 @@ footer p{margin:.3em 0}
 .sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+.subf .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:10px 0 14px}
+.subf label{font-size:.95rem;display:flex;gap:8px;align-items:center}
+.subf label.txt{flex-direction:column;align-items:stretch;gap:4px;margin:8px 0}
+.subf input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.subf button.btn{margin-top:10px;font-size:1rem;padding:11px 20px}
+.subf .priv{font-size:.82rem;color:var(--ink-3);margin-top:10px}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
@@ -117,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="https://boletinesmedicos.com/">Boletines Médicos<small>Aura Celeste</small></a>
-<div class="navs"><nav class="specs" aria-label="Especialidades"><a class="all" href="https://boletinesmedicos.com/#especialidades" style="--h:220">☰ Todas (15)</a><a href="https://boletinesmedicos.com/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/cirugia-general/" style="--h:210">Cirugía general</a><a href="https://boletinesmedicos.com/ginecologia/" style="--h:320">Ginecología</a><a href="https://boletinesmedicos.com/pediatria/" style="--h:150">Pediatría</a><a href="https://boletinesmedicos.com/cardiologia/" style="--h:25">Cardiología</a><a href="https://boletinesmedicos.com/medicina-interna/" style="--h:200">Medicina interna</a><a href="https://boletinesmedicos.com/neurologia/" style="--h:270">Neurología</a><a href="https://boletinesmedicos.com/oncologia/" style="--h:300">Oncología</a><a href="https://boletinesmedicos.com/ortopedia/" style="--h:40">Ortopedia</a><a href="https://boletinesmedicos.com/urologia/" style="--h:185">Urología</a><a href="https://boletinesmedicos.com/gastroenterologia/" style="--h:85">Gastro</a><a href="https://boletinesmedicos.com/nefrologia/" style="--h:230" aria-current="page">Nefrología</a><a href="https://boletinesmedicos.com/neumologia/" style="--h:165">Neumología</a><a href="https://boletinesmedicos.com/endocrinologia/" style="--h:330">Endocrino</a><a href="https://boletinesmedicos.com/emergencias/" style="--h:10">Emergencias</a></nav><a class="lang" href="https://boletinesmedicos.com/en/nephrology/2026-10-08.html" hreflang="en" lang="en">English</a></div>
+<div class="navs"><nav class="specs" aria-label="Especialidades"><a class="all" href="https://boletinesmedicos.com/#especialidades" style="--h:220">☰ Todas (19)</a><a href="https://boletinesmedicos.com/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/hitos/" style="--h:45">Hitos</a><a href="https://boletinesmedicos.com/cirugia-general/" style="--h:210">Cirugía general</a><a href="https://boletinesmedicos.com/ginecologia/" style="--h:320">Ginecología</a><a href="https://boletinesmedicos.com/pediatria/" style="--h:150">Pediatría</a><a href="https://boletinesmedicos.com/cardiologia/" style="--h:25">Cardiología</a><a href="https://boletinesmedicos.com/medicina-interna/" style="--h:200">Medicina interna</a><a href="https://boletinesmedicos.com/neurologia/" style="--h:270">Neurología</a><a href="https://boletinesmedicos.com/oncologia/" style="--h:300">Oncología</a><a href="https://boletinesmedicos.com/ortopedia/" style="--h:40">Ortopedia</a><a href="https://boletinesmedicos.com/urologia/" style="--h:185">Urología</a><a href="https://boletinesmedicos.com/gastroenterologia/" style="--h:85">Gastro</a><a href="https://boletinesmedicos.com/nefrologia/" style="--h:230" aria-current="page">Nefrología</a><a href="https://boletinesmedicos.com/neumologia/" style="--h:165">Neumología</a><a href="https://boletinesmedicos.com/endocrinologia/" style="--h:330">Endocrino</a><a href="https://boletinesmedicos.com/emergencias/" style="--h:10">Emergencias</a><a href="https://boletinesmedicos.com/infectologia/" style="--h:95">Infectología</a><a href="https://boletinesmedicos.com/dermatologia/" style="--h:25">Dermatología</a><a href="https://boletinesmedicos.com/psiquiatria/" style="--h:265">Psiquiatría</a><a href="https://boletinesmedicos.com/reumatologia/" style="--h:340">Reumatología</a></nav><a class="lang" href="https://boletinesmedicos.com/en/nephrology/2026-10-08.html" hreflang="en" lang="en">English</a></div>
 </div></header>
 <main><div class="wrap">
 <article class="issue" style="--h:230">
@@ -126,11 +132,11 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 
 <div class="listen" style="--h:230"><button class="play" type="button" onclick="tocar(this)" aria-label="Escuchar el boletín: Nefrología, 8 de octubre de 2026" data-play="Escuchar el boletín: Nefrología, 8 de octubre de 2026" data-pause="Pausa: Nefrología, 8 de octubre de 2026"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><div class="lb"><strong>🎧 Escuchar el boletín</strong><span>Noticiero en audio · 6 min</span><audio controls preload="none" src="https://boletinesmedicos.com/audio/nefrologia-2026-10-08.mp3"></audio><div class="dl"><a href="https://boletinesmedicos.com/audio/nefrologia-2026-10-08.mp3" download>Descargar MP3</a><a href="https://wa.me/?text=Boletín de nefrología — 8 de octubre de 2026%20https://boletinesmedicos.com/audio/nefrologia-2026-10-08.mp3" target="_blank" rel="noopener">Enviar audio por WhatsApp</a></div></div></div>
 <div class="tools"><button class="btn" style="--h:230" onclick="copiar('x-whatsapp')">Copiar texto para WhatsApp</button><button class="btn secondary" style="--h:230" onclick="copiar('x-linkedin')">Copiar para LinkedIn</button><button class="btn secondary" style="--h:230" onclick="copiar('x-x')">Copiar para X</button><button class="btn secondary" style="--h:230" onclick="compartir("Bolet\u00edn de nefrolog\u00eda \u2014 8 de octubre de 2026","https://boletinesmedicos.com/nefrologia/2026-10-08.html")">Compartir enlace</button></div>
-<p>Periodo cubierto: del 8 de septiembre al 8 de octubre de 2026. Mes dominado por datos y decisiones regulatorias en glomerulopatías (atacicept a dos años, iptacopan en Japón, obinutuzumab en síndrome nefrótico) y por la ampliación de la finerenona a la diabetes tipo 1. En diálisis y accesos vasculares no encontramos ensayos aleatorizados verificables publicados en la ventana; el grueso llegará con ASN Kidney Week (21–25 de octubre). Doce ítems verificados; tres de ellos de fuera de Norteamérica y Europa occidental (Japón, Brasil y un congreso en Australia). Buscamos también en chino, coreano, ruso, árabe, turco y alemán sin hallar ítems verificables y fechados dentro del mes.</p>
+<p>Periodo cubierto: del 8 de septiembre al 8 de octubre de 2026. Mes dominado por datos y decisiones regulatorias en glomerulopatías (atacicept a dos años, iptacopan en Japón, obinutuzumab en síndrome nefrótico) y por la ampliación de la finerenona a la diabetes tipo 1. En diálisis y accesos vasculares no encontramos ensayos aleatorizados verificables publicados en la ventana; el grueso llegará con ASN Kidney Week (21–25 de octubre). Once ítems verificados; dos de ellos de fuera de Norteamérica y Europa occidental (Japón y un congreso en Australia). Buscamos también en chino, coreano, ruso, árabe, turco y alemán sin hallar ítems verificables y fechados dentro del mes.</p>
 <h2>1. Enfermedad renal crónica y nefroprotección</h2>
 <h3>1. La FDA aprueba finerenona para la ERC asociada a diabetes tipo 1</h3>
 <p>[Regulatorio FDA] [EE. UU.]<br>
-El 17 de septiembre de 2026 la FDA amplió la indicación de finerenona (Kerendia, Bayer) para reducir el cociente albúmina/creatinina urinario (UACR) en adultos con ERC asociada a diabetes tipo 1. La base es FINE-ONE, ensayo fase III aleatorizado, doble ciego, con 242 adultos (finerenona 10–20 mg vs placebo sobre tratamiento estándar): el UACR bajó 22 % más que con placebo al mes 3 y 28 % al mes 6. Hiperpotasemia 10,1 % vs 3,3 %; suspensión por hiperpotasemia 1,7 % vs 0 %.<br>
+Bayer anunció el 16 de septiembre de 2026 (nota de EE. UU.; la nota global es del 17) que la FDA amplió la indicación de finerenona (Kerendia, Bayer) para reducir el cociente albúmina/creatinina urinario (UACR) en adultos con ERC asociada a diabetes tipo 1. La base es FINE-ONE, ensayo fase III aleatorizado, doble ciego, con 242 adultos (finerenona 10–20 mg vs placebo sobre tratamiento estándar): el UACR bajó 22 % más que con placebo al mes 3 y 28 % al mes 6. Hiperpotasemia 10,1 % vs 3,3 %; suspensión por hiperpotasemia 1,7 % vs 0 %.<br>
 Por qué importa: según Bayer, es el primer tratamiento nuevo en más de 30 años para la ERC asociada a diabetes tipo 1, pero se aprobó con un desenlace subrogado (albuminuria) a seis meses, sin datos de eventos renales duros; exige vigilancia de potasio y su acceso en República Dominicana dependerá del costo.<br>
 <a href="https://www.bayer.com/media/download/70002395-c6bf-49a2-bba3-d77d3d2701dd/2026-0141e.pdf">https://www.bayer.com/media/download/70002395-c6bf-49a2-bba3-d77d3d2701dd/2026-0141e.pdf</a><br>
 <a href="https://pharmexec.com/view/fda-approves-kerendia-adults-chronic-kidney-disease-type-diabetes">https://pharmexec.com/view/fda-approves-kerendia-adults-chronic-kidney-disease-type-diabetes</a></p>
@@ -139,61 +145,55 @@ Por qué importa: según Bayer, es el primer tratamiento nuevo en más de 30 añ
 Encuesta en línea a 61 profesionales de nefrología de EE. UU. (44 nefrólogos y 17 de práctica avanzada), publicada en Kidney Medicine (vol. 8, n.º 10) y difundida el 8 de octubre. El costo fue la barrera principal para los agonistas GLP-1 (84 %), los iSGLT2 (74 %) y los ARM no esteroideos (57 %). En pacientes con ERC estadio 3 y diabetes tipo 2 (2019–2024), solo 40 % usaba iSGLT2, 33 % GLP-1 y menos de 2 % ARM no esteroideos.<br>
 Por qué importa: muestra pequeña y autoseleccionada, con tasa de respuesta no calculable; aun así confirma que la brecha entre evidencia y prescripción es económica, un problema que en nuestro medio es todavía mayor.<br>
 <a href="https://ajmc.com/view/cost-top-barrier-to-ckd-drug-access">https://ajmc.com/view/cost-top-barrier-to-ckd-drug-access</a></p>
-<h3>3. Brasil: menos del 7 % de los pacientes con diabetes o hipertensión tiene albuminuria solicitada</h3>
-<p>[Publicación] [Brasil] [Fuera del periodo: 26 de enero]<br>
-Estudio SEARCH, de un grupo multicéntrico brasileño (PUCPR, Unicamp, UFRGS, Escola Bahiana, Dante Pazzanese y Arbor Research), publicado en línea el 26 de enero de 2026 en el Brazilian Journal of Nephrology y difundido en prensa el 16 de septiembre. En más de 14 000 personas con diabetes o hipertensión sin ERC conocida, menos del 5 % tenía UACR solicitado (según la cobertura de prensa, entre quienes tenían creatinina solicitada); tras una campaña nacional de tamizaje, la cifra no superó el 7 %.<br>
-Por qué importa: el diseño es transversal y observacional, y el resumen no precisa el denominador de los porcentajes, pero el mensaje es extrapolable a República Dominicana: sin albuminuria no hay diagnóstico temprano ni indicación correcta de iSGLT2 o finerenona. (fuente en portugués)<br>
-<a href="https://jornaldomedico.com.br/2026/09/16/estudo-revela-subdiagnostico-da-doenca-renal-cronica-no-brasil">https://jornaldomedico.com.br/2026/09/16/estudo-revela-subdiagnostico-da-doenca-renal-cronica-no-brasil</a><br>
-<a href="https://www.bjnephrology.org/en/article/screening-for-ckd-in-undiagnosed-populations-with-diabetes-andhypertension-lessons-from-the-search-study/">https://www.bjnephrology.org/en/article/screening-for-ckd-in-undiagnosed-populations-with-diabetes-andhypertension-lessons-from-the-search-study/</a></p>
 <h2>2. Diálisis y accesos vasculares</h2>
 <p>Mes flojo: no encontramos ensayos aleatorizados ni aprobaciones de dispositivos de diálisis o accesos vasculares verificables y fechados dentro de la ventana. El ensayo VOICE (vadadustat tres veces por semana vs agentes estimulantes de la eritropoyesis en hemodiálisis) se presentará como resultado de último minuto en Kidney Week el 23 de octubre; lo cubriremos el próximo mes.</p>
 <h2>3. Trasplante renal</h2>
-<h3>4. Xenotrasplante renal porcino como puente al trasplante humano: primer caso publicado</h3>
+<h3>3. Xenotrasplante renal porcino como puente al trasplante humano: primer caso publicado</h3>
 <p>[Publicación] [EE. UU.] [Fuera del periodo: 3 de septiembre]<br>
 The Lancet publicó el 3 de septiembre el caso del Massachusetts General Hospital: un hombre de 66 años vivió 271 días sin diálisis con un riñón de cerdo editado genéticamente (trasplantado en enero de 2025). Hacia el sexto mes, al reducir la inmunosupresión por una infección, el xenoinjerto desarrolló lesión microvascular e inflamación que progresó a falla; en enero de 2026 recibió un riñón de donante fallecido con función inmediata y sin sensibilización detectada.<br>
 Por qué importa: es un caso único (n = 1) y la ventana es de 35 días, pero demuestra por primera vez que el xenotrasplante puede servir de puente sin cerrar la puerta al alotrasplante; todavía es experimental y lejano para nuestra región.<br>
 <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)01295-X/abstract">https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)01295-X/abstract</a><br>
 <a href="https://www.eurekalert.org/news-releases/1142310">https://www.eurekalert.org/news-releases/1142310</a></p>
-<h3>5. Tegoprubart (anti-CD40L) mantiene mejor filtrado que tacrolimus a 24 meses</h3>
+<h3>4. Tegoprubart (anti-CD40L) mantiene mejor filtrado que tacrolimus a 24 meses</h3>
 <p>[Congreso] [Australia]<br>
 En el Congreso Internacional de The Transplantation Society (Sídney, 20–23 de septiembre) Eledon presentó la extensión del estudio fase II BESTOW: 81 pacientes seguidos a 24 meses. El TFGe medio fue de 71 vs 58 mL/min/1,73 m² con tacrolimus (diferencia ≈13; IC 95 %: 2,6–23,3); no hubo rechazo agudo comprobado por biopsia después del sexto mes con tegoprubart frente a siete casos con tacrolimus. El fase III LEGACY (≈600 pacientes, no inferioridad) arrancaría en el cuarto trimestre de 2026.<br>
 Por qué importa: datos del fabricante en nota de prensa, fase II y con desgaste de la cohorte; promete un esquema sin inhibidor de calcineurina, pero no cambia la práctica hasta que LEGACY confirme seguridad y no inferioridad.<br>
 <a href="https://www.globenewswire.com/news-release/2026/09/22/3366123/0/en/eledon-presents-updated-long-term-phase-2-bestow-extension-study-results-at-the-international-congress-of-the-transplantation-society.html">https://www.globenewswire.com/news-release/2026/09/22/3366123/0/en/eledon-presents-updated-long-term-phase-2-bestow-extension-study-results-at-the-international-congress-of-the-transplantation-society.html</a></p>
-<h3>6. Trasplante de donante fallecido en mayores de 75 años: más mortalidad temprana, más supervivencia a largo plazo</h3>
+<h3>5. Trasplante de donante fallecido en mayores de 75 años: más mortalidad temprana, más supervivencia a largo plazo</h3>
 <p>[Publicación] [EE. UU.]<br>
 AJKD (número de octubre) publica una emulación de ensayo diana (Leeaphorn y cols.) que compara trasplante de donante fallecido frente a seguir en diálisis en pacientes de 75 años o más. Los trasplantados tuvieron mayor mortalidad en los primeros meses, pero quienes superaron ese periodo vivieron más; la ventaja de supervivencia se hizo evidente a partir de unos tres años.<br>
 Por qué importa: diseño observacional con riesgo de confusión residual, pero respalda no excluir de la lista solo por la edad, siempre que la expectativa de vida supere ese horizonte de tres años.<br>
 <a href="https://www.ajkd.org/article/S0272-6386(26)00924-8/fulltext">https://www.ajkd.org/article/S0272-6386(26)00924-8/fulltext</a></p>
 <h2>4. Glomerulopatías, lesión renal aguda y nefrología en el trópico</h2>
-<h3>7. ORIGIN 3: atacicept estabiliza el filtrado a dos años en nefropatía IgA</h3>
+<h3>6. ORIGIN 3: atacicept estabiliza el filtrado a dos años en nefropatía IgA</h3>
 <p>[Industria] [EE. UU. / multinacional]<br>
 Vera Therapeutics comunicó el 15 de septiembre el análisis final de eficacia de ORIGIN 3 (428 pacientes): pendiente de TFGe a 104 semanas de −0,6 con atacicept frente a −5,6 mL/min/1,73 m²/año con placebo (diferencia 5,0; p &lt; 0,0001). Los eventos de progresión renal fueron 11 vs 38 (HR 0,24; reducción del riesgo de 76 %) y diálisis, trasplante o muerte 0 vs 8. Reacciones en el lugar de inyección en el 19 % vs 2 %.<br>
 Por qué importa: aporta datos de función renal a dos años de un inhibidor dual BAFF/APRIL, lo que podría convertir su aprobación acelerada (julio) en definitiva; aún son datos de nota de prensa, sin publicación revisada por pares.<br>
 <a href="https://www.globenewswire.com/news-release/2026/09/15/3361855/0/en/vera-therapeutics-announces-trutakna-atacicept-vymj-stabilized-egfr-and-prevented-kidney-disease-progression-through-two-years-in-origin-3-final-efficacy-analysis-in-iga-nephropath.html">https://www.globenewswire.com/news-release/2026/09/15/3361855/0/en/vera-therapeutics-announces-trutakna-atacicept-vymj-stabilized-egfr-and-prevented-kidney-disease-progression-through-two-years-in-origin-3-final-efficacy-analysis-in-iga-nephropath.html</a></p>
-<h3>8. Japón aprueba iptacopan para la nefropatía IgA del adulto</h3>
+<h3>7. Japón aprueba iptacopan para la nefropatía IgA del adulto</h3>
 <p>[Regulatorio PMDA] [Japón]<br>
 La PMDA registra el 16 de septiembre la aprobación de la ampliación en Japón de la indicación de iptacopan (Fabhalta), inhibidor oral del factor B del complemento, a la nefropatía IgA del adulto. La aprobación se basa en el ensayo internacional fase III APPLAUSE-IgAN; según la compañía, redujo un 43 % el riesgo de progresión a insuficiencia renal y un 49,3 % la caída de la función renal.<br>
 Por qué importa: Japón tiene una de las mayores prevalencias de nefropatía IgA del mundo y suma un regulador más a esta opción oral; las cifras son las comunicadas por el fabricante y conviene contrastarlas con la publicación final del ensayo. (fuente en japonés)<br>
 <a href="https://www.pmda.go.jp/PmdaSearch/iyakuDetail/GeneralList/3999064">https://www.pmda.go.jp/PmdaSearch/iyakuDetail/GeneralList/3999064</a><br>
 <a href="https://iyakutsushinsha.com/2026/09/17/%E3%83%95%E3%82%A1%E3%83%93%E3%83%8F%E3%83%AB%E3%82%BF%E3%80%80iga%E8%85%8E%E7%97%87%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E5%8A%B9%E8%83%BD%E3%83%BB%E5%8A%B9%E6%9E%9C%E3%81%A7%E9%81%A9%E5%BF%9C/">https://iyakutsushinsha.com/2026/09/17/%E3%83%95%E3%82%A1%E3%83%93%E3%83%8F%E3%83%AB%E3%82%BF%E3%80%80iga%E8%85%8E%E7%97%87%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E5%8A%B9%E8%83%BD%E3%83%BB%E5%8A%B9%E6%9E%9C%E3%81%A7%E9%81%A9%E5%BF%9C/</a></p>
-<h3>9. La FDA aprueba obinutuzumab para prevenir recaídas en el síndrome nefrótico idiopático</h3>
+<h3>8. La FDA aprueba obinutuzumab para prevenir recaídas en el síndrome nefrótico idiopático</h3>
 <p>[Regulatorio FDA] [EE. UU.]<br>
 El 25 de septiembre la FDA aprobó obinutuzumab (Gazyva, Genentech/Roche) para prevenir recaídas en el síndrome nefrótico idiopático de inicio en la infancia, con recaídas frecuentes o corticodependencia, en remisión completa, en pacientes de 2 años o más. En el ensayo INShore (85 pacientes de 2 a 25 años), la remisión completa sostenida a la semana 52 fue de 95,5 % vs 73,2 % con micofenolato (diferencia ajustada 23,4 %; p = 0,003).<br>
 Por qué importa: es la primera terapia nueva aprobada en décadas para esta enfermedad y ahorra corticoides; ensayo pequeño, con seguimiento de un año y costo alto; los nefrólogos de adultos verán a estos pacientes en la transición.<br>
 <a href="https://www.hcplive.com/view/fda-approves-obinutuzumab-gazyva-for-idiopathic-nephrotic-syndrome">https://www.hcplive.com/view/fda-approves-obinutuzumab-gazyva-for-idiopathic-nephrotic-syndrome</a><br>
 <a href="https://www.gene.com/media/statements/ps_092526">https://www.gene.com/media/statements/ps_092526</a></p>
-<h3>10. La nefropatía mesoamericana aparece en trabajadores jóvenes de Texas</h3>
+<h3>9. La nefropatía mesoamericana aparece en trabajadores jóvenes de Texas</h3>
 <p>[Publicación] [EE. UU. / Mesoamérica]<br>
 Coberturas del 16 de septiembre, basadas en un reportaje de Texas Monthly, describen hombres sanos de 20 a 39 años, sobre todo trabajadores migrantes de México y Centroamérica en construcción y techado, que llegan con insuficiencia renal sin diabetes ni hipertensión a hospitales públicos de Houston. Una revisión de Texas Monthly de registros hospitalarios del condado de Harris halló que cerca de uno de cada seis casos de diálisis de emergencia en pacientes sin seguro o indocumentados no tenía causa identificable.<br>
 Por qué importa: es información periodística, no un estudio revisado por pares, pero refuerza el vínculo entre calor, trabajo físico y ERC de causa no tradicional que también vemos en Centroamérica y el Caribe; conviene preguntar por la ocupación y la exposición al calor en todo paciente joven con ERC sin causa clara.<br>
 <a href="https://www.fox10phoenix.com/news/mysterious-disease-sending-young-healthy-texas-workers-kidney-failure">https://www.fox10phoenix.com/news/mysterious-disease-sending-young-healthy-texas-workers-kidney-failure</a></p>
 <h2>Transversal</h2>
-<h3>11. Un "nefrólogo virtual" con IA para hablar de trasplante con pacientes con ERC avanzada</h3>
+<h3>10. Un "nefrólogo virtual" con IA para hablar de trasplante con pacientes con ERC avanzada</h3>
 <p>[Publicación] [EE. UU.]<br>
 AJKD (octubre) describe una herramienta de Reese y cols. que usa IA e información de trasplante para simular, en video, una consulta con un nefrólogo; el paciente elige entre cuatro nefrólogos de distintos perfiles y la usa desde el teléfono o la computadora. Tras usarla, los participantes declararon más disposición a hablar de trasplante con su médico.<br>
 Por qué importa: desenlace autorreferido y sin grupo control descrito; es una idea útil para educación de pacientes, pero falta demostrar que aumente las evaluaciones o los trasplantes reales.<br>
 <a href="https://www.ajkd.org/article/S0272-6386(26)00994-7/fulltext">https://www.ajkd.org/article/S0272-6386(26)00994-7/fulltext</a></p>
-<h3>12. Kidney Week 2026 anuncia el resultado de VOICE (vadadustat en hemodiálisis)</h3>
+<h3>11. Kidney Week 2026 anuncia el resultado de VOICE (vadadustat en hemodiálisis)</h3>
 <p>[Industria] [EE. UU.]<br>
 Akebia anunció el 6 de octubre que U.S. Renal Care presentará el 23 de octubre, en ASN Kidney Week (Denver), el ensayo VOICE: seguridad de vadadustat tres veces por semana frente a un agente estimulante de la eritropoyesis en hemodiálisis en centro. No se han revelado resultados.<br>
 Por qué importa: es solo un anuncio, pero el resultado definirá si los inhibidores de la HIF-PH ganan espacio en la anemia de la diálisis; lo revisaremos en el próximo número.<br>
@@ -211,10 +211,6 @@ Saludos, colegas. Lo más relevante del 8 de septiembre al 8 de octubre.
 *Finerenona aprobada por la FDA en ERC con diabetes tipo 1*
 FINE-ONE, 242 pacientes: UACR 28 % menor que placebo a 6 meses; hiperpotasemia 10 % vs 3 %.
 https://pharmexec.com/view/fda-approves-kerendia-adults-chronic-kidney-disease-type-diabetes
-
-*Brasil: casi nadie mide albuminuria*
-Más de 14 000 diabéticos o hipertensos: menos del 7 % con UACR solicitado.
-https://jornaldomedico.com.br/2026/09/16/estudo-revela-subdiagnostico-da-doenca-renal-cronica-no-brasil
 
 🫀 *Trasplante*
 *Riñón de cerdo como puente al trasplante humano*
@@ -246,7 +242,7 @@ https://www.fox10phoenix.com/news/mysterious-disease-sending-young-healthy-texas
 
 Boletín completo y audio: https://boletinesmedicos.com/nefrologia/2026-10-08.html
 Boletines Médicos · boletinesmedicos.com</pre></details><details class="wa"><summary>Texto listo para LinkedIn</summary><pre id="x-linkedin">Boletín de nefrología — 8 de octubre de 2026
-12 ítems verificados del último mes (The Lancet, AJKD, Brazilian Journal of Nephrology, Kidney Medicine, decisiones de FDA y del regulador japonés y datos de congreso).
+11 ítems verificados del último mes (The Lancet, AJKD, Kidney Medicine, decisiones de FDA y del regulador japonés y datos de congreso).
 Tres que valen el tiempo:
 • ORIGIN 3: atacicept en nefropatía IgA, pendiente de TFGe −0,6 vs −5,6 mL/min/1,73 m²/año a dos años y HR 0,24 para progresión. Aún es nota de prensa, sin revisión por pares.
 • Finerenona aprobada por la FDA en ERC con diabetes tipo 1: UACR −28 % vs placebo a 6 meses (FINE-ONE, n=242). Desenlace subrogado e hiperpotasemia 10 % vs 3 %.
@@ -257,8 +253,7 @@ https://boletinesmedicos.com/nefrologia/2026-10-08.html
 <section class="sub" id="suscribir" style="--h:230">
 <h2>Reciba cada número por correo</h2>
 <p>Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin anuncios dentro del contenido: si hay un patrocinador, se identifica y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.</p>
-<a class="btn" href="mailto:julioe.castillomercedes@gmail.com?subject=Suscripci%C3%B3n%20a%20Boletines%20M%C3%A9dicos&amp;body=Hola.%20Quiero%20recibir%20por%20correo%20los%20boletines%20de%20estas%20especialidades%20%28borre%20las%20que%20no%20le%20interesen%29%3A%0A-%20Cirug%C3%ADa%20vascular%20y%20endovascular%0A-%20Cirug%C3%ADa%20general%0A-%20Ginecolog%C3%ADa%20y%20obstetricia%0A-%20Pediatr%C3%ADa%0A-%20Cardiolog%C3%ADa%0A-%20Medicina%20interna%0A-%20Neurolog%C3%ADa%0A-%20Oncolog%C3%ADa%0A-%20Ortopedia%20y%20traumatolog%C3%ADa%0A-%20Urolog%C3%ADa%0A-%20Gastroenterolog%C3%ADa%20y%20hepatolog%C3%ADa%0A-%20Nefrolog%C3%ADa%0A-%20Neumolog%C3%ADa%0A-%20Endocrinolog%C3%ADa%20y%20diabetes%0A-%20Emergencias%20y%20medicina%20cr%C3%ADtica%0A%0ANombre%3A%0ACiudad%20o%20instituci%C3%B3n%20%28opcional%29%3A">Suscribirme por correo</a>
-<small>Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.</small>
+<a class="btn" href="https://boletinesmedicos.com/suscribirse.html#formulario">Suscribirme por correo</a>
 </section>
 <div class="prevnext"><a href="https://boletinesmedicos.com/nefrologia/2026-09-29.html">← 29 de septiembre de 2026</a><span></span></div>
 </article>

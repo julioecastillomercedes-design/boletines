@@ -8,6 +8,7 @@ Entrada (carpeta descargada de Drive, argumento 1):
   <esp>-<AAAA-MM-DD>.en.v.md         boletín en inglés VERIFICADO
   <esp>-<AAAA-MM-DD>.v.guion.txt     guion verificado del noticiero en español (un párrafo por bloque)
   <esp>-<AAAA-MM-DD>.en.v.guion.txt  guion verificado del noticiero en inglés
+  <esp>-<AAAA-MM-DD>-viene.v.md (y .en.v.md, .v.guion.txt, .en.v.guion.txt): sección «Lo que viene»
   (Los borradores sin ".v" que dejan los bots NO se publican.)
 Salida: issues/<esp>/<fecha>(.en).md y audio/<esp>-<fecha>(-en).mp3
 Nunca sobrescribe un número o un audio que ya esté en el repositorio (ni los borra de Drive).
@@ -25,11 +26,12 @@ CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SPECS = set(CFG["specialties"])
 # Solo se publican archivos VERIFICADOS (sufijo ".v"): el verificador los crea tras cotejar
 # cada cifra, fecha y población con su fuente. Los borradores de los bots (sin ".v") se ignoran.
-NAME = re.compile(r"^(?P<esp>[a-z-]+?)-(?P<fecha>\d{4}-\d{2}-\d{2})(?P<en>\.en)?\.v(?P<guion>\.guion\.txt|\.md)$")
+NAME = re.compile(r"^(?P<esp>[a-z-]+?)-(?P<fecha>\d{4}-\d{2}-\d{2})(?P<viene>-viene)?(?P<en>\.en)?\.v(?P<guion>\.guion\.txt|\.md)$")
 
 # Líneas que nunca deben llegar a la página pública
 LIMPIAR = re.compile(r"^(audio_url:.*|.*claude\.ai/artifact.*|Versión en audio.*|Audio version.*|"
-                     r"Enviado por el Dr\..*|Sent by Dr\..*|Boletín completo en el correo|Full bulletin in the email)\s*$",
+                     r"Enviado por el Dr\..*|Sent by Dr\..*|Boletín completo en el correo|Full bulletin in the email|"
+                     r"</?(content|invoke|parameter|antml:[a-z_]+)\b[^>]*>)\s*$",
                      re.M | re.I)
 
 
@@ -112,7 +114,8 @@ def main(entrada: Path) -> None:
         m = NAME.match(f.name)
         if not f.is_file() or not m or m["esp"] not in SPECS:
             continue
-        esp, fecha, en = m["esp"], m["fecha"], bool(m["en"])
+        esp, en = m["esp"], bool(m["en"])
+        fecha = m["fecha"] + (m["viene"] or "")   # "<fecha>" o "<fecha>-viene" (sección «Lo que viene»)
         if m["guion"] == ".md":
             dest = ROOT / "issues" / esp / f"{fecha}{'.en' if en else ''}.md"
             if dest.exists():

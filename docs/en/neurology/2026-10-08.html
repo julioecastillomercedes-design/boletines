@@ -86,6 +86,12 @@ footer p{margin:.3em 0}
 .sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+.subf .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:10px 0 14px}
+.subf label{font-size:.95rem;display:flex;gap:8px;align-items:center}
+.subf label.txt{flex-direction:column;align-items:stretch;gap:4px;margin:8px 0}
+.subf input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.subf button.btn{margin-top:10px;font-size:1rem;padding:11px 20px}
+.subf .priv{font-size:.82rem;color:var(--ink-3);margin-top:10px}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
@@ -117,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="https://boletinesmedicos.com/en/">MedBulletins<small>Aura Celeste</small></a>
-<div class="navs"><nav class="specs" aria-label="Specialties"><a class="all" href="https://boletinesmedicos.com/en/#especialidades" style="--h:220">☰ All (15)</a><a href="https://boletinesmedicos.com/en/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/en/general-surgery/" style="--h:210">General surgery</a><a href="https://boletinesmedicos.com/en/obgyn/" style="--h:320">OB/GYN</a><a href="https://boletinesmedicos.com/en/pediatrics/" style="--h:150">Pediatrics</a><a href="https://boletinesmedicos.com/en/cardiology/" style="--h:25">Cardiology</a><a href="https://boletinesmedicos.com/en/internal-medicine/" style="--h:200">Internal medicine</a><a href="https://boletinesmedicos.com/en/neurology/" style="--h:270" aria-current="page">Neurology</a><a href="https://boletinesmedicos.com/en/oncology/" style="--h:300">Oncology</a><a href="https://boletinesmedicos.com/en/orthopedics/" style="--h:40">Orthopedics</a><a href="https://boletinesmedicos.com/en/urology/" style="--h:185">Urology</a><a href="https://boletinesmedicos.com/en/gastroenterology/" style="--h:85">GI</a><a href="https://boletinesmedicos.com/en/nephrology/" style="--h:230">Nephrology</a><a href="https://boletinesmedicos.com/en/pulmonology/" style="--h:165">Pulmonology</a><a href="https://boletinesmedicos.com/en/endocrinology/" style="--h:330">Endocrinology</a><a href="https://boletinesmedicos.com/en/emergency-medicine/" style="--h:10">Emergency &amp; ICU</a></nav><a class="lang" href="https://boletinesmedicos.com/neurologia/2026-10-08.html" hreflang="es" lang="es">Español</a></div>
+<div class="navs"><nav class="specs" aria-label="Specialties"><a class="all" href="https://boletinesmedicos.com/en/#especialidades" style="--h:220">☰ All (19)</a><a href="https://boletinesmedicos.com/en/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/en/milestones/" style="--h:45">Milestones</a><a href="https://boletinesmedicos.com/en/general-surgery/" style="--h:210">General surgery</a><a href="https://boletinesmedicos.com/en/obgyn/" style="--h:320">OB/GYN</a><a href="https://boletinesmedicos.com/en/pediatrics/" style="--h:150">Pediatrics</a><a href="https://boletinesmedicos.com/en/cardiology/" style="--h:25">Cardiology</a><a href="https://boletinesmedicos.com/en/internal-medicine/" style="--h:200">Internal medicine</a><a href="https://boletinesmedicos.com/en/neurology/" style="--h:270" aria-current="page">Neurology</a><a href="https://boletinesmedicos.com/en/oncology/" style="--h:300">Oncology</a><a href="https://boletinesmedicos.com/en/orthopedics/" style="--h:40">Orthopedics</a><a href="https://boletinesmedicos.com/en/urology/" style="--h:185">Urology</a><a href="https://boletinesmedicos.com/en/gastroenterology/" style="--h:85">GI</a><a href="https://boletinesmedicos.com/en/nephrology/" style="--h:230">Nephrology</a><a href="https://boletinesmedicos.com/en/pulmonology/" style="--h:165">Pulmonology</a><a href="https://boletinesmedicos.com/en/endocrinology/" style="--h:330">Endocrinology</a><a href="https://boletinesmedicos.com/en/emergency-medicine/" style="--h:10">Emergency &amp; ICU</a><a href="https://boletinesmedicos.com/en/infectious-diseases/" style="--h:95">Infectious diseases</a><a href="https://boletinesmedicos.com/en/dermatology/" style="--h:25">Dermatology</a><a href="https://boletinesmedicos.com/en/psychiatry/" style="--h:265">Psychiatry</a><a href="https://boletinesmedicos.com/en/rheumatology/" style="--h:340">Rheumatology</a></nav><a class="lang" href="https://boletinesmedicos.com/neurologia/2026-10-08.html" hreflang="es" lang="es">Español</a></div>
 </div></header>
 <main><div class="wrap">
 <article class="issue" style="--h:270">
@@ -126,7 +132,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 
 <div class="listen" style="--h:270"><button class="play" type="button" onclick="tocar(this)" aria-label="Listen to this issue: Neurology, October 8, 2026" data-play="Listen to this issue: Neurology, October 8, 2026" data-pause="Pause: Neurology, October 8, 2026"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><div class="lb"><strong>🎧 Listen to this issue</strong><span>Audio newscast · 5 min</span><audio controls preload="none" src="https://boletinesmedicos.com/audio/neurologia-2026-10-08-en.mp3"></audio><div class="dl"><a href="https://boletinesmedicos.com/audio/neurologia-2026-10-08-en.mp3" download>Download MP3</a><a href="https://wa.me/?text=Monthly neurology bulletin — October 8, 2026%20https://boletinesmedicos.com/audio/neurologia-2026-10-08-en.mp3" target="_blank" rel="noopener">Send audio via WhatsApp</a></div></div></div>
 <div class="tools"><button class="btn secondary" style="--h:270" onclick="copiar('x-linkedin')">Copy for LinkedIn</button><button class="btn secondary" style="--h:270" onclick="copiar('x-x')">Copy for X</button><button class="btn secondary" style="--h:270" onclick="compartir("Monthly neurology bulletin \u2014 October 8, 2026","https://boletinesmedicos.com/en/neurology/2026-10-08.html")">Share link</button></div>
-<p>Period covered: September 8 to October 8, 2026. The month was dominated by the MDS Congress in Seoul (movement disorders), FDA regulatory actions in Parkinson disease, multiple sclerosis and epilepsy, and a Chinese neuroprotection trial in stroke published in JAMA. It was a light month for acute stroke and for ALS: we found nothing verifiable and substantive on ALS within the window. Thirteen verified items are included.</p>
+<p>Period covered: September 8 to October 8, 2026. The month was dominated by the MDS Congress in Seoul (movement disorders), FDA regulatory actions in Parkinson disease, multiple sclerosis and epilepsy, and a Chinese neuroprotection trial in stroke published in JAMA. It was a light month for acute stroke and for ALS: we found nothing verifiable and substantive on ALS within the window. Eleven verified items are included.</p>
 <h2>Cerebrovascular disease</h2>
 <h3>1. Intravenous neuroprotectant loberamisal improves 90-day functional outcome (LAIS trial)</h3>
 <p>[Clinical trial] [China]<br>
@@ -191,22 +197,12 @@ Why it matters: MOGAD has no approved therapy and is currently managed by extrap
 <a href="https://www.roche.com/media/releases/med-cor-2026-09-10">https://www.roche.com/media/releases/med-cor-2026-09-10</a><br>
 <a href="https://www.neurologylive.com/view/fda-priority-review-puts-satralizumab-track-first-mogad-drug">https://www.neurologylive.com/view/fda-priority-review-puts-satralizumab-track-first-mogad-drug</a></p>
 <h2>Cross-cutting</h2>
-<h3>11. New AAN/AHS migraine prevention guideline</h3>
-<p>[Guideline] [United States] [Outside the period: August 31]<br>
-Published in Neurology on August 31, 2026 (included for its weight, although it falls outside the window). It recommends offering prevention to adults with at least 4 migraine or moderate-to-severe headache days per month or substantial disability; it names no preferred drug and asks clinicians to choose based on efficacy, tolerability, long-term safety, cost and preference; response should be assessed at 8–12 weeks (24 weeks for onabotulinumtoxinA), with sections on pregnancy, lactation, older adults and medication overuse.<br>
-Why it matters: it does not favor anti-CGRP therapies and gepants over classic preventives or vice versa, and it legitimizes choosing by cost, which is key in our setting.<br>
-<a href="https://www.aan.com/PressRoom/Home/PressRelease/5361">https://www.aan.com/PressRoom/Home/PressRelease/5361</a></p>
-<h3>12. FDA clears MICSI-PET, AI software for automated neurological PET analysis</h3>
+<h3>11. FDA clears MICSI-PET, AI software for automated neurological PET analysis</h3>
 <p>[Regulatory FDA / AI] [United States]<br>
 510(k) clearance (K261305, Microstructure Imaging) with an FDA decision date of September 11, 2026, reported on September 15: the software uses structural MRI to denoise and super-resolve PET images and automatically calculates Centiloid (amyloid), CenTauR (tau) and regional SUVr values with z-scores against controls.<br>
 Why it matters: automated PET quantification will be key in the anti-amyloid era, but no performance metrics or independent validation have been published.<br>
 <a href="https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm?ID=K261305">https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm?ID=K261305</a><br>
 <a href="https://www.neurologylive.com/view/micsi-pet-cleared-by-fda-for-automated-neurological-pet-analysis">https://www.neurologylive.com/view/micsi-pet-cleared-by-fda-for-automated-neurological-pet-analysis</a></p>
-<h3>13. Latin American Epilepsy Congress abstracts published in Epilepsia for the first time</h3>
-<p>[Publication] [Latin America]<br>
-ILAE announced on September 29, 2026 a supplement of Epilepsia (vol. 67, S1) with more than 200 abstracts from the XIV Latin American Epilepsy Congress (Lima, May 16–18, 2026), in Spanish and English.<br>
-Why it matters: it gives indexed visibility to regional epilepsy research; a useful source of Latin American data, although these are abstracts without full peer review.<br>
-<a href="https://www.ilae.org/news-and-media/news-about-ilae/trabajos-libres-de-laec-2026-se-publican-por-primera-vez-en-epilepsia">https://www.ilae.org/news-and-media/news-about-ilae/trabajos-libres-de-laec-2026-se-publican-por-primera-vez-en-epilepsia</a></p>
 <p>No verifiable news this month on ALS, nor from Japan, India, Russia, the Middle East or Turkey, nor from the Dominican Society of Neurology and Neurosurgery.</p>
 <h2>Upcoming meetings and dates</h2>
 <ul>
@@ -215,7 +211,7 @@ Why it matters: it gives indexed visibility to regional epilepsy research; a use
 </ul>
 <div class="extras"><details class="wa"><summary>Ready-to-paste LinkedIn post</summary><pre id="x-linkedin">Monthly neurology bulletin — October 8, 2026
 
-13 verified items from the past month, from JAMA, The Lancet Neurology, the MDS 2026 Congress (Seoul), and FDA and ANVISA decisions.
+11 verified items from the past month, from JAMA, The Lancet Neurology, the MDS 2026 Congress (Seoul), and FDA and ANVISA decisions.
 
 Three worth your time:
 • Loberamisal (LAIS trial, JAMA): in 998 Chinese patients with ischemic stroke, 90-day mRS 0–1 was 69.7% vs 56.3% with placebo. Manufacturer-funded and without thrombectomy: it needs replication.
@@ -229,8 +225,7 @@ https://boletinesmedicos.com/en/neurologia/2026-10-08.html
 <section class="sub" id="suscribir" style="--h:270">
 <h2>Get every issue by email</h2>
 <p>Free. One email per issue, with the full text and the audio link. No ads inside the content: any sponsor is identified and has no say in the selection. We do not share your data; unsubscribe with a single message.</p>
-<a class="btn" href="mailto:julioe.castillomercedes@gmail.com?subject=Subscription%20to%20MedBulletins&amp;body=Hello.%20I%20would%20like%20to%20receive%20the%20bulletins%20for%20these%20specialties%20by%20email%20%28delete%20the%20ones%20you%20do%20not%20want%29%3A%0A-%20Vascular%20and%20endovascular%20surgery%0A-%20General%20surgery%0A-%20Obstetrics%20and%20gynecology%0A-%20Pediatrics%0A-%20Cardiology%0A-%20Internal%20medicine%0A-%20Neurology%0A-%20Oncology%0A-%20Orthopedics%20and%20trauma%0A-%20Urology%0A-%20Gastroenterology%20and%20hepatology%0A-%20Nephrology%0A-%20Pulmonology%0A-%20Endocrinology%20and%20diabetes%0A-%20Emergency%20and%20critical%20care%20medicine%0A%0AName%3A%0ACity%20or%20institution%20%28optional%29%3A">Subscribe by email</a>
-<small>Your email program will open with the message already written; just send it.</small>
+<a class="btn" href="https://boletinesmedicos.com/en/subscribe.html#formulario">Subscribe by email</a>
 </section>
 <div class="prevnext"><a href="https://boletinesmedicos.com/en/neurology/2026-09-28.html">← September 28, 2026</a><span></span></div>
 </article>

@@ -1,0 +1,25 @@
+Good morning, colleagues. This is a Boletines Médicos special on the two thousand twenty-six Nobel Prize in Physiology or Medicine. It is about optogenetics, a technique that turns light into a switch for neurons.
+
+On October fifth, two thousand twenty-six, the Nobel Assembly at Karolinska Institutet in Stockholm announced three laureates. Karl Deisseroth, of Stanford University and the Howard Hughes Medical Institute in the United States. Peter Hegemann, of Humboldt University of Berlin. And Georg Nagel, of the University of Würzburg in Germany. The official citation reads: for their discoveries concerning light-gated ion channels and optogenetics.
+
+Here is the science, in order. It begins with a single-celled green alga called Chlamydomonas reinhardtii. In two thousand two, Nagel, Hegemann and colleagues published in the journal Science. They expressed a protein from the alga in frog oocytes. Bound to its chromophore, retinal, the protein produced a light-gated current. That current was highly selective for protons. It is known as channelrhodopsin one.
+
+In two thousand three, the same group published in the Proceedings of the National Academy of Sciences. Nagel was at the Max Planck Institute of Biophysics in Frankfurt. Hegemann was at the University of Regensburg. They described channelrhodopsin two, a cation channel opened directly by light. It worked in frog oocytes and in mammalian cells. It conducts cations with one or two charges, but not anions. The authors noted that illumination alone was enough to depolarize the cell.
+
+The step to neurons came in two thousand five. Edward Boyden, Feng Zhang, Ernst Bamberg, Georg Nagel and Karl Deisseroth published in Nature Neuroscience. They delivered channelrhodopsin two into mammalian neurons with a viral vector. With light pulses, they controlled action potentials with millisecond precision. They also controlled excitatory and inhibitory synaptic transmission. That is the core of optogenetics. An algal protein, expressed in chosen neurons, that light switches on at will.
+
+How does it work? Channelrhodopsin is a membrane protein with seven helices. It resembles a G protein-coupled receptor, but it is itself the channel. Its light sensor is retinal. When it absorbs a photon, the channel opens rapidly. Channelrhodopsin two responds mainly to blue light, peaking near four hundred sixty nanometers. Cations flow in and the membrane depolarizes. If threshold is reached, the neuron fires. Each light pulse can trigger an action potential with millisecond precision. Under continuous light, however, the channel desensitizes. Selectivity comes from the gene, not the light. Only cells that express it respond.
+
+Why does it matter for medicine? Let us separate what has been shown from what is still hypothesis. According to the Nobel committee, the method is used in laboratories worldwide. It helps reveal how neurons shape memories, feelings and behaviors. For neuroscience and experimental psychiatry, it moves the question from correlation to causation. But this work has been done in animal models.
+
+The clinical evidence is small and specific. In two thousand twenty-one, Sahel and colleagues reported a case in Nature Medicine. A blind patient with retinitis pigmentosa received an intraocular injection of a viral vector. The vector carried a light-sensitive protein called ChrimsonR. It made the retinal ganglion cells respond to light. With the treated eye and stimulating goggles, the patient perceived, located, counted and touched objects. Without the goggles, the patient could not. This is partial recovery in a single patient.
+
+That case belongs to the PIONEER trial, sponsored by GenSight Biologics. It is an open-label, non-randomized, dose-escalation study in phase one and two a. Its primary outcome is safety and tolerability at fifty-two weeks. It enrolled ten patients. It is active but not recruiting, with completion estimated for October two thousand twenty-seven.
+
+What remains hypothesis? That optogenetics restores useful vision across patient series, with efficacy shown in controlled trials. And that it can treat neurologic or psychiatric disease in humans. Today, in psychiatry, it explains circuits in animals. It does not treat patients.
+
+A critical reading. First, it requires gene therapy, with the limits of any viral vector: dose, tissue distribution and immune response. Second, it requires getting light into tissue. The eye is transparent, and even so the patient needed light-amplifying goggles. Elsewhere, reaching deep tissue usually requires implanted devices. Third, long-term safety data are not mature. The retinal trial measures safety at one year and remains open. Fourth, the clinical paper discloses author ties to the sponsoring company.
+
+In summary, the prize recognizes a tool that changed research on the nervous system. As a therapy, optogenetics is at an early stage and is not available for routine clinical use.
+
+Thank you for listening.

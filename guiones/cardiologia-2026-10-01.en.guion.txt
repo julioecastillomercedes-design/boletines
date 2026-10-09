@@ -1,0 +1,27 @@
+Good morning, colleagues. Period covered: September first to October first, two thousand twenty-six. Here are the highlights of fourteen items verified at the source.
+
+We begin with the Horizon trial of lipoprotein a. According to the Novartis press release, pelacarsen did not reduce cardiovascular events versus placebo in more than eight thousand patients. It did lower lipoprotein a, but no event figures were released. Critical reading: with no data to judge power or subgroups, nothing changes in practice. Measure lipoprotein a once and treat the remaining risk factors intensively.
+
+The Air Stemi trial enrolled one thousand eight hundred twenty-three patients with S T segment elevation myocardial infarction and multivessel disease. Guiding complete revascularization with angiography-derived physiology cut the composite of events to eight point nine percent, versus thirteen point seven. The hazard ratio was zero point six two. Critical reading: all-cause mortality did not differ, and the analysis was done by a central core lab rather than the operator.
+
+The Enrich trial, in atrial fibrillation, enrolled nine hundred forty-eight survivors of intracranial hemorrhage. Edoxaban did not reduce stroke or systemic embolism: eleven point eight versus twelve point eight percent, a nonsignificant difference. There was more hemorrhagic stroke and more major bleeding, with a hazard ratio of two point two three. Critical reading: it does not support routinely restarting oral anticoagulation, because the ischemic benefit is cancelled by hemorrhagic harm.
+
+In the Vesalius trial, evolocumab was associated with fewer deaths among twelve thousand two hundred fifty-seven patients without prior heart attack or stroke. There were four hundred thirty-four versus five hundred thirty-nine deaths, with a hazard ratio of zero point eight zero. Critical reading: it is a secondary endpoint with nominal significance, late onset, and a manufacturer-run trial. The antibody's cost remains prohibitive here.
+
+The Triumph Two trial tested retatrutide in one thousand one hundred fifty-two adults with obesity and type two diabetes. At week eighty, the twelve milligram dose cut weight by eighteen point eight percent, versus five point one with placebo. Critical reading: there are no cardiovascular outcome data yet, the drug is not approved, and dysesthesia deserves watching.
+
+The Czech trial Prague Twenty-Six enrolled five hundred fifty-eight patients with intermediate-high-risk pulmonary embolism. Standard catheter-directed thrombolysis with low-dose alteplase reduced death, recurrence or decompensation at seven days: zero point seven versus six point eight percent. Critical reading: it was open label, and the benefit came from decompensation rather than death. It is wise to wait for Peitho Three.
+
+The Acasa Tavi and Notion Four trials gave mixed messages on direct oral anticoagulants after transcatheter aortic valve implantation. In Acasa Tavi, the drug reduced leaflet thickening on computed tomography. In Notion Four it did not, and the composite of death, stroke or major bleeding was worse: eight point two versus two point three percent. Critical reading: the endpoint is an image, not a clinical event.
+
+The United States Food and Drug Administration confirmed a Class One recall, the most serious type, of the Automated Impella Controllers. Thirty-seven serious injuries and three deaths have been reported. Critical reading: this is at least the seventh recall related to these controllers since July two thousand twenty-five. Centers need a backup controller and trained staff.
+
+The British Aspired trial enrolled two thousand two hundred thirty-three adults with unexplained syncope. A fourteen-day electrocardiogram patch detected more arrhythmias, twenty-two versus nine percent. But it did not significantly reduce syncope episodes. Critical reading: it supports the patch as a diagnostic tool, not as an intervention that changes prognosis.
+
+A Bayesian meta-analysis of six trials and seven thousand four patients compared left atrial appendage occlusion with anticoagulation. The rate ratio for ischemic stroke was one point three four with occlusion. Critical reading: the intervals cross unity, so it is hypothesis-generating only. It is a reminder that occlusion trades ischemic for hemorrhagic strokes.
+
+In transplantation, a United States registry of one thousand four hundred eighty-nine recipients of hearts donated after circulatory death showed stable outcomes. One-year mortality was six point nine versus five point eight percent between the early and expansion eras. Critical reading: it is retrospective, with short follow-up.
+
+Finally, the Reveal study assessed evuzamitide positron emission tomography in one hundred seventy adults with suspected cardiac amyloidosis. Sensitivity was ninety-four percent and specificity eighty-six percent. Critical reading: it does not tell one amyloid type from the other, and the tracer is not available in the region.
+
+Thank you for listening. Until next month.

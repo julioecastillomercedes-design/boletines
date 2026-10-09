@@ -86,6 +86,12 @@ footer p{margin:.3em 0}
 .sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+.subf .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:10px 0 14px}
+.subf label{font-size:.95rem;display:flex;gap:8px;align-items:center}
+.subf label.txt{flex-direction:column;align-items:stretch;gap:4px;margin:8px 0}
+.subf input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.subf button.btn{margin-top:10px;font-size:1rem;padding:11px 20px}
+.subf .priv{font-size:.82rem;color:var(--ink-3);margin-top:10px}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
@@ -117,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="https://boletinesmedicos.com/en/">MedBulletins<small>Aura Celeste</small></a>
-<div class="navs"><nav class="specs" aria-label="Specialties"><a class="all" href="https://boletinesmedicos.com/en/#especialidades" style="--h:220">☰ All (15)</a><a href="https://boletinesmedicos.com/en/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/en/general-surgery/" style="--h:210">General surgery</a><a href="https://boletinesmedicos.com/en/obgyn/" style="--h:320">OB/GYN</a><a href="https://boletinesmedicos.com/en/pediatrics/" style="--h:150">Pediatrics</a><a href="https://boletinesmedicos.com/en/cardiology/" style="--h:25">Cardiology</a><a href="https://boletinesmedicos.com/en/internal-medicine/" style="--h:200">Internal medicine</a><a href="https://boletinesmedicos.com/en/neurology/" style="--h:270">Neurology</a><a href="https://boletinesmedicos.com/en/oncology/" style="--h:300">Oncology</a><a href="https://boletinesmedicos.com/en/orthopedics/" style="--h:40">Orthopedics</a><a href="https://boletinesmedicos.com/en/urology/" style="--h:185" aria-current="page">Urology</a><a href="https://boletinesmedicos.com/en/gastroenterology/" style="--h:85">GI</a><a href="https://boletinesmedicos.com/en/nephrology/" style="--h:230">Nephrology</a><a href="https://boletinesmedicos.com/en/pulmonology/" style="--h:165">Pulmonology</a><a href="https://boletinesmedicos.com/en/endocrinology/" style="--h:330">Endocrinology</a><a href="https://boletinesmedicos.com/en/emergency-medicine/" style="--h:10">Emergency &amp; ICU</a></nav><a class="lang" href="https://boletinesmedicos.com/urologia/2026-09-29.html" hreflang="es" lang="es">Español</a></div>
+<div class="navs"><nav class="specs" aria-label="Specialties"><a class="all" href="https://boletinesmedicos.com/en/#especialidades" style="--h:220">☰ All (19)</a><a href="https://boletinesmedicos.com/en/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/en/milestones/" style="--h:45">Milestones</a><a href="https://boletinesmedicos.com/en/general-surgery/" style="--h:210">General surgery</a><a href="https://boletinesmedicos.com/en/obgyn/" style="--h:320">OB/GYN</a><a href="https://boletinesmedicos.com/en/pediatrics/" style="--h:150">Pediatrics</a><a href="https://boletinesmedicos.com/en/cardiology/" style="--h:25">Cardiology</a><a href="https://boletinesmedicos.com/en/internal-medicine/" style="--h:200">Internal medicine</a><a href="https://boletinesmedicos.com/en/neurology/" style="--h:270">Neurology</a><a href="https://boletinesmedicos.com/en/oncology/" style="--h:300">Oncology</a><a href="https://boletinesmedicos.com/en/orthopedics/" style="--h:40">Orthopedics</a><a href="https://boletinesmedicos.com/en/urology/" style="--h:185" aria-current="page">Urology</a><a href="https://boletinesmedicos.com/en/gastroenterology/" style="--h:85">GI</a><a href="https://boletinesmedicos.com/en/nephrology/" style="--h:230">Nephrology</a><a href="https://boletinesmedicos.com/en/pulmonology/" style="--h:165">Pulmonology</a><a href="https://boletinesmedicos.com/en/endocrinology/" style="--h:330">Endocrinology</a><a href="https://boletinesmedicos.com/en/emergency-medicine/" style="--h:10">Emergency &amp; ICU</a><a href="https://boletinesmedicos.com/en/infectious-diseases/" style="--h:95">Infectious diseases</a><a href="https://boletinesmedicos.com/en/dermatology/" style="--h:25">Dermatology</a><a href="https://boletinesmedicos.com/en/psychiatry/" style="--h:265">Psychiatry</a><a href="https://boletinesmedicos.com/en/rheumatology/" style="--h:340">Rheumatology</a></nav><a class="lang" href="https://boletinesmedicos.com/urologia/2026-09-29.html" hreflang="es" lang="es">Español</a></div>
 </div></header>
 <main><div class="wrap">
 <article class="issue" style="--h:185">
@@ -162,19 +168,25 @@ Why it matters: this is discovery science with no clinical test yet, but the Afr
 A nationwide analysis of the J-CaP registry published on September 14 in the International Journal of Urology included 989 men with localized prostate cancer on initial active surveillance at 92 institutions (diagnosed 2016–2018). Surveillance persistence was 49.9% at 3 years and 33.7% at 5 years; 47% discontinued over a median follow-up of 3.4 years, mostly because of histologic progression or PSA rise. Patients at institutions with intermediate or high surveillance uptake stayed on it about 1 year longer than those at low-uptake institutions (P&lt;.001).<br>
 Why it matters: it is retrospective, with 20% of patients at unclassifiable institutions, but it shows that institutional culture matters as much as the tumor for surveillance persistence, a lesson transferable to our own services. (source in English, Japanese group)<br>
 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13574298/">https://pmc.ncbi.nlm.nih.gov/articles/PMC13574298/</a></p>
-<h3>7. RADICAL PC-2: cardiology referral at ADT start did not reduce cardiovascular events</h3>
+<h3>7. MRI before prostate biopsy rose from 14% to 64% in the US</h3>
+<p>[Publication] [US]<br>
+A research letter published on September 17 in JAMA Oncology (University Hospitals, Cleveland): a retrospective study of more than 505,000 prostate biopsies in the Epic Cosmos electronic health record database, from January 2017 to June 2026. MRI before first biopsy increased from 14% in 2017 to 64% in the first half of 2026, and in men with a prior negative biopsy from 38% to 67%; use was lower in men with very high PSA and in those older than 80. About one third of men still undergo a first biopsy without MRI.<br>
+Why it matters: it is descriptive, with no clinical outcomes, but it sets the benchmark for current practice; in the Dominican Republic, access to quality multiparametric MRI remains the bottleneck of modern screening.<br>
+<a href="https://doi.org/10.1001/jamaoncol.2026.3620">https://doi.org/10.1001/jamaoncol.2026.3620</a><br>
+<a href="https://www.urologytimes.com/view/use-of-prebiopsy-prostate-mri-increasing-across-us-hospitals-study-finds">https://www.urologytimes.com/view/use-of-prebiopsy-prostate-mri-increasing-across-us-hospitals-study-finds</a></p>
+<h3>8. RADICAL PC-2: cardiology referral at ADT start did not reduce cardiovascular events</h3>
 <p>[Clinical trial] [Multinational, 8 countries; coordinated from Canada]<br>
 A pragmatic trial published in JAMA Internal Medicine (online August 30) randomized 2,487 men with prostate cancer starting ADT at 55 sites in 8 countries to usual care or referral to a cardiologist or internist with blood pressure targets and routine statin use. At a median of 5.8 years, the hierarchical composite outcome favored referral (win ratio 1.60; 95% CI 1.42–1.81), driven by cholesterol (statin use at close-out 63% vs 40%), but there was no difference in cardiovascular death, myocardial infarction, stroke or heart failure (subdistribution HR 1.08; 95% CI 0.79–1.49).<br>
 Why it matters: cardiovascular risk assessment remains reasonable when starting ADT, but routine referral has not shown clinical benefit; urologists can take on basic risk-factor control.<br>
 <a href="https://doi.org/10.1001/jamainternmed.2026.4773">https://doi.org/10.1001/jamainternmed.2026.4773</a></p>
 <h2>BPH and voiding dysfunction</h2>
-<h3>8. CE mark for FemPulse, a vaginal neuromodulation ring for overactive bladder</h3>
+<h3>9. CE mark for FemPulse, a vaginal neuromodulation ring for overactive bladder</h3>
 <p>[Regulatory CE] [European Union / USA]<br>
 On September 17, FemPulse announced CE marking under the EU MDR for its wireless, non-implanted, patient-inserted vaginal ring with 8 programmable electrodes for overactive bladder. The company cites data from 4 clinical studies that were not detailed. In the USA it remains investigational: the pivotal EVANESCE-II trial (up to 151 women, randomized 2:1 vs tolterodine, 26-week endpoint) is expected to finish in December 2027.<br>
 Why it matters: needle-free, surgery-free neuromodulation would be attractive, but no comparative data have been published; a CE mark does not equal proven efficacy.<br>
 <a href="https://fempulse.com/news_home/fempulse-ring-gains-ce-mark-certification-for-the-eu/">https://fempulse.com/news_home/fempulse-ring-gains-ce-mark-certification-for-the-eu/</a><br>
 <a href="https://www.urologytimes.com/view/fempulse-ring-receives-eu-approval-for-overactive-bladder">https://www.urologytimes.com/view/fempulse-ring-receives-eu-approval-for-overactive-bladder</a></p>
-<h3>9. FDA RMAT designation for a gene therapy in neurogenic detrusor overactivity</h3>
+<h3>10. FDA RMAT designation for a gene therapy in neurogenic detrusor overactivity</h3>
 <p>[Regulatory FDA] [USA]<br>
 On September 14, Cyllene Therapeutics announced a Regenerative Medicine Advanced Therapy (RMAT) designation for EG110A, a non-replicating HSV-1 vector that locally silences CGRP+ sensory neurons, in patients with neurogenic detrusor overactivity due to spinal cord injury and incontinence. The phase 1b/2a trial is ongoing in the USA; in October 2025 the company had reported a more than 88% reduction in incontinence episodes at week 12 in the low-dose cohort, without specifying the number of patients.<br>
 Why it matters: these are preliminary phase 1b/2a, company-reported data; an interesting future alternative to botulinum toxin, but far from practice. Interim data will be presented at ICS 2026 (October 7, Maastricht).<br>
@@ -184,24 +196,24 @@ Why it matters: these are preliminary phase 1b/2a, company-reported data; an int
 <h2>Stones and endourology</h2>
 <p>We found no new verifiable studies within the period this month. The 2026 AUA guideline on medical management of kidney stones (which covers children and adolescents for the first time and adds guidance on genetic testing) was discussed in September, but we could not confirm its publication date, so it is not included as news of the month.</p>
 <h2>Andrology, transplantation, pediatric urology and robotic surgery</h2>
-<h3>10. ERUS26 (Padua): eight live telesurgeries and a disconnection that underlines the role of the local team</h3>
+<h3>11. ERUS26 (Padua): eight live telesurgeries and a disconnection that underlines the role of the local team</h3>
 <p>[Meeting] [Italy, with patients in Poland and Morocco]<br>
 At the 23rd meeting of the EAU Robotic Urology Section (Padua, September 9–11; 1,250 participants expected), 50 live surgeries were scheduled, 8 of them long-distance; the official report mentions the Edge robotic system. From Padua, a prostatectomy was performed on a patient in Warsaw; latency between European countries was described as practically unnoticeable. In another prostatectomy, with the patient in Casablanca, the remote surgeon could not reconnect as quickly as hoped after a switch between remote and local control, and the Moroccan surgeon performed a larger part of the case than anticipated; the connection was restored within a few minutes and the remote surgeon completed the operation.<br>
 Why it matters: this is a demonstration, not a trial, but the incident shows that telesurgery requires a local team able to continue the operation and redundant networks, which is key if it is ever considered in the Caribbean.<br>
 <a href="https://erus.uroweb.org/day-1-report-palpable-tension-during-live-telesurgery-session/">https://erus.uroweb.org/day-1-report-palpable-tension-during-live-telesurgery-session/</a></p>
-<h3>11. Topical sildenafil cream: far lower systemic exposure than oral sildenafil</h3>
+<h3>12. Topical sildenafil cream: far lower systemic exposure than oral sildenafil</h3>
 <p>[Publication] [USA]<br>
 An open-label phase 1 trial published in Sexual Medicine on September 7 randomized 62 healthy men to topical sildenafil cream (36 or 71 mg, with or without a condom) or oral sildenafil 50 mg. Relative topical bioavailability was 2.6% to 3.2%; with 36 mg, peak concentration was about 187-fold lower and area under the curve about 35-fold lower than with oral dosing. There were 14 adverse events, all mild, half of them in the oral arm.<br>
 Why it matters: a small study in healthy volunteers, funded by Strategic Science &amp; Technologies and with authors employed by Daré Bioscience; it provides no efficacy data in erectile dysfunction, so it does not change practice for now.<br>
 <a href="https://doi.org/10.1093/sexmed/qfag083">https://doi.org/10.1093/sexmed/qfag083</a></p>
 <h2>Cross-cutting</h2>
-<h3>12. German Urological Congress (DGU 2026): artificial intelligence and sustainability as central themes</h3>
+<h3>13. German Urological Congress (DGU 2026): artificial intelligence and sustainability as central themes</h3>
 <p>[Meeting] [Germany] (source in German)<br>
 The 78th congress of the German Society of Urology (Düsseldorf, September 16–19) drew about 6,800 participants. President Susanne Krege focused the program on artificial intelligence and sustainability. The multicenter randomized 3DPN trial (370 patients) of virtual 3D models in robotic partial nephrectomy was presented, and the Maximilian Nitze Prize went to work on hyperspectral imaging with deep learning for intraoperative tissue classification.<br>
 Why it matters: it is a barometer of where the specialty is heading in Europe; the 3DPN design was already published and the rest are presentations without definitive results.<br>
 <a href="https://mgb-medizin.de/urologie/dgu-2026-highlights-urologische-forschung/">https://mgb-medizin.de/urologie/dgu-2026-highlights-urologische-forschung/</a><br>
 <a href="https://www.urologenportal.de/pressebereich/pressemitteilungen/aktuell/78-kongress-der-deutschen-gesellschaft-fuer-urologie-ev-eroeffnet-heute-in-duesseldorf-kopie-1.html">https://www.urologenportal.de/pressebereich/pressemitteilungen/aktuell/78-kongress-der-deutschen-gesellschaft-fuer-urologie-ev-eroeffnet-heute-in-duesseldorf-kopie-1.html</a></p>
-<h3>13. Devices: SpaceOAR Flex receives 510(k) and LigaSure comes to the Hugo robotic platform</h3>
+<h3>14. Devices: SpaceOAR Flex receives 510(k) and LigaSure comes to the Hugo robotic platform</h3>
 <p>[Industry] [USA]<br>
 On September 11, the FDA granted 510(k) clearance (K262151), reported on September 25, for SpaceOAR Flex (Boston Scientific), a version of the hydrogel rectal spacer with a single-syringe delivery system, visible on CT. On September 16, Medtronic announced FDA clearance of the LigaSure RAS Maryland instrument for its Hugo robotic system, sealing vessels up to 7 mm.<br>
 Why it matters: these are incremental, manufacturer-announced improvements without new clinical data; the arrival of alternative robotic platforms could lower the cost of access to robotic surgery in the region.<br>
@@ -215,7 +227,7 @@ Why it matters: these are incremental, manufacturer-announced improvements witho
 </ul>
 <div class="extras"><details class="wa"><summary>Ready-to-paste LinkedIn post</summary><pre id="x-linkedin">Monthly urology bulletin — September 29, 2026
 
-13 verified items from the past month, from Nature, NEJM, JAMA Internal Medicine, the International Journal of Urology, ASTRO 2026, and the FDA and EMA.
+14 verified items from the past month, from Nature, NEJM, JAMA Oncology, JAMA Internal Medicine, the International Journal of Urology, ASTRO 2026, and the FDA and EMA.
 
 Three worth your time:
 • PACE-A (ASTRO 2026): SBRT vs prostatectomy showed similar 8-year disease control (91% vs 84%) and pad use at 5 years of 8% vs 48%. Limitation: 123 patients, secondary endpoints.
@@ -229,8 +241,7 @@ https://boletinesmedicos.com/en/urology/2026-09-29.html
 <section class="sub" id="suscribir" style="--h:185">
 <h2>Get every issue by email</h2>
 <p>Free. One email per issue, with the full text and the audio link. No ads inside the content: any sponsor is identified and has no say in the selection. We do not share your data; unsubscribe with a single message.</p>
-<a class="btn" href="mailto:julioe.castillomercedes@gmail.com?subject=Subscription%20to%20MedBulletins&amp;body=Hello.%20I%20would%20like%20to%20receive%20the%20bulletins%20for%20these%20specialties%20by%20email%20%28delete%20the%20ones%20you%20do%20not%20want%29%3A%0A-%20Vascular%20and%20endovascular%20surgery%0A-%20General%20surgery%0A-%20Obstetrics%20and%20gynecology%0A-%20Pediatrics%0A-%20Cardiology%0A-%20Internal%20medicine%0A-%20Neurology%0A-%20Oncology%0A-%20Orthopedics%20and%20trauma%0A-%20Urology%0A-%20Gastroenterology%20and%20hepatology%0A-%20Nephrology%0A-%20Pulmonology%0A-%20Endocrinology%20and%20diabetes%0A-%20Emergency%20and%20critical%20care%20medicine%0A%0AName%3A%0ACity%20or%20institution%20%28optional%29%3A">Subscribe by email</a>
-<small>Your email program will open with the message already written; just send it.</small>
+<a class="btn" href="https://boletinesmedicos.com/en/subscribe.html#formulario">Subscribe by email</a>
 </section>
 <div class="prevnext"><span></span><a href="https://boletinesmedicos.com/en/urology/2026-10-06.html">October 6, 2026 →</a></div>
 </article>

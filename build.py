@@ -63,6 +63,12 @@ T = {
         "contact": "Contacto", "about": "Quiénes somos y cómo trabajamos", "all_specs": "Todas",
         "listen": "Escuchar el boletín", "listen_short": "Escuchar", "pause": "Pausa",
         "listen_sub": "Noticiero en audio",
+        "viene_tag": "Lo que viene", "viene_sec": "Lo que viene en cada especialidad",
+        "viene_lead": "Entre un boletín y el siguiente: lo que está por llegar (ensayos, decisiones regulatorias, guías) y qué problema viene a resolver.",
+        "last_viene": "Lo que viene",
+        "form_title": "Elija sus especialidades", "form_all": "Todas", "form_name": "Nombre", "form_city": "Ciudad o institución (opcional)",
+        "form_send": "Preparar mi correo de suscripción", "form_need": "Marque al menos una especialidad.",
+        "form_privacy": "Usamos su dirección solo para enviarle los boletines que elija. No la compartimos ni la vendemos. Para darse de baja basta responder «Baja» a cualquier correo.",
         "audio_banner": "Cada boletín tiene su versión en audio: pulse ▶ Escuchar y óigalo en el carro o entre consultas.",
     },
     "en": {
@@ -90,6 +96,12 @@ T = {
         "contact": "Contact", "about": "About us and how we work", "all_specs": "All",
         "listen": "Listen to this issue", "listen_short": "Listen", "pause": "Pause",
         "listen_sub": "Audio newscast",
+        "viene_tag": "What's next", "viene_sec": "What's next in each specialty",
+        "viene_lead": "Between one bulletin and the next: what is coming (trials, regulatory decisions, guidelines) and what problem it aims to solve.",
+        "last_viene": "What's next",
+        "form_title": "Choose your specialties", "form_all": "All", "form_name": "Name", "form_city": "City or institution (optional)",
+        "form_send": "Prepare my subscription email", "form_need": "Please check at least one specialty.",
+        "form_privacy": "We use your address only to send you the bulletins you choose. We do not share or sell it. To unsubscribe, just reply \"Unsubscribe\" to any email.",
         "audio_banner": "Every bulletin comes with an audio version: press ▶ Listen and hear it in the car or between patients.",
     },
 }
@@ -215,9 +227,10 @@ def load_issue_file(f: Path, spec: str, lang: str):
     d = datetime.strptime(meta["date"], "%Y-%m-%d").date()
     body, extras = split_extras(body)
     body = strip_redundant_title(body)
-    audio = AUDIO / (f"{spec}-{meta['date']}.mp3" if lang == "es" else f"{spec}-{meta['date']}-en.mp3")
+    slug = f.name[:-len(".en.md")] if f.name.endswith(".en.md") else f.stem
+    audio = AUDIO / (f"{spec}-{slug}.mp3" if lang == "es" else f"{spec}-{slug}-en.mp3")
     return {
-        "spec": spec, "lang": lang, "date": d, "slug": meta["date"],
+        "spec": spec, "lang": lang, "date": d, "slug": slug, "viene": slug.endswith("-viene"),
         "title": meta.get("title") or f"{T[lang]['bulletin']} — {fecha_larga(d, lang)}",
         "body_html": md_to_html(body), "extras": extras,
         "audio": audio if audio.exists() else None,
@@ -232,7 +245,7 @@ def load_issues():
     for spec_dir in sorted(ISSUES.iterdir()):
         if not spec_dir.is_dir() or spec_dir.name not in CFG["specialties"]:
             continue
-        for f in sorted(spec_dir.glob("????-??-??.md")):
+        for f in sorted(list(spec_dir.glob("????-??-??.md")) + list(spec_dir.glob("????-??-??-viene.md"))):
             es = load_issue_file(f, spec_dir.name, "es")
             en_file = spec_dir / f"{f.stem}.en.md"
             en = load_issue_file(en_file, spec_dir.name, "en") if en_file.exists() else None
@@ -316,6 +329,12 @@ footer p{margin:.3em 0}
 .sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+.subf .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:10px 0 14px}
+.subf label{font-size:.95rem;display:flex;gap:8px;align-items:center}
+.subf label.txt{flex-direction:column;align-items:stretch;gap:4px;margin:8px 0}
+.subf input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.subf button.btn{margin-top:10px;font-size:1rem;padding:11px 20px}
+.subf .priv{font-size:.82rem;color:var(--ink-3);margin-top:10px}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
@@ -382,8 +401,38 @@ def subscribe_block(lang, hue=None):
     return f"""<section class="sub" id="suscribir"{style}>
 <h2>{e(t['sub_title'])}</h2>
 <p>{e(t['sub_text'])}</p>
-<a class="btn" href="{e(mailto(t['sub_subject'], sub_body(lang)))}">{e(t['sub_btn'])}</a>
+<a class="btn" href="{base(lang)}/{'suscribirse' if lang == 'es' else 'subscribe'}.html#formulario">{e(t['sub_btn'])}</a>
+</section>"""
+
+
+def subscribe_form(lang):
+    t = T[lang]
+    boxes = "".join(
+        f'<label><input type="checkbox" name="esp" value="{e(spec_field(s, "name", lang))}"> {e(spec_field(s, "name", lang))}</label>'
+        for k, s in CFG["specialties"].items() if k != "hitos")
+    to = CFG.get("contact_email", "")
+    subj = json.dumps(t["sub_subject"])
+    intro = json.dumps("Hola. Quiero recibir por correo los boletines de estas especialidades:" if lang == "es"
+                       else "Hello. I would like to receive the bulletins for these specialties by email:")
+    lname, lcity = json.dumps(t["form_name"]), json.dumps(t["form_city"])
+    need = json.dumps(t["form_need"])
+    return f"""<section class="sub" id="formulario">
+<h2>{e(t['form_title'])}</h2>
+<form class="subf" onsubmit="return suscribir(this)">
+<label class="todas"><input type="checkbox" onchange="this.form.querySelectorAll('input[name=esp]').forEach(function(c){{c.checked=this.checked}},this)"> <b>{e(t['form_all'])}</b></label>
+<div class="boxes">{boxes}</div>
+<label class="txt">{e(t['form_name'])}<input type="text" name="nombre" autocomplete="name"></label>
+<label class="txt">{e(t['form_city'])}<input type="text" name="ciudad"></label>
+<button class="btn" type="submit">{e(t['form_send'])}</button>
 <small>{e(t['sub_hint'])}</small>
+<p class="priv">{e(t['form_privacy'])}</p>
+</form>
+<script>
+function suscribir(f){{var s=[].slice.call(f.querySelectorAll('input[name=esp]:checked')).map(function(c){{return '- '+c.value}});
+if(!s.length){{alert({need});return false}}
+var b={intro}+"\n"+s.join("\n")+"\n\n"+{lname}+": "+f.nombre.value+"\n"+{lcity}+": "+f.ciudad.value;
+location.href="mailto:{to}?subject="+encodeURIComponent({subj})+"&body="+encodeURIComponent(b);return false}}
+</script>
 </section>"""
 
 
@@ -410,7 +459,9 @@ def static_pages(lang, urls):
         url = f"{base(lang)}/{slug}.html"
         alt_url = f"{base(other)}/{alt_slug}.html"
         html_body = f'<article class="static"><h1>{e(meta.get("title", slug))}</h1>{md_to_html(body)}</article>'
-        if meta.get("subscribe"):
+        if slug in ("suscribirse", "subscribe"):
+            html_body += subscribe_form(lang)
+        elif meta.get("subscribe"):
             html_body += subscribe_block(lang)
         write(out / f"{slug}.html", page(meta.get("title", slug), html_body, lang=lang,
                                          desc=meta.get("description", meta.get("title", slug)), url=url, alt_url=alt_url))
@@ -424,7 +475,7 @@ def nav_html(lang, current=None):
     for key, s in CFG["specialties"].items():
         cur = ' aria-current="page"' if key == current else ""
         links.append(f'<a href="{base(lang)}/{seg(key, lang)}/" style="--h:{s["hue"]}"{cur}>{e(spec_field(s, "short", lang))}</a>')
-    allc = f'<a class="all" href="{base(lang)}/#especialidades" style="--h:220">☰ {e(T[lang]["all_specs"])} ({len(CFG["specialties"])})</a>'
+    allc = f'<a class="all" href="{base(lang)}/#especialidades" style="--h:220">☰ {e(T[lang]["all_specs"])} ({sum(1 for k in CFG["specialties"] if k != "hitos")})</a>'
     return f'<nav class="specs" aria-label="{e(T[lang]["nav_label"])}">' + allc + "".join(links) + "</nav>"
 
 
@@ -534,7 +585,8 @@ def build_lang(lang, issues, urls, fallback=()):
     # Portada
     cards = []
     for key, s in CFG["specialties"].items():
-        lst = shown_by_spec[key]
+        lst = [i for i in shown_by_spec[key] if not i.get("viene")]
+        vlst = [i for i in shown_by_spec[key] if i.get("viene")]
         last = lst[0] if lst else None
         n = len(lst)
         last_html = (f'{t["last_issue"]}: <a href="{issue_url(last)}">{e(fecha_larga(last["date"], lang))}</a>'
@@ -543,10 +595,13 @@ def build_lang(lang, issues, urls, fallback=()):
 <span class="pill">{e(spec_field(s, 'cadence', lang))}</span>
 <h2><a href="{base(lang)}/{seg(key, lang)}/">{e(spec_field(s, 'name', lang))}</a></h2>
 <p class="blurb">{e(spec_field(s, 'blurb', lang))}</p>
-<div class="last">{last_html}</div>
+<div class="last">{last_html}{('<br>' + e(t['last_viene']) + ': <a href="' + issue_url(vlst[0]) + '">' + e(fecha_larga(vlst[0]['date'], lang)) + '</a>') if vlst else ''}</div>
 {listen_block(last, lang, s['hue'], small=True) if last and last.get("audio") else ""}
 </div>""")
-    recent = "".join(issue_li(i, ui=lang) for i in shown[:6])
+    recent = "".join(issue_li(i, ui=lang) for i in [x for x in shown if not x.get("viene")][:6])
+    vienen = [x for x in shown if x.get("viene")][:6]
+    viene_html = (f'<section><h2>{e(t["viene_sec"])}</h2><p class="meta">{e(t["viene_lead"])}</p>'
+                  f'<ul class="list">{"".join(issue_li(i, ui=lang) for i in vienen)}</ul></section>') if vienen else ""
     home = f"""<section class="hero">
 <h1>{e(cfg_field('site_tagline', lang))}</h1>
 <p class="lead">{e(cfg_field('site_lead', lang))}</p>
@@ -555,7 +610,8 @@ def build_lang(lang, issues, urls, fallback=()):
 </section>
 <section class="grid" id="especialidades">{''.join(cards)}</section>
 {subscribe_block(lang)}
-<section><h2>{e(t['latest'])}</h2><ul class="list">{recent}</ul></section>"""
+<section><h2>{e(t['latest'])}</h2><ul class="list">{recent}</ul></section>
+{viene_html}"""
     write(out / "index.html", page(site_name, home, lang=lang, desc=cfg_field("description", lang),
                                     url=f"{base(lang)}/", alt_url=f"{base(t['other_code'])}/"))
     urls.append((f"{base(lang)}/", issues[0]["date"] if issues else date.today(), "daily", "1.0"))
@@ -630,7 +686,7 @@ def issue_li(i, show_spec=True, ui=None):
     lang = ui or i["lang"]
     s = CFG["specialties"][i["spec"]]
     spec = f'<span class="pill" style="--h:{s["hue"]}">{e(spec_field(s, "short", lang))}</span> ' if show_spec else ""
-    audio = ""
+    audio = (f' · <b>{e(T[lang]["viene_tag"])}</b>') if i.get("viene") else ""
     if i["lang"] != lang:
         audio += " · " + ("Español" if i["lang"] == "es" else "English")
     return (f'<li><div class="meta">{spec}<span>{e(fecha_larga(i["date"], lang))}{audio}</span></div>'

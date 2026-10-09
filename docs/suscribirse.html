@@ -86,6 +86,12 @@ footer p{margin:.3em 0}
 .sub p{margin:.3em 0 .8em;color:var(--ink-2);font-size:.95rem}
 .sub a.btn{display:inline-block;font:600 .95rem system-ui,sans-serif;background:var(--accent);color:#fff;border-radius:999px;padding:10px 18px;text-decoration:none}
 .sub small{display:block;margin-top:8px;color:var(--ink-3);font-size:.8rem}
+.subf .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:10px 0 14px}
+.subf label{font-size:.95rem;display:flex;gap:8px;align-items:center}
+.subf label.txt{flex-direction:column;align-items:stretch;gap:4px;margin:8px 0}
+.subf input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.subf button.btn{margin-top:10px;font-size:1rem;padding:11px 20px}
+.subf .priv{font-size:.82rem;color:var(--ink-3);margin-top:10px}
 article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.static ul{padding-left:1.2em}
 .mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font:.85rem system-ui,sans-serif}
 .mini audio{flex:1 1 240px;height:36px}
@@ -117,7 +123,7 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <body>
 <header class="top"><div class="wrap">
 <a class="brand" href="https://boletinesmedicos.com/">Boletines Médicos<small>Aura Celeste</small></a>
-<div class="navs"><nav class="specs" aria-label="Especialidades"><a class="all" href="https://boletinesmedicos.com/#especialidades" style="--h:220">☰ Todas (15)</a><a href="https://boletinesmedicos.com/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/cirugia-general/" style="--h:210">Cirugía general</a><a href="https://boletinesmedicos.com/ginecologia/" style="--h:320">Ginecología</a><a href="https://boletinesmedicos.com/pediatria/" style="--h:150">Pediatría</a><a href="https://boletinesmedicos.com/cardiologia/" style="--h:25">Cardiología</a><a href="https://boletinesmedicos.com/medicina-interna/" style="--h:200">Medicina interna</a><a href="https://boletinesmedicos.com/neurologia/" style="--h:270">Neurología</a><a href="https://boletinesmedicos.com/oncologia/" style="--h:300">Oncología</a><a href="https://boletinesmedicos.com/ortopedia/" style="--h:40">Ortopedia</a><a href="https://boletinesmedicos.com/urologia/" style="--h:185">Urología</a><a href="https://boletinesmedicos.com/gastroenterologia/" style="--h:85">Gastro</a><a href="https://boletinesmedicos.com/nefrologia/" style="--h:230">Nefrología</a><a href="https://boletinesmedicos.com/neumologia/" style="--h:165">Neumología</a><a href="https://boletinesmedicos.com/endocrinologia/" style="--h:330">Endocrino</a><a href="https://boletinesmedicos.com/emergencias/" style="--h:10">Emergencias</a></nav><a class="lang" href="https://boletinesmedicos.com/en/subscribe.html" hreflang="en" lang="en">English</a></div>
+<div class="navs"><nav class="specs" aria-label="Especialidades"><a class="all" href="https://boletinesmedicos.com/#especialidades" style="--h:220">☰ Todas (19)</a><a href="https://boletinesmedicos.com/vascular/" style="--h:355">Vascular</a><a href="https://boletinesmedicos.com/hitos/" style="--h:45">Hitos</a><a href="https://boletinesmedicos.com/cirugia-general/" style="--h:210">Cirugía general</a><a href="https://boletinesmedicos.com/ginecologia/" style="--h:320">Ginecología</a><a href="https://boletinesmedicos.com/pediatria/" style="--h:150">Pediatría</a><a href="https://boletinesmedicos.com/cardiologia/" style="--h:25">Cardiología</a><a href="https://boletinesmedicos.com/medicina-interna/" style="--h:200">Medicina interna</a><a href="https://boletinesmedicos.com/neurologia/" style="--h:270">Neurología</a><a href="https://boletinesmedicos.com/oncologia/" style="--h:300">Oncología</a><a href="https://boletinesmedicos.com/ortopedia/" style="--h:40">Ortopedia</a><a href="https://boletinesmedicos.com/urologia/" style="--h:185">Urología</a><a href="https://boletinesmedicos.com/gastroenterologia/" style="--h:85">Gastro</a><a href="https://boletinesmedicos.com/nefrologia/" style="--h:230">Nefrología</a><a href="https://boletinesmedicos.com/neumologia/" style="--h:165">Neumología</a><a href="https://boletinesmedicos.com/endocrinologia/" style="--h:330">Endocrino</a><a href="https://boletinesmedicos.com/emergencias/" style="--h:10">Emergencias</a><a href="https://boletinesmedicos.com/infectologia/" style="--h:95">Infectología</a><a href="https://boletinesmedicos.com/dermatologia/" style="--h:25">Dermatología</a><a href="https://boletinesmedicos.com/psiquiatria/" style="--h:265">Psiquiatría</a><a href="https://boletinesmedicos.com/reumatologia/" style="--h:340">Reumatología</a></nav><a class="lang" href="https://boletinesmedicos.com/en/subscribe.html" hreflang="en" lang="en">English</a></div>
 </div></header>
 <main><div class="wrap">
 <article class="static"><h1>Suscribirse a los boletines</h1><p>La suscripción es <strong>gratuita</strong> y funciona por correo electrónico: cada vez que se publica un número de las especialidades que usted elija, recibe un mensaje con el texto completo, el enlace a la página y el enlace al noticiero en audio para reenviarlo por WhatsApp.</p>
@@ -132,11 +138,28 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <ul>
 <li><strong>RSS</strong>: cada especialidad tiene su propio canal, enlazado al pie de su página.</li>
 <li><strong>WhatsApp</strong>: cada número incluye un texto listo para compartir en sus grupos.</li>
-</ul></article><section class="sub" id="suscribir">
-<h2>Reciba cada número por correo</h2>
-<p>Gratis. Un correo por número, con el texto completo y el enlace al audio. Sin anuncios dentro del contenido: si hay un patrocinador, se identifica y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.</p>
-<a class="btn" href="mailto:julioe.castillomercedes@gmail.com?subject=Suscripci%C3%B3n%20a%20Boletines%20M%C3%A9dicos&amp;body=Hola.%20Quiero%20recibir%20por%20correo%20los%20boletines%20de%20estas%20especialidades%20%28borre%20las%20que%20no%20le%20interesen%29%3A%0A-%20Cirug%C3%ADa%20vascular%20y%20endovascular%0A-%20Cirug%C3%ADa%20general%0A-%20Ginecolog%C3%ADa%20y%20obstetricia%0A-%20Pediatr%C3%ADa%0A-%20Cardiolog%C3%ADa%0A-%20Medicina%20interna%0A-%20Neurolog%C3%ADa%0A-%20Oncolog%C3%ADa%0A-%20Ortopedia%20y%20traumatolog%C3%ADa%0A-%20Urolog%C3%ADa%0A-%20Gastroenterolog%C3%ADa%20y%20hepatolog%C3%ADa%0A-%20Nefrolog%C3%ADa%0A-%20Neumolog%C3%ADa%0A-%20Endocrinolog%C3%ADa%20y%20diabetes%0A-%20Emergencias%20y%20medicina%20cr%C3%ADtica%0A%0ANombre%3A%0ACiudad%20o%20instituci%C3%B3n%20%28opcional%29%3A">Suscribirme por correo</a>
+</ul></article><section class="sub" id="formulario">
+<h2>Elija sus especialidades</h2>
+<form class="subf" onsubmit="return suscribir(this)">
+<label class="todas"><input type="checkbox" onchange="this.form.querySelectorAll('input[name=esp]').forEach(function(c){c.checked=this.checked},this)"> <b>Todas</b></label>
+<div class="boxes"><label><input type="checkbox" name="esp" value="Cirugía vascular y endovascular"> Cirugía vascular y endovascular</label><label><input type="checkbox" name="esp" value="Cirugía general"> Cirugía general</label><label><input type="checkbox" name="esp" value="Ginecología y obstetricia"> Ginecología y obstetricia</label><label><input type="checkbox" name="esp" value="Pediatría"> Pediatría</label><label><input type="checkbox" name="esp" value="Cardiología"> Cardiología</label><label><input type="checkbox" name="esp" value="Medicina interna"> Medicina interna</label><label><input type="checkbox" name="esp" value="Neurología"> Neurología</label><label><input type="checkbox" name="esp" value="Oncología"> Oncología</label><label><input type="checkbox" name="esp" value="Ortopedia y traumatología"> Ortopedia y traumatología</label><label><input type="checkbox" name="esp" value="Urología"> Urología</label><label><input type="checkbox" name="esp" value="Gastroenterología y hepatología"> Gastroenterología y hepatología</label><label><input type="checkbox" name="esp" value="Nefrología"> Nefrología</label><label><input type="checkbox" name="esp" value="Neumología"> Neumología</label><label><input type="checkbox" name="esp" value="Endocrinología y diabetes"> Endocrinología y diabetes</label><label><input type="checkbox" name="esp" value="Emergencias y medicina crítica"> Emergencias y medicina crítica</label><label><input type="checkbox" name="esp" value="Infectología"> Infectología</label><label><input type="checkbox" name="esp" value="Dermatología"> Dermatología</label><label><input type="checkbox" name="esp" value="Psiquiatría"> Psiquiatría</label><label><input type="checkbox" name="esp" value="Reumatología"> Reumatología</label></div>
+<label class="txt">Nombre<input type="text" name="nombre" autocomplete="name"></label>
+<label class="txt">Ciudad o institución (opcional)<input type="text" name="ciudad"></label>
+<button class="btn" type="submit">Preparar mi correo de suscripción</button>
 <small>Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.</small>
+<p class="priv">Usamos su dirección solo para enviarle los boletines que elija. No la compartimos ni la vendemos. Para darse de baja basta responder «Baja» a cualquier correo.</p>
+</form>
+<script>
+function suscribir(f){var s=[].slice.call(f.querySelectorAll('input[name=esp]:checked')).map(function(c){return '- '+c.value});
+if(!s.length){alert("Marque al menos una especialidad.");return false}
+var b="Hola. Quiero recibir por correo los boletines de estas especialidades:"+"
+"+s.join("
+")+"
+
+"+"Nombre"+": "+f.nombre.value+"
+"+"Ciudad o instituci\u00f3n (opcional)"+": "+f.ciudad.value;
+location.href="mailto:julioe.castillomercedes@gmail.com?subject="+encodeURIComponent("Suscripci\u00f3n a Boletines M\u00e9dicos")+"&body="+encodeURIComponent(b);return false}
+</script>
 </section>
 </div></main>
 <footer><div class="wrap">

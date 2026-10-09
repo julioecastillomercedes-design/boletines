@@ -1,0 +1,31 @@
+Good morning, colleagues. This bulletin covers September first to October first, twenty twenty-six. It concentrates on what the September twenty-eighth edition did not include. There are fourteen items; four come from Japan and Russia.
+
+The heaviest item is final overall survival from the Matterhorn trial, in The Lancet. Nine hundred forty-eight patients with resectable gastric cancer received durvalumab or placebo with perioperative chemotherapy. The hazard ratio for death was zero point seven eight. At thirty-six months, sixty-nine versus sixty-two percent were alive. Critical reading: the trial is sponsored by the manufacturer, and node-negative patients showed no benefit.
+
+The Soft Preop trial compared five-fraction stereotactic radiotherapy with twenty-eight-fraction chemoradiotherapy before pancreatic cancer surgery. It enrolled one hundred two patients at a single center. Median overall survival was twenty-six versus forty-three months. None of the survival differences was significant, but they all point the same way. It does not justify switching to short regimens for convenience.
+
+In Japan, a trial of three hundred twenty patients tested abdominal wall blocks after minimally invasive colorectal surgery. The bilateral dual transversus abdominis plane block improved quality of recovery at twenty-four hours. The adjusted difference was ten point four four points versus control. It is single-center, and the benefit is limited to early recovery.
+
+The Stardust study, from twenty-four European centers, analyzed two thousand four hundred twenty-two patients after gastrectomy for cancer. Duodenal stump leakage occurred in two point six percent, with ninety-day mortality of seventeen point two percent. It is retrospective, but it points to a cheap, modifiable factor: reinforcing the stump.
+
+In ventral hernia repair, an Italian trial of two hundred fourteen patients compared cyanoacrylate glue with sutures or tacks for mesh fixation. Chronic pain occurred only in the open cohort, with no difference between arms. The trial is negative on its primary outcome, and the benefit appears only in secondary outcomes.
+
+A Russian cohort of one thousand eighty-three pancreatoduodenectomies describes grade C pancreatic fistula. Twenty-six of forty-one reoperated patients died, and eleven of eleven non-reoperated patients died. The comparison is biased by who made it to the operating room. Still, it supports restricting preoperative biliary drainage to clear indications.
+
+In emergency general surgery, three hundred thirty-four thousand two hundred seventy-eight adults were analyzed. Compared with normal-weight, non-frail patients, underweight status increased the odds of death by ninety-two percent. Frailty alone increased them by fifty-nine percent. It cannot establish causality, but it helps with risk stratification and family conversations.
+
+Deaths linked to treatable emergency surgical conditions are rising in the United States. The rate rose from zero point four to zero point six per one hundred thousand between nineteen ninety-nine and twenty twenty. In rural areas it rose eighty-six percent. These are unadjusted rates and do not prove causation.
+
+A United States surgeon atlas found that thirty-eight percent of counties have no general surgeon. Fifteen point one million people live in them. This is planning data, not clinical data, but it offers a reproducible method for other countries.
+
+The robotic surgery manufacturer announced a meta-analysis of three hundred sixty-six studies in benign disease. Versus laparoscopy, the odds of conversion were fifty-four percent lower, with no difference in mortality. According to the release, the manufacturer's researchers took part in the analysis. Only three point six percent of the studies are randomized.
+
+A trial enrolled three hundred six older adults with anxiety or depression before surgery. At three months, a program of phone sessions reduced symptoms by two point two to two point five points more. The scale ran to forty-eight points. The effect is modest, but the intervention is low risk.
+
+An artificial intelligence model estimates pancreatic cancer risk three years before diagnosis. Its area under the curve was zero point eight five three. It is retrospective and lacks external validation, so it cannot yet guide whom to screen.
+
+A Russian study of one hundred twenty-eight patients with acute pancreatitis found no benefit from extracorporeal detoxification without a renal indication. It is not randomized, but its conclusion matches the international evidence.
+
+Finally, a Russian series of eighty-seven patients suggests better function after robotic than after laparoscopic rectal resection. It is hypothesis-generating and no more: small, retrospective and not randomized.
+
+Thank you for listening. Until next month.

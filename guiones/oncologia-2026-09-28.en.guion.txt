@@ -1,0 +1,27 @@
+Good morning, colleagues. Period covered: August twenty-ninth to September twenty-eighth, two thousand twenty-six. The month was dominated by the World Conference on Lung Cancer in Seoul, the International Myeloma Society meeting and a wave of regulatory decisions. Several congress results do not yet have a peer-reviewed publication.
+
+We begin with daraxonrasib, the first pan ras inhibitor approved by the United States Food and Drug Administration. It was approved for previously treated metastatic pancreatic adenocarcinoma. In the Rasolute Three Oh Two trial, with five hundred patients, median overall survival was thirteen point two months versus six point seven with chemotherapy. The hazard ratio was zero point four zero. Critical reading: it nearly doubles median survival in the second line, but the trial was open label and sponsored.
+
+In lung cancer, the Destiny Lung Zero Four trial tested first-line trastuzumab deruxtecan in tumors with a human epidermal growth factor receptor two mutation. It enrolled four hundred fifty-four patients. Median progression-free survival was fourteen point three versus eight point three months, with a hazard ratio of zero point six three. But interim overall survival numerically favors the control arm, with a hazard ratio of one point one five. Pneumonitis occurred in twenty point eight percent. Critical reading: this prevents calling it a new standard until mature data arrive.
+
+The agency approved zanidatamab with tislelizumab and chemotherapy as first-line treatment for gastric adenocarcinoma overexpressing the same receptor. Versus trastuzumab and chemotherapy, median overall survival rose from nineteen point two to twenty-six point four months. The hazard ratio was zero point seven two. Critical reading: it is an overall survival benefit over the standard, although the trial was open label and sponsored.
+
+At eight years, the Adaura trial confirms the advantage of adjuvant osimertinib in resected lung cancer with an epidermal growth factor receptor mutation. In stages two to three A, overall survival was seventy-four versus fifty-eight percent. Critical reading: it is an exploratory analysis, but it makes testing for this mutation mandatory in every resected non-small cell lung cancer. That is not yet universal in the region.
+
+In breast cancer, the agency granted accelerated approval to camizestrant with a cyclin-dependent kinase four and six inhibitor. It is used when an estrogen receptor one gene mutation is detected in blood. In the Serena Six trial, median progression-free survival rose from nine point two to sixteen months. Critical reading: an advisory committee voted against it, and there is no proven survival benefit yet. In the Dominican Republic, access to the test is the main obstacle.
+
+Also in breast cancer, imlunestrant with abemaciclib was approved for advanced disease with that same mutation. In the mutated subgroup of the Ember Three trial, progression-free survival was eleven point one versus five point five months. Critical reading: the agency calls the subgroup exploratory. It is another oral option after progression, not a new standard.
+
+The Rezilient Three trial tested zipalertinib with chemotherapy in lung cancer with exon twenty insertions. It enrolled two hundred seventy-nine patients. Progression-free survival was fourteen point five versus eight point five months, with a hazard ratio of zero point five zero. Grade three or higher adverse events reached eighty-seven point one percent. Critical reading: it joins other first-line options, with considerable toxicity.
+
+In extensive-stage small cell lung cancer, Amgen announced that adding tarlatamab to durvalumab maintenance significantly prolonged overall survival. The Delphi Three Oh Five trial enrolled five hundred sixty-three patients. Critical reading: without medians or a hazard ratio, it is a press release, not an assessable result.
+
+In myeloma, the Cepheus trial enrolled three hundred ninety-five newly diagnosed patients. Adding daratumumab to the triplet achieved minimal residual disease negativity in sixty-one point four versus thirty-nine point nine percent. Critical reading: these are congress updates, and daratumumab access remains limited in the Dominican Republic.
+
+The agency approved ropeginterferon alfa two b for essential thrombocythemia. In the Surpass trial, with one hundred seventy-four patients, durable response was thirty-seven point four versus three point six percent with anagrelide. Critical reading: according to coverage by the American Journal of Managed Care, it is the first new treatment in nearly thirty years. The manufacturer claims fewer thromboembolic events, without giving figures.
+
+In Europe, the human medicines committee recommended perioperative enfortumab vedotin with pembrolizumab in resectable muscle-invasive bladder cancer, including cisplatin-eligible patients. Critical reading: it makes a platinum-free regimen an option for everyone, but it still requires a European Commission decision.
+
+Finally, Brazil approved first-line sacituzumab govitecan for triple-negative breast cancer. Critical reading: it brings these indications to a reference Latin American regulator, but cost remains the main barrier for public systems.
+
+Thank you for listening. Until next month.

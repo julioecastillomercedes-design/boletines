@@ -25,7 +25,7 @@ Un boletín por especialidad (semanal en cirugía vascular, mensual en las demá
 
 ## Responsabilidad editorial
 
-Boletines Médicos es un proyecto editorial independiente con sede en Santo Domingo, República Dominicana, curado por Aura Celeste. La responsabilidad final sobre lo publicado es de la dirección editorial del proyecto, a cargo de un médico especialista dominicano. Estamos incorporando revisores especialistas por área; cuando cada uno acepte, su nombre y su especialidad se publicarán en esta página. Hasta entonces, la garantía de exactitud descansa en el método descrito arriba (fuente enlazada en cada ítem y verificación independiente antes de publicar) y en este registro público de correcciones.
+Boletines Médicos es un proyecto editorial independiente con sede en Santo Domingo, República Dominicana, curado por Aura Celeste. El responsable médico editorial de Boletines Médicos es el Dr. Julio Eurispides Castillo Mercedes, cirujano general y vascular. Estamos incorporando revisores especialistas por área; cuando cada uno acepte, su nombre y su especialidad se publicarán en esta página. Hasta entonces, la garantía de exactitud descansa en el método descrito arriba (fuente enlazada en cada ítem y verificación independiente antes de publicar) y en este registro público de correcciones.
 
 ## Secciones
 

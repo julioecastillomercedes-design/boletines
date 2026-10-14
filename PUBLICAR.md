@@ -10,7 +10,7 @@ Este repositorio genera el portal de boletines (GitHub Pages). Para añadir un n
    specialty: vascular | cirugia-general | ginecologia | pediatria | cardiologia
    date: AAAA-MM-DD
    title: "Boletín ... — D de mes de AAAA"
-   audio_minutes: 6
+   audio_minutes: 6   # opcional: la duración que se muestra se mide del MP3
    greeting: "A quién saluda el noticiero"
    ---
    (cuerpo: secciones con ##, ítems con ###, URL sueltas en su propia línea)

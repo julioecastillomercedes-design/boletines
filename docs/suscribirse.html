@@ -129,9 +129,10 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <article class="static"><h1>Suscribirse a los boletines</h1><p>La suscripción es <strong>gratuita</strong> y funciona por correo electrónico: cada vez que se publica un número de las especialidades que usted elija, recibe un mensaje con el texto completo, el enlace a la página y el enlace al noticiero en audio para reenviarlo por WhatsApp.</p>
 <h2>Cómo funciona</h2>
 <ol>
-<li>Pulse el botón de abajo: se abrirá su programa de correo con un mensaje ya redactado.</li>
-<li>Borre las especialidades que no le interesen y, si quiere, añada su nombre.</li>
-<li>Envíelo. Recibirá una confirmación y, desde el siguiente número, los boletines.</li>
+<li>En el formulario de abajo, marque las casillas de las especialidades que desea recibir (o «Todas»).</li>
+<li>Si quiere, escriba su nombre y su ciudad o institución.</li>
+<li>Pulse <strong>Preparar mi correo de suscripción</strong>: se abrirá su programa de correo con el mensaje ya redactado, con las especialidades que marcó.</li>
+<li>Envíe ese correo. La suscripción queda registrada cuando lo recibimos; si no lo envía, no queda suscrito.</li>
 </ol>
 <p>Para darse de baja basta responder a cualquier boletín con la palabra <strong>Baja</strong>. Su dirección se usa únicamente para enviarle los boletines; no se comparte ni se vende.</p>
 <h2>Otras formas de seguirnos</h2>
@@ -141,23 +142,21 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 </ul></article><section class="sub" id="formulario">
 <h2>Elija sus especialidades</h2>
 <form class="subf" onsubmit="return suscribir(this)">
-<label class="todas"><input type="checkbox" onchange="this.form.querySelectorAll('input[name=esp]').forEach(function(c){c.checked=this.checked},this)"> <b>Todas</b></label>
-<div class="boxes"><label><input type="checkbox" name="esp" value="Cirugía vascular y endovascular"> Cirugía vascular y endovascular</label><label><input type="checkbox" name="esp" value="Cirugía general"> Cirugía general</label><label><input type="checkbox" name="esp" value="Ginecología y obstetricia"> Ginecología y obstetricia</label><label><input type="checkbox" name="esp" value="Pediatría"> Pediatría</label><label><input type="checkbox" name="esp" value="Cardiología"> Cardiología</label><label><input type="checkbox" name="esp" value="Medicina interna"> Medicina interna</label><label><input type="checkbox" name="esp" value="Neurología"> Neurología</label><label><input type="checkbox" name="esp" value="Oncología"> Oncología</label><label><input type="checkbox" name="esp" value="Ortopedia y traumatología"> Ortopedia y traumatología</label><label><input type="checkbox" name="esp" value="Urología"> Urología</label><label><input type="checkbox" name="esp" value="Gastroenterología y hepatología"> Gastroenterología y hepatología</label><label><input type="checkbox" name="esp" value="Nefrología"> Nefrología</label><label><input type="checkbox" name="esp" value="Neumología"> Neumología</label><label><input type="checkbox" name="esp" value="Endocrinología y diabetes"> Endocrinología y diabetes</label><label><input type="checkbox" name="esp" value="Emergencias y medicina crítica"> Emergencias y medicina crítica</label><label><input type="checkbox" name="esp" value="Infectología"> Infectología</label><label><input type="checkbox" name="esp" value="Dermatología"> Dermatología</label><label><input type="checkbox" name="esp" value="Psiquiatría"> Psiquiatría</label><label><input type="checkbox" name="esp" value="Reumatología"> Reumatología</label></div>
+<label class="todas"><input type="checkbox" name="todas" onchange="marcarTodas(this)"> <b>Todas</b></label>
+<div class="boxes" onchange="sincTodas(this.closest('form'))"><label><input type="checkbox" name="esp" value="Cirugía vascular y endovascular"> Cirugía vascular y endovascular</label><label><input type="checkbox" name="esp" value="Cirugía general"> Cirugía general</label><label><input type="checkbox" name="esp" value="Ginecología y obstetricia"> Ginecología y obstetricia</label><label><input type="checkbox" name="esp" value="Pediatría"> Pediatría</label><label><input type="checkbox" name="esp" value="Cardiología"> Cardiología</label><label><input type="checkbox" name="esp" value="Medicina interna"> Medicina interna</label><label><input type="checkbox" name="esp" value="Neurología"> Neurología</label><label><input type="checkbox" name="esp" value="Oncología"> Oncología</label><label><input type="checkbox" name="esp" value="Ortopedia y traumatología"> Ortopedia y traumatología</label><label><input type="checkbox" name="esp" value="Urología"> Urología</label><label><input type="checkbox" name="esp" value="Gastroenterología y hepatología"> Gastroenterología y hepatología</label><label><input type="checkbox" name="esp" value="Nefrología"> Nefrología</label><label><input type="checkbox" name="esp" value="Neumología"> Neumología</label><label><input type="checkbox" name="esp" value="Endocrinología y diabetes"> Endocrinología y diabetes</label><label><input type="checkbox" name="esp" value="Emergencias y medicina crítica"> Emergencias y medicina crítica</label><label><input type="checkbox" name="esp" value="Infectología"> Infectología</label><label><input type="checkbox" name="esp" value="Dermatología"> Dermatología</label><label><input type="checkbox" name="esp" value="Psiquiatría"> Psiquiatría</label><label><input type="checkbox" name="esp" value="Reumatología"> Reumatología</label></div>
 <label class="txt">Nombre<input type="text" name="nombre" autocomplete="name"></label>
 <label class="txt">Ciudad o institución (opcional)<input type="text" name="ciudad"></label>
 <button class="btn" type="submit">Preparar mi correo de suscripción</button>
-<small>Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.</small>
+<small>Se abrirá su programa de correo con el mensaje ya redactado. La suscripción solo queda registrada cuando usted envía ese correo.</small>
 <p class="priv">Usamos su dirección solo para enviarle los boletines que elija. No la compartimos ni la vendemos. Para darse de baja basta responder «Baja» a cualquier correo.</p>
 </form>
 <script>
+function marcarTodas(a){a.indeterminate=false;a.form.querySelectorAll('input[name=esp]').forEach(function(c){c.checked=a.checked})}
+function sincTodas(f){var c=f.querySelectorAll('input[name=esp]'),n=f.querySelectorAll('input[name=esp]:checked').length,a=f.todas;
+a.checked=n===c.length;a.indeterminate=n>0&&n<c.length}
 function suscribir(f){var s=[].slice.call(f.querySelectorAll('input[name=esp]:checked')).map(function(c){return '- '+c.value});
 if(!s.length){alert("Marque al menos una especialidad.");return false}
-var b="Hola. Quiero recibir por correo los boletines de estas especialidades:"+"
-"+s.join("
-")+"
-
-"+"Nombre"+": "+f.nombre.value+"
-"+"Ciudad o instituci\u00f3n (opcional)"+": "+f.ciudad.value;
+var b="Hola. Quiero recibir por correo los boletines de estas especialidades:"+"\n"+s.join("\n")+"\n\n"+"Nombre"+": "+f.nombre.value+"\n"+"Ciudad o instituci\u00f3n (opcional)"+": "+f.ciudad.value;
 location.href="mailto:julioe.castillomercedes@gmail.com?subject="+encodeURIComponent("Suscripci\u00f3n a Boletines M\u00e9dicos")+"&body="+encodeURIComponent(b);return false}
 </script>
 </section>

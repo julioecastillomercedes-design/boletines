@@ -10,9 +10,10 @@ La suscripción es **gratuita** y funciona por correo electrónico: cada vez que
 
 ## Cómo funciona
 
-1. Pulse el botón de abajo: se abrirá su programa de correo con un mensaje ya redactado.
-2. Borre las especialidades que no le interesen y, si quiere, añada su nombre.
-3. Envíelo. Recibirá una confirmación y, desde el siguiente número, los boletines.
+1. En el formulario de abajo, marque las casillas de las especialidades que desea recibir (o «Todas»).
+2. Si quiere, escriba su nombre y su ciudad o institución.
+3. Pulse **Preparar mi correo de suscripción**: se abrirá su programa de correo con el mensaje ya redactado, con las especialidades que marcó.
+4. Envíe ese correo. La suscripción queda registrada cuando lo recibimos; si no lo envía, no queda suscrito.
 
 Para darse de baja basta responder a cualquier boletín con la palabra **Baja**. Su dirección se usa únicamente para enviarle los boletines; no se comparte ni se vende.
 

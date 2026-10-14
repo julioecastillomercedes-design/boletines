@@ -57,7 +57,7 @@ T = {
         "sub_btn": "Suscribirme por correo",
         "sub_subject": "Suscripción a Boletines Médicos",
         "sub_body": "Hola. Quiero recibir por correo los boletines de estas especialidades: (escriba aquí las que le interesan, o «todas»).\n\nNombre:\nCiudad o institución (opcional):",
-        "sub_hint": "Se abrirá su programa de correo con el mensaje ya redactado; solo tiene que enviarlo.",
+        "sub_hint": "Se abrirá su programa de correo con el mensaje ya redactado. La suscripción solo queda registrada cuando usted envía ese correo.",
         "sponsor": "Patrocinio y colaboración institucional",
         "subscribe": "Suscribirse",
         "contact": "Contacto", "about": "Quiénes somos y cómo trabajamos", "all_specs": "Todas",
@@ -90,7 +90,7 @@ T = {
         "sub_btn": "Subscribe by email",
         "sub_subject": "Subscription to MedBulletins",
         "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
-        "sub_hint": "Your email program will open with the message already written; just send it.",
+        "sub_hint": "Your email program will open with the message already written. Your subscription is only registered once you send that email.",
         "sponsor": "Sponsorship and institutional partnerships",
         "subscribe": "Subscribe",
         "contact": "Contact", "about": "About us and how we work", "all_specs": "All",
@@ -419,8 +419,8 @@ def subscribe_form(lang):
     return f"""<section class="sub" id="formulario">
 <h2>{e(t['form_title'])}</h2>
 <form class="subf" onsubmit="return suscribir(this)">
-<label class="todas"><input type="checkbox" onchange="this.form.querySelectorAll('input[name=esp]').forEach(function(c){{c.checked=this.checked}},this)"> <b>{e(t['form_all'])}</b></label>
-<div class="boxes">{boxes}</div>
+<label class="todas"><input type="checkbox" name="todas" onchange="marcarTodas(this)"> <b>{e(t['form_all'])}</b></label>
+<div class="boxes" onchange="sincTodas(this.closest('form'))">{boxes}</div>
 <label class="txt">{e(t['form_name'])}<input type="text" name="nombre" autocomplete="name"></label>
 <label class="txt">{e(t['form_city'])}<input type="text" name="ciudad"></label>
 <button class="btn" type="submit">{e(t['form_send'])}</button>
@@ -428,9 +428,12 @@ def subscribe_form(lang):
 <p class="priv">{e(t['form_privacy'])}</p>
 </form>
 <script>
+function marcarTodas(a){{a.indeterminate=false;a.form.querySelectorAll('input[name=esp]').forEach(function(c){{c.checked=a.checked}})}}
+function sincTodas(f){{var c=f.querySelectorAll('input[name=esp]'),n=f.querySelectorAll('input[name=esp]:checked').length,a=f.todas;
+a.checked=n===c.length;a.indeterminate=n>0&&n<c.length}}
 function suscribir(f){{var s=[].slice.call(f.querySelectorAll('input[name=esp]:checked')).map(function(c){{return '- '+c.value}});
 if(!s.length){{alert({need});return false}}
-var b={intro}+"\n"+s.join("\n")+"\n\n"+{lname}+": "+f.nombre.value+"\n"+{lcity}+": "+f.ciudad.value;
+var b={intro}+"\\n"+s.join("\\n")+"\\n\\n"+{lname}+": "+f.nombre.value+"\\n"+{lcity}+": "+f.ciudad.value;
 location.href="mailto:{to}?subject="+encodeURIComponent({subj})+"&body="+encodeURIComponent(b);return false}}
 </script>
 </section>"""
@@ -608,9 +611,9 @@ def build_lang(lang, issues, urls, fallback=()):
 <p class="abanner"><b>🎧</b><span>{e(t['audio_banner'])}</span></p>
 <a class="hsub" href="#suscribir">✉ {e(t['sub_title'])} →</a>
 </section>
-<section class="grid" id="especialidades">{''.join(cards)}</section>
+<section id="ultimos"><h2>{e(t['latest'])}</h2><ul class="list">{recent}</ul></section>
+<section id="especialidades"><h2>{e(t['nav_label'])}</h2><div class="grid">{''.join(cards)}</div></section>
 {subscribe_block(lang)}
-<section><h2>{e(t['latest'])}</h2><ul class="list">{recent}</ul></section>
 {viene_html}"""
     write(out / "index.html", page(site_name, home, lang=lang, desc=cfg_field("description", lang),
                                     url=f"{base(lang)}/", alt_url=f"{base(t['other_code'])}/"))
@@ -657,20 +660,70 @@ PLAY_SVG = ('<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d=
             '<svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>')
 
 
-def audio_minutes(i):
-    if i.get("audio_minutes"):
-        return round(float(i["audio_minutes"]))
+_MP3_BITRATES = {  # kbps por (versión MPEG 1 / 2-2.5), capa III
+    1: [0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 0],
+    2: [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 0],
+}
+_MP3_RATES = {3: [44100, 48000, 32000], 2: [22050, 24000, 16000], 0: [11025, 12000, 8000]}
+_DUR_CACHE = {}
+
+
+def mp3_seconds(path: Path):
+    """Duración real del MP3 (recorre las tramas MPEG capa III; válido para CBR y VBR)."""
+    key = (str(path), path.stat().st_mtime, path.stat().st_size)
+    if key in _DUR_CACHE:
+        return _DUR_CACHE[key]
+    data = path.read_bytes()
+    pos = 0
+    if data[:3] == b"ID3" and len(data) > 10:  # saltar la etiqueta ID3v2
+        pos = 10 + ((data[6] & 0x7F) << 21 | (data[7] & 0x7F) << 14 | (data[8] & 0x7F) << 7 | (data[9] & 0x7F))
+    samples, rate, n = 0, None, len(data)
+    while pos + 4 <= n:
+        if data[pos] != 0xFF or (data[pos + 1] & 0xE0) != 0xE0:
+            pos += 1
+            continue
+        b1, b2 = data[pos + 1], data[pos + 2]
+        ver, layer = (b1 >> 3) & 3, (b1 >> 1) & 3
+        bi, ri, pad = (b2 >> 4) & 15, (b2 >> 2) & 3, (b2 >> 1) & 1
+        if ver == 1 or layer != 1 or bi in (0, 15) or ri == 3:  # no es una trama válida de capa III
+            pos += 1
+            continue
+        sr = _MP3_RATES[ver][ri]
+        br = _MP3_BITRATES[1 if ver == 3 else 2][bi] * 1000
+        spf = 1152 if ver == 3 else 576
+        flen = spf // 8 * br // sr + pad
+        if flen < 4:
+            pos += 1
+            continue
+        samples += spf
+        rate = sr
+        pos += flen
+    secs = samples / rate if rate else None
+    _DUR_CACHE[key] = secs
+    return secs
+
+
+def audio_seconds(i):
+    """Segundos reales del audio del número; el valor escrito a mano solo se usa si no hay archivo."""
     if i.get("audio"):
-        return max(1, round(i["audio"].stat().st_size * 8 / 48000 / 60))
+        secs = mp3_seconds(i["audio"])
+        if secs:
+            return int(round(secs))
+    if i.get("audio_minutes"):
+        return int(float(i["audio_minutes"]) * 60)
     return None
+
+
+def fmt_duration(secs):
+    return f"{secs // 60}:{secs % 60:02d}"
 
 
 def listen_block(i, lang, hue, small=False, extra=""):
     """Reproductor destacado: botón grande ▶ + reproductor nativo debajo."""
     t = T[lang]
     aurl = f"{SITE_URL}/audio/{i['audio'].name}"
-    m = audio_minutes(i)
-    sub = t["listen_sub"] + (f" · {m} {t['min']}" if m else "")
+    d = audio_seconds(i)
+    sub = t["listen_sub"] + (f" · {fmt_duration(d)} {t['min']}" if d else "")
     title = t["listen_short"] if small else t["listen"]
     sp = spec_field(CFG["specialties"][i["spec"]], "short", lang)
     when = fecha_larga(i["date"], lang)
@@ -802,7 +855,7 @@ def podcast_feed(items, lang):
             continue
         url = issue_url(i)
         size = i["audio"].stat().st_size
-        secs = int(float(i["audio_minutes"]) * 60) if i.get("audio_minutes") else int(size * 8 / 48000)
+        secs = audio_seconds(i) or int(size * 8 / 48000)
         pub = datetime.combine(i["date"], datetime.min.time(), tzinfo=timezone.utc).strftime("%a, %d %b %Y 11:30:00 +0000")
         desc = f"{i['summary']} {url}"
         out.append(f"<item><title>{e(i['title'])}</title><link>{url}</link><guid isPermaLink=\"false\">{i['audio'].name}</guid>"

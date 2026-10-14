@@ -129,10 +129,9 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <article class="static"><h1>Subscribe to the bulletins</h1><p>Subscribing is <strong>free</strong> and works by email: every time an issue is published in the specialties you choose, you receive a message with the full text, the link to the page and the link to the audio newscast.</p>
 <h2>How it works</h2>
 <ol>
-<li>In the form below, tick the specialties you want to receive (or "All").</li>
-<li>If you like, add your name and your city or institution.</li>
-<li>Press <strong>Prepare my subscription email</strong>: your email program opens with the message already written, listing the specialties you ticked.</li>
-<li>Send that email. Your subscription is registered when we receive it; if you do not send it, you are not subscribed.</li>
+<li>Press <strong>Open the subscription form</strong> below; it opens in a new tab.</li>
+<li>Enter your email address and tick the specialties you want to receive (or "All specialties"). If you like, add your name and your city or institution.</li>
+<li>Press <strong>Submit</strong>. That is all: from then on you receive every new issue of the specialties you ticked.</li>
 </ol>
 <p>To unsubscribe, reply to any bulletin with the word <strong>Unsubscribe</strong>. Your address is used only to send you the bulletins; it is never shared or sold.</p>
 <h2>Other ways to follow us</h2>
@@ -140,25 +139,10 @@ article.static{font-size:1.02rem}article.static h2{margin-top:1.6em}article.stat
 <li><strong>RSS</strong>: each specialty has its own feed, linked at the bottom of its page.</li>
 <li><strong>Share</strong>: every issue includes ready-to-post text for LinkedIn and X.</li>
 </ul></article><section class="sub" id="formulario">
-<h2>Choose your specialties</h2>
-<form class="subf" onsubmit="return suscribir(this)">
-<label class="todas"><input type="checkbox" name="todas" onchange="marcarTodas(this)"> <b>All</b></label>
-<div class="boxes" onchange="sincTodas(this.closest('form'))"><label><input type="checkbox" name="esp" value="Vascular and endovascular surgery"> Vascular and endovascular surgery</label><label><input type="checkbox" name="esp" value="General surgery"> General surgery</label><label><input type="checkbox" name="esp" value="Obstetrics and gynecology"> Obstetrics and gynecology</label><label><input type="checkbox" name="esp" value="Pediatrics"> Pediatrics</label><label><input type="checkbox" name="esp" value="Cardiology"> Cardiology</label><label><input type="checkbox" name="esp" value="Internal medicine"> Internal medicine</label><label><input type="checkbox" name="esp" value="Neurology"> Neurology</label><label><input type="checkbox" name="esp" value="Oncology"> Oncology</label><label><input type="checkbox" name="esp" value="Orthopedics and trauma"> Orthopedics and trauma</label><label><input type="checkbox" name="esp" value="Urology"> Urology</label><label><input type="checkbox" name="esp" value="Gastroenterology and hepatology"> Gastroenterology and hepatology</label><label><input type="checkbox" name="esp" value="Nephrology"> Nephrology</label><label><input type="checkbox" name="esp" value="Pulmonology"> Pulmonology</label><label><input type="checkbox" name="esp" value="Endocrinology and diabetes"> Endocrinology and diabetes</label><label><input type="checkbox" name="esp" value="Emergency and critical care medicine"> Emergency and critical care medicine</label><label><input type="checkbox" name="esp" value="Infectious diseases"> Infectious diseases</label><label><input type="checkbox" name="esp" value="Dermatology"> Dermatology</label><label><input type="checkbox" name="esp" value="Psychiatry"> Psychiatry</label><label><input type="checkbox" name="esp" value="Rheumatology"> Rheumatology</label></div>
-<label class="txt">Name<input type="text" name="nombre" autocomplete="name"></label>
-<label class="txt">City or institution (optional)<input type="text" name="ciudad"></label>
-<button class="btn" type="submit">Prepare my subscription email</button>
-<small>Your email program will open with the message already written. Your subscription is only registered once you send that email.</small>
+<h2>Get every issue by email</h2>
+<p><a class="btn" href="https://forms.gle/QyVaUJreKBPwLpnT6" target="_blank" rel="noopener">Open the subscription form →</a></p>
+<p><small>It opens in a new tab: enter your email, tick your specialties and press Submit.</small></p>
 <p class="priv">We use your address only to send you the bulletins you choose. We do not share or sell it. To unsubscribe, just reply &quot;Unsubscribe&quot; to any email.</p>
-</form>
-<script>
-function marcarTodas(a){a.indeterminate=false;a.form.querySelectorAll('input[name=esp]').forEach(function(c){c.checked=a.checked})}
-function sincTodas(f){var c=f.querySelectorAll('input[name=esp]'),n=f.querySelectorAll('input[name=esp]:checked').length,a=f.todas;
-a.checked=n===c.length;a.indeterminate=n>0&&n<c.length}
-function suscribir(f){var s=[].slice.call(f.querySelectorAll('input[name=esp]:checked')).map(function(c){return '- '+c.value});
-if(!s.length){alert("Please check at least one specialty.");return false}
-var b="Hello. I would like to receive the bulletins for these specialties by email:"+"\n"+s.join("\n")+"\n\n"+"Name"+": "+f.nombre.value+"\n"+"City or institution (optional)"+": "+f.ciudad.value;
-location.href="mailto:julioe.castillomercedes@gmail.com?subject="+encodeURIComponent("Subscription to MedBulletins")+"&body="+encodeURIComponent(b);return false}
-</script>
 </section>
 </div></main>
 <footer><div class="wrap">

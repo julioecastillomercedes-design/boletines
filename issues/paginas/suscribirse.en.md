@@ -10,10 +10,9 @@ Subscribing is **free** and works by email: every time an issue is published in 
 
 ## How it works
 
-1. In the form below, tick the specialties you want to receive (or "All").
-2. If you like, add your name and your city or institution.
-3. Press **Prepare my subscription email**: your email program opens with the message already written, listing the specialties you ticked.
-4. Send that email. Your subscription is registered when we receive it; if you do not send it, you are not subscribed.
+1. Press **Open the subscription form** below; it opens in a new tab.
+2. Enter your email address and tick the specialties you want to receive (or "All specialties"). If you like, add your name and your city or institution.
+3. Press **Submit**. That is all: from then on you receive every new issue of the specialties you ticked.
 
 To unsubscribe, reply to any bulletin with the word **Unsubscribe**. Your address is used only to send you the bulletins; it is never shared or sold.
 

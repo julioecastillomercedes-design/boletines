@@ -407,6 +407,18 @@ def subscribe_block(lang, hue=None):
 
 def subscribe_form(lang):
     t = T[lang]
+    form_url = CFG.get(f"subscribe_form_url_{lang}")
+    if form_url:
+        btn = "Open the subscription form" if lang == "en" else "Abrir el formulario de suscripción"
+        hint = ("It opens in a new tab: enter your email, tick your specialties and press Submit."
+                if lang == "en" else
+                "Se abre en una pestaña nueva: escriba su correo, marque sus especialidades y pulse Enviar.")
+        return f"""<section class="sub" id="formulario">
+<h2>{e(t['sub_title'])}</h2>
+<p><a class="btn" href="{e(form_url)}" target="_blank" rel="noopener">{e(btn)} →</a></p>
+<p><small>{e(hint)}</small></p>
+<p class="priv">{e(t['form_privacy'])}</p>
+</section>"""
     boxes = "".join(
         f'<label><input type="checkbox" name="esp" value="{e(spec_field(s, "name", lang))}"> {e(spec_field(s, "name", lang))}</label>'
         for k, s in CFG["specialties"].items() if k != "hitos")

@@ -1,0 +1,57 @@
+name: Avisar a buscadores (IndexNow)
+
+# Avisa a Bing (y a Yandex, Seznam, Naver) de las páginas nuevas o cambiadas,
+# sobre todo las de la edición en inglés. Bing también alimenta Copilot y ChatGPT.
+
+on:
+  schedule:
+    - cron: "40 */6 * * *"    # cada 6 horas: páginas con lastmod de hoy o ayer
+  workflow_dispatch:
+    inputs:
+      todo:
+        description: "Enviar todas las páginas del sitemap"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: [".github/workflows/indexnow.yml"]
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      HOST: boletinesmedicos.com
+      KEY: a32d105b2a7848e8ba4c3ec7d9fd6f2f
+      TODO: ${{ github.event_name == 'push' || inputs.todo == true }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Esperar a que GitHub Pages publique la clave
+        run: |
+          for i in $(seq 1 20); do
+            if curl -fsS "https://$HOST/$KEY.txt" | grep -q "$KEY"; then echo "Clave publicada"; exit 0; fi
+            sleep 30
+          done
+          echo "::error::La clave IndexNow no está publicada"; exit 1
+      - name: Enviar URLs
+        run: |
+          python3 - <<'EOF' > payload.json
+          import json, os, re, datetime
+          xml = open("docs/sitemap.xml", encoding="utf-8").read()
+          pares = re.findall(r"<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>", xml)
+          hoy = datetime.date.today()
+          desde = (hoy - datetime.timedelta(days=1)).isoformat()
+          todo = os.environ["TODO"] == "true"
+          urls = [u for u, d in pares if todo or d >= desde]
+          urls.sort(key=lambda u: "/en/" not in u)   # primero la edición inglesa
+          print(json.dumps({"host": os.environ["HOST"], "key": os.environ["KEY"],
+                            "keyLocation": f"https://{os.environ['HOST']}/{os.environ['KEY']}.txt",
+                            "urlList": urls[:10000]}))
+          EOF
+          n=$(python3 -c "import json;print(len(json.load(open('payload.json'))['urlList']))")
+          echo "URLs a enviar: $n"
+          if [ "$n" = "0" ]; then exit 0; fi
+          code=$(curl -sS -o resp.txt -w "%{http_code}" -H "Content-Type: application/json; charset=utf-8" \
+                 --data @payload.json https://api.indexnow.org/indexnow)
+          echo "IndexNow respondió HTTP $code"; cat resp.txt || true
+          case "$code" in 200|202) ;; *) exit 1 ;; esac

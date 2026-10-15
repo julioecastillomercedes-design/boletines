@@ -57,7 +57,7 @@ jobs:
           rm -rf entrada kokoro-v1.0.onnx voices-v1.0.bin
           git config user.name "Publicador de boletines"
           git config user.email "julioe.castillomercedes@gmail.com"
-          git add -A issues audio docs
+          git add -A issues audio guiones docs
           if git diff --cached --quiet; then echo "Nada nuevo que publicar"; exit 0; fi
-          git commit -q -m "Publicación automática: $(git diff --cached --name-only -- issues audio | xargs -n1 basename | tr '\n' ' ')"
+          git commit -q -m "Publicación automática: $(git diff --cached --name-only -- issues audio guiones | xargs -n1 basename | tr '\n' ' ')"
           git push -q origin HEAD:main

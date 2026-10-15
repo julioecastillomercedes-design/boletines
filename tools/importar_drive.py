@@ -133,6 +133,12 @@ def main(entrada: Path) -> None:
 
     audios = 0
     for f, esp, fecha, en in guiones:
+        # Guardar el guion verificado junto al audio (registro de qué texto generó cada MP3)
+        copia = ROOT / "guiones" / f"{esp}-{fecha}{'.en' if en else ''}.guion.txt"
+        if not copia.exists():
+            copia.parent.mkdir(parents=True, exist_ok=True)
+            copia.write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
+            print(f"  + guion {copia.relative_to(ROOT)}")
         mp3 = ROOT / "audio" / f"{esp}-{fecha}{'-en' if en else ''}.mp3"
         if mp3.exists():
             continue

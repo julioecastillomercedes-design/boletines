@@ -25,7 +25,7 @@ One bulletin per specialty (weekly for vascular surgery, monthly for the others)
 
 ## Editorial responsibility
 
-MedBulletins is an independent editorial project based in Santo Domingo, Dominican Republic, curated by Aura Celeste. The medical editor responsible for Boletines Médicos is Dr. Julio Eurispides Castillo Mercedes, a general and vascular surgeon. We are bringing in specialist reviewers for each area; as each one accepts, their name and specialty will be published on this page. Until then, accuracy rests on the method described above (a linked source for every item and independent verification before publication) and on this public corrections log.
+MedBulletins is an independent editorial project based in Santo Domingo, Dominican Republic, curated by Aura Celeste. The medical editor responsible for MedBulletins is Dr. Julio Eurispides Castillo Mercedes, a general and vascular surgeon. We are bringing in specialist reviewers for each area; as each one accepts, their name and specialty will be published on this page. Until then, accuracy rests on the method described above (a linked source for every item and independent verification before publication) and on this public corrections log.
 
 ## Sections
 

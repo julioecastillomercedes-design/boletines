@@ -6,13 +6,14 @@ description: "Get every issue of MedBulletins free by email: full text and a lin
 subscribe: yes
 ---
 
-Subscribing is **free** and works by email: every time an issue is published in the specialties you choose, you receive a message with the full text, the link to the page and the link to the audio newscast.
+Subscribing is **free** and, for now, works by email request: you tell us which specialties you want, and the editor adds your address to the list for those specialties. It is not automatic, so there may be a short delay between your request and your first issue.
 
 ## How it works
 
-1. Press **Open the subscription form** below; it opens in a new tab.
-2. Enter your email address and tick the specialties you want to receive (or "All specialties"). If you like, add your name and your city or institution.
-3. Press **Submit**. That is all: from then on you receive every new issue of the specialties you ticked.
+1. In the form below, tick the specialties you want to receive (or "All").
+2. If you like, add your name and your city or institution.
+3. Press **Prepare my subscription email**: your email program opens with the message already written in English, listing the specialties you ticked.
+4. Send that email. Nothing is registered until you send it.
 
 To unsubscribe, reply to any bulletin with the word **Unsubscribe**. Your address is used only to send you the bulletins; it is never shared or sold.
 

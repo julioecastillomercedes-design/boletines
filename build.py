@@ -90,7 +90,7 @@ T = {
         "sub_btn": "Subscribe by email",
         "sub_subject": "Subscription to MedBulletins",
         "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
-        "sub_hint": "Your email program will open with the message already written. Your subscription is only registered once you send that email.",
+        "sub_hint": "Your email program will open with the message already written. Nothing is registered until you send that email.",
         "sponsor": "Sponsorship and institutional partnerships",
         "subscribe": "Subscribe",
         "contact": "Contact", "about": "About us and how we work", "all_specs": "All",

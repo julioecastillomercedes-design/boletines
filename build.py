@@ -224,6 +224,10 @@ def load_issue_file(f: Path, spec: str, lang: str):
                                        .replace("enlaces a las fuentes primarias", "enlaces a sus fuentes")
                                        .replace("links to the primary sources", "links to their sources")
                                        .replace("links to primary sources", "links to their sources"))
+    if lang == "en":
+        # La edición inglesa firma como MedBulletins, aunque un bot escriba la marca española
+        meta = {k: v.replace("Boletines Médicos", "MedBulletins") if isinstance(v, str) else v for k, v in meta.items()}
+        body = body.replace("Boletines Médicos", "MedBulletins")
     d = datetime.strptime(meta["date"], "%Y-%m-%d").date()
     body, extras = split_extras(body)
     body = strip_redundant_title(body)

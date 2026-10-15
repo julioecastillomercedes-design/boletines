@@ -140,6 +140,9 @@ sal13 = Path(tempfile.mkdtemp())
 r13, _ = S.procesar(Path(tempfile.mkdtemp()), [pr, alta_en], "2026-10-15", sal13, NUMS,
                     dict(CFG_ON, cuentas_propias=["propia@example.invalid"]), prueba=True)
 check(r13["altas"] == ["propia@example.invalid"], "modo prueba: solo el correo [PRUEBA] cuenta (aunque sea la cuenta propia)")
+out13 = json.loads((sal13 / "salientes.json").read_text())
+check(out13 and all(o["to"] == "propia@example.invalid" and o["subject"].startswith("[PRUEBA]") for o in out13), "modo prueba: los correos salientes van solo a la cuenta propia y con [PRUEBA] en el asunto")
+check(r12["hay_cambios"] and r12["mensajes_nuevos_procesados"] == 2, "el resumen indica si hay cambios que guardar")
 
 print(f"\n{'TODAS LAS PRUEBAS PASAN' if not fallos else str(len(fallos)) + ' FALLOS'}")
 sys.exit(1 if fallos else 0)

@@ -294,6 +294,10 @@ def procesar(registro: Path, solicitudes, hoy: str, salida: Path, numeros, confi
             a, c = correo_numeros(s, nuevos)
             salientes.append({"tipo": "numeros", "to": s["email"], "subject": a, "body": c,
                               "numeros": [n["id"] for n in nuevos]})
+    if prueba:
+        # En modo prueba solo se escribe a las cuentas propias, y el asunto lo dice
+        salientes = [dict(o, subject="[PRUEBA] " + o["subject"]) for o in salientes if norm(o["to"]) in propios]
+    n_procesados_previos = len(leer_csv(registro / "procesados.csv", PROC_COLS))
     if not config.get("distribucion_activa"):
         retenidos, salientes = len(salientes), []
     elif len(salientes) > tope:
@@ -307,7 +311,9 @@ def procesar(registro: Path, solicitudes, hoy: str, salida: Path, numeros, confi
     activos = [s for s in subs.values() if s["estado"] == "activo"]
     resumen.update({"activos": len(activos), "de_baja": sum(1 for s in subs.values() if s["estado"] == "baja"),
                     "salientes": len(salientes), "retenidos": retenidos,
-                    "distribucion_activa": bool(config.get("distribucion_activa"))})
+                    "distribucion_activa": bool(config.get("distribucion_activa")),
+                    "mensajes_nuevos_procesados": len(procesados) - n_procesados_previos,
+                    "hay_cambios": len(procesados) != n_procesados_previos or bool(salientes)})
     (salida / "resumen.json").write_text(json.dumps(resumen, ensure_ascii=False, indent=1), encoding="utf-8")
     return resumen, salientes
 

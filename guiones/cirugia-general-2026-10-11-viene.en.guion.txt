@@ -1,0 +1,15 @@
+Good morning, colleagues.
+
+This is the general surgery edition of what's next, covering mid-October twenty twenty-six through April twenty twenty-seven. In this section we only report what has a verifiable date in an official or primary source: a regulator, a company, a trial registry or a scientific society. This time a single item meets that standard, and we would rather do that than pad the list.
+
+One side note before the item. On June third, twenty twenty-six, Medtronic filed with the United States Food and Drug Administration to expand its Hugo robotic system to general surgery, including hernia repair, and to gynecology. Neither the agency nor the company has given a date for that decision, so we are not counting it as an item. If clearance comes, we will cover it along with the data behind it.
+
+Now the single item: the United States regulatory decision on CagriSema. CagriSema is a once-weekly subcutaneous fixed-dose combination of cagrilintide, an amylin analogue, and semaglutide, a glucagon-like peptide one receptor agonist. On December eighteenth, twenty twenty-five, Novo Nordisk announced it had submitted the application to the agency for weight management, based on the phase three REDEFINE one and REDEFINE two trials, and in its announcement of February twenty-third, twenty twenty-six, it said it anticipates a decision by late twenty twenty-six. That is the company's own estimate; the agency has not published an official date.
+
+Why should a general surgeon care? Two reasons. The first is patient selection: every new obesity drug may change who reaches the metabolic and bariatric surgery clinic, when, and with how much weight already lost. The second is perioperative care. Both amylin and glucagon-like peptide one agonists slow gastric emptying, so this combination adds one more drug to the list that anesthesia and surgery must review before an elective or emergency operation.
+
+Now the critical take, which is what matters. The REDEFINE four trial, a phase three open-label study sponsored by the company and reported in the same February announcement, compared CagriSema with fifteen milligrams of tirzepatide over eighty-four weeks in eight hundred nine randomized adults with obesity. CagriSema achieved twenty-three percent weight loss versus twenty-five point five percent with tirzepatide by the efficacy estimand, and twenty point two versus twenty-three point six percent by the estimand that measures the effect regardless of adherence. It did not demonstrate non-inferiority, its primary objective. These are sponsor-reported data, weight loss is an intermediate outcome rather than a hard clinical event, and approval in the United States does not guarantee availability or an affordable price in our countries. For the surgeon, the practical point is to know the drug may be coming and to ask about it in the preoperative history.
+
+We will keep watching for the decision and for any dated development in general surgery for the next edition.
+
+Thank you for listening.

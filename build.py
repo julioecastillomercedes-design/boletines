@@ -228,6 +228,10 @@ def load_issue_file(f: Path, spec: str, lang: str):
         # La edición inglesa firma como MedBulletins, aunque un bot escriba la marca española
         meta = {k: v.replace("Boletines Médicos", "MedBulletins") if isinstance(v, str) else v for k, v in meta.items()}
         body = body.replace("Boletines Médicos", "MedBulletins")
+        # Enlaces internos a la edición inglesa con la clave española (/en/cirugia-general/...) -> dirección inglesa
+        for k, sp in CFG["specialties"].items():
+            if sp.get("slug_en") and sp["slug_en"] != k:
+                body = body.replace(f"boletinesmedicos.com/en/{k}/", f"boletinesmedicos.com/en/{sp['slug_en']}/")
     d = datetime.strptime(meta["date"], "%Y-%m-%d").date()
     body, extras = split_extras(body)
     body = strip_redundant_title(body)

@@ -23,6 +23,7 @@ Archivos del registro (CSV, UTF-8):
       Anota en envios.csv / suscriptores.csv lo que de verdad se envió (con su id de Gmail).
 """
 import argparse
+import os
 import csv
 import json
 import re
@@ -31,7 +32,7 @@ import unicodedata
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(os.environ.get("BOLETINES_REPO") or Path(__file__).resolve().parent.parent)
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SITE = CFG["site_url"].rstrip("/")
 
@@ -130,21 +131,76 @@ def clasificar(msg):
 
 # ------------------------------------------------------------------ números publicados
 
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+         "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"]
+EXTRAS_RE = re.compile(r"^##\s*(Texto para WhatsApp|Text for WhatsApp|WhatsApp text|WhatsApp|"
+                       r"Texto para LinkedIn|Text for LinkedIn|LinkedIn post|LinkedIn|"
+                       r"Texto para X(?: \(Twitter\))?|Text for X(?: \(Twitter\))?|X post|X \(Twitter\)|X)\s*$", re.M | re.I)
+
+
+def _frontmatter(text):
+    m = re.match(r"^---\n(.*?)\n---\n(.*)$", text, re.S)
+    if not m:
+        return {}, text
+    meta = {}
+    for line in m.group(1).splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1)
+            v = v.strip()
+            if v.startswith('"') and v.endswith('"'):
+                v = v[1:-1]
+            meta[k.strip()] = v
+    return meta, m.group(2)
+
+
+def _resumen(body):
+    m = EXTRAS_RE.search(body)
+    if m:
+        body = body[:m.start()]
+    lines = body.lstrip("\n").split("\n")
+    first = lines[0].strip().upper()
+    if first and first.startswith(("BOLETÍN", "BOLETIN", "BULLETIN", "NEWSLETTER")) and len(first) < 140:
+        lines = lines[1:]
+    for line in lines:
+        t = line.strip()
+        if len(t) > 80 and not t.startswith("#") and not t.startswith("http"):
+            t = re.sub(r"\s+", " ", t)
+            return (t[:220].rsplit(" ", 1)[0] + "…") if len(t) > 220 else t
+    return ""
+
+
 def numeros_publicados(repo: Path):
-    """Números del portal (sin «Lo que viene» ni Hitos), en ambos idiomas."""
-    sys.path.insert(0, str(repo))
-    import build  # noqa: E402
+    """Números publicados en el portal (sin «Lo que viene» ni Hitos), en ambos idiomas.
+    Solo LEE los archivos del repositorio (issues/, audio/, config.json): no ejecuta su código."""
+    cfg = json.loads((repo / "config.json").read_text(encoding="utf-8"))
     out = []
-    for lang, lst in build.load_issues().items():
-        for i in lst:
-            if i.get("viene") or i["spec"] in EXCLUIDAS:
-                continue
-            out.append({
-                "id": f"{i['spec']}/{i['slug']}.{lang}", "spec": i["spec"], "lang": lang,
-                "date": i["date"].isoformat(), "title": i["title"], "summary": i["summary"],
-                "url": build.issue_url(i),
-                "audio": f"{SITE}/audio/{i['audio'].name}" if i.get("audio") else "",
-            })
+    for spec_dir in sorted((repo / "issues").iterdir()):
+        spec = spec_dir.name
+        if not spec_dir.is_dir() or spec not in cfg["specialties"] or spec in EXCLUIDAS:
+            continue
+        for f in sorted(spec_dir.glob("????-??-??.md")):
+            slug = f.stem
+            for lang, fp in (("es", f), ("en", spec_dir / f"{slug}.en.md")):
+                if not fp.exists():
+                    continue
+                texto = fp.read_text(encoding="utf-8").replace("Aura Celeste Vascular", "Aura Celeste")
+                if lang == "en":
+                    texto = texto.replace("Boletines Médicos", "MedBulletins")
+                meta, body = _frontmatter(texto)
+                d = date.fromisoformat(meta["date"])
+                fecha = (f"{MONTHS[d.month - 1]} {d.day}, {d.year}" if lang == "en"
+                         else f"{d.day} de {MESES[d.month - 1]} de {d.year}")
+                titulo = meta.get("title") or f"{'Bulletin' if lang == 'en' else 'Boletín'} — {fecha}"
+                seg = spec if lang == "es" else cfg["specialties"][spec].get("slug_en", spec)
+                audio = repo / "audio" / (f"{spec}-{slug}.mp3" if lang == "es" else f"{spec}-{slug}-en.mp3")
+                out.append({
+                    "id": f"{spec}/{slug}.{lang}", "spec": spec, "lang": lang, "date": d.isoformat(),
+                    "title": titulo, "summary": _resumen(body),
+                    "url": f"{SITE}{'/en' if lang == 'en' else ''}/{seg}/{slug}.html",
+                    "audio": f"{SITE}/audio/{audio.name}" if audio.exists() else "",
+                })
     return out
 
 

@@ -1,0 +1,29 @@
+VALIDACIÓN — vista previa cirugía plástica (versión 3), rama preview-cirugia-plastica, 2026-10-16 09:19 Santo Domingo
+NO PUBLICADO. main sin cambios; calendario global sin cambios; nada en Drive/pendientes.
+
+Textos fuente = Drive versión 3 (sha256):
+a5c7b6b4043df76cd9f8eab6398186db3a9882301e7b390f1ceb15a7aaf642eb  issues/cirugia-plastica/2026-10-16-viene.en.md
+eaea9ba938c94a5f9a3786f5a02ccec7131cf64d4032328e25f99d91e748394e  issues/cirugia-plastica/2026-10-16-viene.md
+b2abffc389c925c893b1bdcd2af366167f445fed033f9070be76ba5e32e86c61  issues/cirugia-plastica/2026-10-16.en.md
+d60ff0a61ba6601523aed6a951bfa30e8577eca7a5b04d212d24173b48f14aad  issues/cirugia-plastica/2026-10-16.md
+654ca66c945b8e749f015847f60e1bcc6b21bc8e132ab173d625317c28f4a702  guiones/cirugia-plastica-2026-10-16-viene.en.guion.txt
+3140dc5fdc2468f3e90eb1410dfb57e0753b157c6ef008db8270ff7d3ed1a51a  guiones/cirugia-plastica-2026-10-16-viene.guion.txt
+83209750d41cb521118ca550f06782bb1675e081c3f3148480e716e81eab0539  guiones/cirugia-plastica-2026-10-16.en.guion.txt
+703fd3fd37c5d2a5046eea77fed0082fb60b63d483483000f73923f3f0d84020  guiones/cirugia-plastica-2026-10-16.guion.txt
+
+Audio (flujo existente: tools/importar_drive.py + Kokoro, modelo abierto; sin coste):
+audio/cirugia-plastica-2026-10-16-en.mp3  214 s  cd74ac679a874a1c
+audio/cirugia-plastica-2026-10-16-viene-en.mp3  181 s  93303a83dd327753
+audio/cirugia-plastica-2026-10-16-viene.mp3  169 s  508f3e79fa1bcacf
+audio/cirugia-plastica-2026-10-16.mp3  201 s  75baac3f09055af7
+
+Rutas generadas por build.py:
+docs/cirugia-plastica/2026-10-16-viene.html
+docs/cirugia-plastica/2026-10-16.html
+docs/cirugia-plastica/index.html
+docs/en/plastic-surgery/2026-10-16-viene.html
+docs/en/plastic-surgery/2026-10-16.html
+docs/en/plastic-surgery/index.html
+
+Comprobaciones automáticas: issues idénticos byte a byte a la versión 3; cifras clave presentes en cada página; páginas EN sin rótulos en español; enlaces internos sin roturas (salvo favicon data:, falso positivo); portada ES/EN enlaza la especialidad; sin desbordamiento horizontal a 1100 px ni a 390 px.
+Limitación: el reproductor de la vista previa apunta a https://boletinesmedicos.com/audio/..., que aún no existe (por eso duración NaN en local); los MP3 están en audio/ de esta rama.

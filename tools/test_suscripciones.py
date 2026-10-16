@@ -144,5 +144,25 @@ out13 = json.loads((sal13 / "salientes.json").read_text())
 check(out13 and all(o["to"] == "propia@example.invalid" and o["subject"].startswith("[PRUEBA]") for o in out13), "modo prueba: los correos salientes van solo a la cuenta propia y con [PRUEBA] en el asunto")
 check(r12["hay_cambios"] and r12["mensajes_nuevos_procesados"] == 2, "el resumen indica si hay cambios que guardar")
 
+# --- Edición conjunta: un número fechado el 20-oct sale en el portal el 1-nov ---
+from datetime import date as _date  # noqa: E402
+EDC = {"edicion_conjunta": {"activa": True, "dia": 1, "vigente_desde": "2026-10-17", "excepto": ["hitos"]}}
+check(S.fecha_publicacion(EDC, "cardiologia", _date(2026, 10, 20)) == _date(2026, 11, 1), "edición: 20-oct se publica el 1-nov")
+check(S.fecha_publicacion(EDC, "cardiologia", _date(2026, 11, 1)) == _date(2026, 11, 1), "edición: 1-nov se publica el 1-nov")
+check(S.fecha_publicacion(EDC, "cardiologia", _date(2026, 12, 18)) == _date(2027, 1, 1), "edición: diciembre pasa a enero")
+check(S.fecha_publicacion(EDC, "cardiologia", _date(2026, 10, 16)) == _date(2026, 10, 16), "edición: antes de vigente_desde no cambia")
+check(S.fecha_publicacion(EDC, "hitos", _date(2026, 10, 20)) == _date(2026, 10, 20), "edición: Hitos queda fuera")
+check(S.fecha_publicacion({}, "cardiologia", _date(2026, 10, 20)) == _date(2026, 10, 20), "edición: sin configuración no cambia")
+NUM_ED = [dict(NUMS[0], pub="2026-11-01")]  # fechado 20-oct, publicado 1-nov
+alta_tarde = {"id": "m90", "date": "2026-10-25T10:00", "from": "eva@example.invalid",
+              "subject": "Suscripción a Boletines Médicos", "body": "Quiero:\n- Cardiología\n\nNombre: Eva"}
+reg_ed = Path(tempfile.mkdtemp())
+s_ed, r_ed, o_ed = ejecutar(reg_ed, [alta_tarde], "2026-10-25", CFG_ON, NUM_ED)
+check(not [o for o in o_ed if o["tipo"] == "numeros"], "edición: el 25-oct aún no se envía un número que sale el 1-nov")
+avanzar(s_ed, o_ed, "2026-10-25")
+_, r_ed2, o_ed2 = ejecutar(s_ed, [], "2026-11-01", CFG_ON, NUM_ED)
+check([o["numeros"] for o in o_ed2 if o["tipo"] == "numeros"] == [["cardiologia/2026-10-20.es"]],
+      "edición: suscrita el 25-oct recibe el 1-nov el número fechado el 20-oct")
+
 print(f"\n{'TODAS LAS PRUEBAS PASAN' if not fallos else str(len(fallos)) + ' FALLOS'}")
 sys.exit(1 if fallos else 0)

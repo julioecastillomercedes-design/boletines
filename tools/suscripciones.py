@@ -171,6 +171,20 @@ def _resumen(body):
     return ""
 
 
+def fecha_publicacion(cfg, spec, d):
+    """Día en que el número sale en el portal. Con la edición conjunta (config.json → edicion_conjunta),
+    lo fechado desde «vigente_desde» se publica el día «dia» siguiente a su fecha (el mismo día si coincide)."""
+    ed = cfg.get("edicion_conjunta") or {}
+    if not ed.get("activa") or spec in ed.get("excepto", []):
+        return d
+    if ed.get("vigente_desde") and d < date.fromisoformat(ed["vigente_desde"]):
+        return d
+    dia = int(ed.get("dia", 1))
+    if d.day <= dia:
+        return d.replace(day=dia)
+    return date(d.year + 1, 1, dia) if d.month == 12 else date(d.year, d.month + 1, dia)
+
+
 def numeros_publicados(repo: Path):
     """Números publicados en el portal (sin «Lo que viene» ni Hitos), en ambos idiomas.
     Solo LEE los archivos del repositorio (issues/, audio/, config.json): no ejecuta su código."""
@@ -197,6 +211,7 @@ def numeros_publicados(repo: Path):
                 audio = repo / "audio" / (f"{spec}-{slug}.mp3" if lang == "es" else f"{spec}-{slug}-en.mp3")
                 out.append({
                     "id": f"{spec}/{slug}.{lang}", "spec": spec, "lang": lang, "date": d.isoformat(),
+                    "pub": fecha_publicacion(cfg, spec, d).isoformat(),
                     "title": titulo, "summary": _resumen(body),
                     "url": f"{SITE}{'/en' if lang == 'en' else ''}/{seg}/{slug}.html",
                     "audio": f"{SITE}/audio/{audio.name}" if audio.exists() else "",
@@ -344,7 +359,7 @@ def procesar(registro: Path, solicitudes, hoy: str, salida: Path, numeros, confi
         desde = max(s["fecha_alta"] or hoy, inicio)
         nuevos = [n for n in numeros
                   if n["lang"] == s["idioma"] and (especs == ["todas"] or n["spec"] in especs)
-                  and n["date"] >= desde and n["date"] <= hoy and (s["email"], n["id"]) not in ya]
+                  and n.get("pub", n["date"]) >= desde and n.get("pub", n["date"]) <= hoy and (s["email"], n["id"]) not in ya]
         if nuevos:
             nuevos.sort(key=lambda n: n["date"])
             a, c = correo_numeros(s, nuevos)

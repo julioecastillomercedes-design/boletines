@@ -12,6 +12,9 @@ Entrada (carpeta descargada de Drive, argumento 1):
   (Los borradores sin ".v" que dejan los bots NO se publican.)
 Salida: issues/<esp>/<fecha>(.en).md y audio/<esp>-<fecha>(-en).mp3
 Nunca sobrescribe un número o un audio que ya esté en el repositorio (ni los borra de Drive).
+Edición conjunta (config.json → edicion_conjunta): los números verificados esperan en Drive y se
+publican todos juntos el día de la edición (por defecto el 1 del mes siguiente a su fecha; hora de
+Santo Domingo). Las especialidades de "excepto" (Hitos) se publican en cuanto están verificadas.
 """
 import json
 import os
@@ -33,6 +36,33 @@ LIMPIAR = re.compile(r"^(audio_url:.*|.*claude\.ai/artifact.*|Versión en audio.
                      r"Enviado por el Dr\..*|Sent by Dr\..*|Boletín completo en el correo|Full bulletin in the email|"
                      r"</?(content|invoke|parameter|antml:[a-z_]+)\b[^>]*>)\s*$",
                      re.M | re.I)
+
+
+def hoy_local():
+    """Fecha de hoy en la zona de la edición conjunta (HOY=AAAA-MM-DD la fija, para pruebas)."""
+    from datetime import date, datetime
+    if os.environ.get("HOY"):
+        return date.fromisoformat(os.environ["HOY"])
+    from zoneinfo import ZoneInfo
+    zona = CFG.get("edicion_conjunta", {}).get("zona", "America/Santo_Domingo")
+    return datetime.now(ZoneInfo(zona)).date()
+
+
+def fecha_edicion(esp: str, fecha: str):
+    """Día en que se publica un número. Con la edición conjunta activa, todo lo preparado en un mes
+    sale junto el día N (por defecto el 1) siguiente: lo fechado el mismo día N sale ese día.
+    Devuelve None si la especialidad se publica en cuanto está verificada."""
+    from datetime import date
+    ed = CFG.get("edicion_conjunta") or {}
+    if not ed.get("activa") or esp in ed.get("excepto", []):
+        return None
+    d = date.fromisoformat(fecha)
+    if ed.get("vigente_desde") and d < date.fromisoformat(ed["vigente_desde"]):
+        return None  # preparado antes de la edición conjunta: se publica al verificarse, como antes
+    dia = int(ed.get("dia", 1))
+    if d.day <= dia:
+        return d.replace(day=dia)
+    return (date(d.year + 1, 1, dia) if d.month == 12 else date(d.year, d.month + 1, dia))
 
 
 def limpiar(texto: str) -> str:
@@ -110,11 +140,18 @@ def descargar(entrada: Path) -> None:
 def main(entrada: Path) -> None:
     descargar(entrada)
     nuevos, guiones = [], []
+    hoy = hoy_local()
+    en_espera = {}
     for f in sorted(entrada.rglob("*")):
         m = NAME.match(f.name)
         if not f.is_file() or not m or m["esp"] not in SPECS:
             continue
         esp, en = m["esp"], bool(m["en"])
+        ed = fecha_edicion(esp, m["fecha"])
+        if ed and hoy < ed:
+            # Edición conjunta: el número verificado espera en Drive hasta el día de la edición
+            en_espera.setdefault(ed.isoformat(), set()).add(f"{esp}-{m['fecha']}{m['viene'] or ''}")
+            continue
         fecha = m["fecha"] + (m["viene"] or "")   # "<fecha>" o "<fecha>-viene" (sección «Lo que viene»)
         if m["guion"] == ".md":
             dest = ROOT / "issues" / esp / f"{fecha}{'.en' if en else ''}.md"
@@ -146,6 +183,8 @@ def main(entrada: Path) -> None:
             audios += sintetizar(f, mp3, esp, en)
         except Exception as ex:  # un audio fallido no detiene la publicación del resto
             print(f"  ! error de audio en {f.name}: {ex}")
+    for ed, grupos in sorted(en_espera.items()):
+        print(f"  = en espera hasta la edición del {ed}: {', '.join(sorted(grupos))}")
     print(f"Importados: {len(nuevos)} números, {audios} audios")
 
 

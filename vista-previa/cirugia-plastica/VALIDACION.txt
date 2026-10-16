@@ -27,3 +27,12 @@ docs/en/plastic-surgery/index.html
 
 Comprobaciones automáticas: issues idénticos byte a byte a la versión 3; cifras clave presentes en cada página; páginas EN sin rótulos en español; enlaces internos sin roturas (salvo favicon data:, falso positivo); portada ES/EN enlaza la especialidad; sin desbordamiento horizontal a 1100 px ni a 390 px.
 Limitación: el reproductor de la vista previa apunta a https://boletinesmedicos.com/audio/..., que aún no existe (por eso duración NaN en local); los MP3 están en audio/ de esta rama.
+
+COMPROBACIÓN DEL REPRODUCTOR CON AUDIO LOCAL (16-oct-2026, 09:27 Santo Domingo)
+Método: copia aparte de docs/ (no en la rama), con https://boletinesmedicos.com/audio/ sustituido por /audio/ solo en las 4 páginas; servida en local; Chromium (Playwright) carga cada página, espera loadedmetadata, reproduce 2,5 s en silencio y lee currentTime. Los MP3 servidos son docs/audio/, idénticos byte a byte a audio/ (cmp).
+- cirugia-plastica/2026-10-16.html: /audio/cirugia-plastica-2026-10-16.mp3 · HTTP 200 audio/mpeg · duración 201,3 s (ffprobe 201,4) · avanzó 2,5 s · sin error
+- cirugia-plastica/2026-10-16-viene.html: /audio/cirugia-plastica-2026-10-16-viene.mp3 · HTTP 200 audio/mpeg · 168,8 s (ffprobe 168,9) · avanzó 2,5 s · sin error
+- en/plastic-surgery/2026-10-16.html: /audio/cirugia-plastica-2026-10-16-en.mp3 · HTTP 200 audio/mpeg · 214,1 s (ffprobe 214,2) · avanzó 2,5 s · sin error
+- en/plastic-surgery/2026-10-16-viene.html: /audio/cirugia-plastica-2026-10-16-viene-en.mp3 · HTTP 200 audio/mpeg · 180,4 s (ffprobe 180,5) · avanzó 2,5 s · sin error
+En esta rama las páginas conservan las URL de producción (https://boletinesmedicos.com/audio/...), que es como funciona el portal: build.py copia los MP3 a docs/audio/ y GitHub Pages los sirve en esa ruta al publicar.
+No comprobado: escucha humana del contenido (pronunciación y fidelidad al guion); solo carga, duración y reproducción.

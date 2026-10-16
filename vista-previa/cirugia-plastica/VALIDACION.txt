@@ -36,3 +36,15 @@ Método: copia aparte de docs/ (no en la rama), con https://boletinesmedicos.com
 - en/plastic-surgery/2026-10-16-viene.html: /audio/cirugia-plastica-2026-10-16-viene-en.mp3 · HTTP 200 audio/mpeg · 180,4 s (ffprobe 180,5) · avanzó 2,5 s · sin error
 En esta rama las páginas conservan las URL de producción (https://boletinesmedicos.com/audio/...), que es como funciona el portal: build.py copia los MP3 a docs/audio/ y GitHub Pages los sirve en esa ruta al publicar.
 No comprobado: escucha humana del contenido (pronunciación y fidelidad al guion); solo carga, duración y reproducción.
+
+AJUSTE DE DICCIÓN Y REGENERACIÓN (solo boletín ES/EN; 16-oct-2026)
+Origen: alertas de ASR del auditor (Whisper base+small en el Mac), no errores de datos probados.
+Cambios SOLO en los guiones TTS (los textos web issues/ quedan idénticos a la versión 3):
+- guiones/cirugia-plastica-2026-10-16.guion.txt: «en Houston» → «en Jiuston» (forma fonética para la voz).
+- guiones/cirugia-plastica-2026-10-16.en.guion.txt: «locoregional recurrence» → «local and regional recurrence»; «craniofacial surgery» → «surgery of the skull and face».
+Regenerados con el mismo sintetizador del portal (Kokoro, voces em_alex / am_michael):
+- audio/cirugia-plastica-2026-10-16.mp3: 201,4 s
+- audio/cirugia-plastica-2026-10-16-en.mp3: 214,8 s
+Los dos audios de «Lo que viene» no se han tocado.
+Reproductor (copia local aparte con /audio/): ES 201,4 s y EN 214,7 s, ambos avanzan 2,5 s sin error.
+Pendiente: una nueva pasada de ASR o escucha humana de los dos audios regenerados.

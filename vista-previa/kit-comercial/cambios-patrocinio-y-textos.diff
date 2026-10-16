@@ -1,0 +1,97 @@
+diff --git a/build.py b/build.py
+index 18448a6..a05fb29 100644
+--- a/build.py
++++ b/build.py
+@@ -53,7 +53,7 @@ T = {
+         "no_en_yet": "The English edition of this issue is not available. Showing the Spanish original.",
+         "bulletin": "Boletín",
+         "sub_title": "Reciba cada número por correo",
+-        "sub_text": "Gratis. Un correo con cada número nuevo, con un resumen breve y los enlaces a la página y al audio. Sin anuncios dentro del contenido: si hay un patrocinador, se identifica y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.",
++        "sub_text": "Gratis. Un correo con cada número nuevo, con un resumen breve y los enlaces a la página y al audio. El contenido no incluye publicidad: si hay un patrocinador, su apoyo se identifica de forma visible y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.",
+         "sub_btn": "Suscribirme por correo",
+         "sub_subject": "Suscripción a Boletines Médicos",
+         "sub_body": "Hola. Quiero recibir por correo los boletines de estas especialidades: (escriba aquí las que le interesan, o «todas»).\n\nNombre:\nCiudad o institución (opcional):",
+@@ -86,7 +86,7 @@ T = {
+         "only_in": "This issue is only available in Spanish.", "audio_tag": "audio",
+         "no_en_yet": "", "bulletin": "Bulletin",
+         "sub_title": "Get every issue by email",
+-        "sub_text": "Free. One email with each new issue, with a short summary and links to the page and the audio. No ads inside the content: any sponsor is identified and has no say in the selection. We do not share your data; unsubscribe with a single message.",
++        "sub_text": "Free. One email with each new issue, with a short summary and links to the page and the audio. The content carries no advertising: any sponsor's support is visibly identified and has no say in the selection. We do not share your data; unsubscribe with a single message.",
+         "sub_btn": "Subscribe by email",
+         "sub_subject": "Subscription to MedBulletins",
+         "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
+@@ -843,10 +843,10 @@ def rss(items, title, link, lang):
+ 
+ PODCAST = {
+     "es": {"title": "Boletines Médicos — noticiero", "cover": "podcast-es.jpg", "lang": "es",
+-           "desc": "Noticiero en audio de Boletines Médicos: lo nuevo y verificado en 15 especialidades médicas, con lectura crítica de cada estudio. "
++           "desc": "Noticiero en audio de Boletines Médicos: lo nuevo y verificado en cada especialidad del portal, con lectura crítica de cada estudio. "
+                    "Material informativo para profesionales. Curado por Aura Celeste."},
+     "en": {"title": "MedBulletins — audio newscast", "cover": "podcast-en.jpg", "lang": "en-us",
+-           "desc": "The MedBulletins audio newscast: what is new and verified across 15 medical specialties, with a critical reading of every study. "
++           "desc": "The MedBulletins audio newscast: what is new and verified in every specialty on the portal, with a critical reading of every study. "
+                    "Informational material for health professionals. Curated by Aura Celeste."},
+ }
+ PODCAST_EMAIL = "auracelestevascular@gmail.com"
+diff --git a/issues/paginas/patrocinio.en.md b/issues/paginas/patrocinio.en.md
+index 5768609..c336828 100644
+--- a/issues/paginas/patrocinio.en.md
++++ b/issues/paginas/patrocinio.en.md
+@@ -6,7 +6,7 @@ description: "How to support MedBulletins as a sponsor, or how to commission a b
+ subscribe: yes
+ ---
+ 
+-**MedBulletins** publishes, every month and by specialty, a verified digest of the most relevant scientific advances worldwide (papers, guidelines, clinical trials, regulatory decisions), with a critical reading of each study and a five-to-seven-minute audio newscast. Every item is verified against its primary source, and the search covers publications in English, Chinese, Japanese, Korean, Russian, Portuguese, Spanish and other languages.
++**MedBulletins** publishes, every month and by specialty, a verified digest of the most relevant scientific advances worldwide (papers, guidelines, clinical trials, regulatory decisions), with a critical reading of each study and an audio newscast of three to seven minutes. Every item is verified against its primary source, and the search covers publications in English, Chinese, Japanese, Korean, Russian, Portuguese, Spanish and other languages.
+ 
+ There are two ways to work with us.
+ 
+@@ -23,7 +23,7 @@ A company, laboratory, distributor, clinic or society can support the publicatio
+ - The sponsor **has no say** in what is selected or how it is written. The critical reading of every study, including studies funded by the sponsor itself, stays intact.
+ - Every sponsorship is **disclosed** visibly on each piece where it appears.
+ - No promotional content is published disguised as scientific news, and no sponsorship that requires omitting information is accepted.
+-- Drug and device advertising follows FDA rules and applicable international standards for promotion aimed at healthcare professionals.
++- The editorial content carries no advertising. A sponsor's support appears only as an identified mention ("Supported by …") and, if it ever involves a drug or device, follows FDA rules and applicable international standards for promotion aimed at healthcare professionals.
+ 
+ ## 2. A branded edition for your institution
+ 
+@@ -31,7 +31,7 @@ Medical societies, residency programs, hospitals and clinics can commission an *
+ 
+ ## Audience figures
+ 
+-The portal shares its reader and audio-download figures with anyone who asks; they are updated monthly.
++Portal visits and audio plays or downloads are **not yet measured**. We do not offer audience figures until measured data exist; when they do, we will share them with their date and source. We also do not offer endorsement by medical societies or clinical outcomes.
+ 
+ ## Contact
+ 
+diff --git a/issues/paginas/patrocinio.es.md b/issues/paginas/patrocinio.es.md
+index 0fbb438..6102d45 100644
+--- a/issues/paginas/patrocinio.es.md
++++ b/issues/paginas/patrocinio.es.md
+@@ -6,7 +6,7 @@ description: "Cómo apoyar Boletines Médicos como patrocinador o cómo contrata
+ subscribe: yes
+ ---
+ 
+-**Boletines Médicos** publica cada mes, por especialidad, un resumen verificado de los avances científicos más relevantes del mundo (publicaciones, guías, ensayos clínicos, aprobaciones regulatorias), con lectura crítica de cada estudio y un noticiero en audio de cinco a siete minutos que se comparte por WhatsApp. Se edita en español e inglés y lo lee personal médico de República Dominicana y de otros países de habla hispana.
++**Boletines Médicos** publica cada mes, por especialidad, un resumen verificado de los avances científicos más relevantes del mundo (publicaciones, guías, ensayos clínicos, aprobaciones regulatorias), con lectura crítica de cada estudio y un noticiero en audio de entre tres y siete minutos que puede compartirse por WhatsApp. Se edita en español e inglés y está dirigido a profesionales de la salud de República Dominicana y de otros países de habla hispana.
+ 
+ Hay dos maneras de colaborar.
+ 
+@@ -23,7 +23,7 @@ Una empresa, laboratorio, distribuidora, clínica o sociedad puede apoyar la pub
+ - El patrocinador **no interviene** en la selección ni en la redacción de los contenidos. La lectura crítica de cada estudio, incluidos los estudios financiados por el propio patrocinador, se mantiene íntegra.
+ - Todo patrocinio se **declara** de forma visible en cada pieza en la que aparece.
+ - No se publica contenido promocional disfrazado de noticia científica ni se aceptan patrocinios que exijan omitir información.
+-- La publicidad de medicamentos se ajusta a la normativa dominicana e internacional sobre promoción dirigida a profesionales de la salud.
++- El contenido editorial no incluye publicidad. El apoyo de un patrocinador se muestra solo como mención identificada («Con el apoyo de …») y, si alguna vez incluye un producto farmacéutico o sanitario, se ajusta a la normativa dominicana e internacional sobre promoción dirigida a profesionales de la salud.
+ 
+ ## 2. Edición propia para su institución
+ 
+@@ -31,7 +31,7 @@ Sociedades médicas, escuelas de residentes, hospitales y clínicas pueden contr
+ 
+ ## Cifras de audiencia
+ 
+-El portal publica sus cifras de lectores y descargas de audio a quien las solicite; se actualizan cada mes.
++Las visitas al portal y las escuchas o descargas de audio **aún no se miden**. No ofrecemos cifras de audiencia hasta que existan datos medidos; cuando los haya, los compartiremos con su fecha y su fuente. Tampoco ofrecemos aval de sociedades científicas ni resultados clínicos.
+ 
+ ## Contacto
+ 

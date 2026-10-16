@@ -6,7 +6,7 @@ description: "How to support MedBulletins as a sponsor, or how to commission a b
 subscribe: yes
 ---
 
-**MedBulletins** publishes, every month and by specialty, a verified digest of the most relevant scientific advances worldwide (papers, guidelines, clinical trials, regulatory decisions), with a critical reading of each study and a five-to-seven-minute audio newscast. Every item is verified against its primary source, and the search covers publications in English, Chinese, Japanese, Korean, Russian, Portuguese, Spanish and other languages.
+**MedBulletins** publishes, every month and by specialty, a verified digest of the most relevant scientific advances worldwide (papers, guidelines, clinical trials, regulatory decisions), with a critical reading of each study and an audio newscast of three to seven minutes. Every item is verified against its primary source, and the search covers publications in English, Chinese, Japanese, Korean, Russian, Portuguese, Spanish and other languages.
 
 There are two ways to work with us.
 
@@ -23,7 +23,7 @@ A company, laboratory, distributor, clinic or society can support the publicatio
 - The sponsor **has no say** in what is selected or how it is written. The critical reading of every study, including studies funded by the sponsor itself, stays intact.
 - Every sponsorship is **disclosed** visibly on each piece where it appears.
 - No promotional content is published disguised as scientific news, and no sponsorship that requires omitting information is accepted.
-- Drug and device advertising follows FDA rules and applicable international standards for promotion aimed at healthcare professionals.
+- The editorial content carries no advertising. A sponsor's support appears only as an identified mention ("Supported by …") and, if it ever involves a drug or device, follows FDA rules and applicable international standards for promotion aimed at healthcare professionals.
 
 ## 2. A branded edition for your institution
 
@@ -31,7 +31,7 @@ Medical societies, residency programs, hospitals and clinics can commission an *
 
 ## Audience figures
 
-The portal shares its reader and audio-download figures with anyone who asks; they are updated monthly.
+Portal visits and audio plays or downloads are **not yet measured**. We do not offer audience figures until measured data exist; when they do, we will share them with their date and source. We also do not offer endorsement by medical societies or clinical outcomes.
 
 ## Contact
 

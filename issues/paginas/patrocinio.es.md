@@ -6,7 +6,7 @@ description: "Cómo apoyar Boletines Médicos como patrocinador o cómo contrata
 subscribe: yes
 ---
 
-**Boletines Médicos** publica cada mes, por especialidad, un resumen verificado de los avances científicos más relevantes del mundo (publicaciones, guías, ensayos clínicos, aprobaciones regulatorias), con lectura crítica de cada estudio y un noticiero en audio de cinco a siete minutos que se comparte por WhatsApp. Se edita en español e inglés y lo lee personal médico de República Dominicana y de otros países de habla hispana.
+**Boletines Médicos** publica cada mes, por especialidad, un resumen verificado de los avances científicos más relevantes del mundo (publicaciones, guías, ensayos clínicos, aprobaciones regulatorias), con lectura crítica de cada estudio y un noticiero en audio de entre tres y siete minutos que puede compartirse por WhatsApp. Se edita en español e inglés y está dirigido a profesionales de la salud de República Dominicana y de otros países de habla hispana.
 
 Hay dos maneras de colaborar.
 
@@ -23,7 +23,7 @@ Una empresa, laboratorio, distribuidora, clínica o sociedad puede apoyar la pub
 - El patrocinador **no interviene** en la selección ni en la redacción de los contenidos. La lectura crítica de cada estudio, incluidos los estudios financiados por el propio patrocinador, se mantiene íntegra.
 - Todo patrocinio se **declara** de forma visible en cada pieza en la que aparece.
 - No se publica contenido promocional disfrazado de noticia científica ni se aceptan patrocinios que exijan omitir información.
-- La publicidad de medicamentos se ajusta a la normativa dominicana e internacional sobre promoción dirigida a profesionales de la salud.
+- El contenido editorial no incluye publicidad. El apoyo de un patrocinador se muestra solo como mención identificada («Con el apoyo de …») y, si alguna vez incluye un producto farmacéutico o sanitario, se ajusta a la normativa dominicana e internacional sobre promoción dirigida a profesionales de la salud.
 
 ## 2. Edición propia para su institución
 
@@ -31,7 +31,7 @@ Sociedades médicas, escuelas de residentes, hospitales y clínicas pueden contr
 
 ## Cifras de audiencia
 
-El portal publica sus cifras de lectores y descargas de audio a quien las solicite; se actualizan cada mes.
+Las visitas al portal y las escuchas o descargas de audio **aún no se miden**. No ofrecemos cifras de audiencia hasta que existan datos medidos; cuando los haya, los compartiremos con su fecha y su fuente. Tampoco ofrecemos aval de sociedades científicas ni resultados clínicos.
 
 ## Contacto
 

@@ -53,7 +53,7 @@ T = {
         "no_en_yet": "The English edition of this issue is not available. Showing the Spanish original.",
         "bulletin": "Boletín",
         "sub_title": "Reciba cada número por correo",
-        "sub_text": "Gratis. Un correo con cada número nuevo, con un resumen breve y los enlaces a la página y al audio. Sin anuncios dentro del contenido: si hay un patrocinador, se identifica y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.",
+        "sub_text": "Gratis. Un correo con cada número nuevo, con un resumen breve y los enlaces a la página y al audio. El contenido no incluye publicidad: si hay un patrocinador, su apoyo se identifica de forma visible y no influye en la selección. No cedemos sus datos; se da de baja con un solo mensaje.",
         "sub_btn": "Suscribirme por correo",
         "sub_subject": "Suscripción a Boletines Médicos",
         "sub_body": "Hola. Quiero recibir por correo los boletines de estas especialidades: (escriba aquí las que le interesan, o «todas»).\n\nNombre:\nCiudad o institución (opcional):",
@@ -86,7 +86,7 @@ T = {
         "only_in": "This issue is only available in Spanish.", "audio_tag": "audio",
         "no_en_yet": "", "bulletin": "Bulletin",
         "sub_title": "Get every issue by email",
-        "sub_text": "Free. One email with each new issue, with a short summary and links to the page and the audio. No ads inside the content: any sponsor is identified and has no say in the selection. We do not share your data; unsubscribe with a single message.",
+        "sub_text": "Free. One email with each new issue, with a short summary and links to the page and the audio. The content carries no advertising: any sponsor's support is visibly identified and has no say in the selection. We do not share your data; unsubscribe with a single message.",
         "sub_btn": "Subscribe by email",
         "sub_subject": "Subscription to MedBulletins",
         "sub_body": "Hello. I would like to receive the bulletins for these specialties by email: (write the ones you want here, or \"all\").\n\nName:\nCity or institution (optional):",
@@ -843,10 +843,10 @@ def rss(items, title, link, lang):
 
 PODCAST = {
     "es": {"title": "Boletines Médicos — noticiero", "cover": "podcast-es.jpg", "lang": "es",
-           "desc": "Noticiero en audio de Boletines Médicos: lo nuevo y verificado en 15 especialidades médicas, con lectura crítica de cada estudio. "
+           "desc": "Noticiero en audio de Boletines Médicos: lo nuevo y verificado en cada especialidad del portal, con lectura crítica de cada estudio. "
                    "Material informativo para profesionales. Curado por Aura Celeste."},
     "en": {"title": "MedBulletins — audio newscast", "cover": "podcast-en.jpg", "lang": "en-us",
-           "desc": "The MedBulletins audio newscast: what is new and verified across 15 medical specialties, with a critical reading of every study. "
+           "desc": "The MedBulletins audio newscast: what is new and verified in every specialty on the portal, with a critical reading of every study. "
                    "Informational material for health professionals. Curated by Aura Celeste."},
 }
 PODCAST_EMAIL = "auracelestevascular@gmail.com"

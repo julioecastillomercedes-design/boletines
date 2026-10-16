@@ -1,0 +1,15 @@
+ESTADO DE LA TRANSCRIPCIÓN DE LOS 4 MP3 (16-oct-2026, Santo Domingo)
+NO SE HA HECHO LA TRANSCRIPCIÓN. No hay transcripciones ni comparación audio-guion en esta rama.
+Motivo: el entorno de trabajo de Claude no puede descargar ningún modelo de reconocimiento de voz gratuito.
+  - huggingface.co (modelos Whisper / faster-whisper): el proxy del entorno responde 403 (denegado por política).
+  - alphacephei.com (modelos Vosk): 403 (denegado por política).
+  No se intentó ningún rodeo ni servicio de pago.
+Lo comprobado hasta ahora del audio: que los 4 MP3 existen, cargan en el reproductor (HTTP 200, audio/mpeg),
+tienen duración finita coherente con ffprobe y se reproducen. NO está comprobada la correspondencia con el guion
+ni la pronunciación.
+Para cerrarlo sin coste en un equipo con acceso a los modelos (p. ej. el Mac), desde la raíz del repositorio:
+    pip install faster-whisper
+    python3 vista-previa/cirugia-plastica/verificar_audio.py
+Genera transcripciones con marcas de tiempo e INFORME_AUDIO.txt (omisiones, añadidos, cambios; cifras, fechas y
+negaciones marcadas como críticas; comprobación del final exacto). La lógica de comparación se probó con un guion
+alterado (cifra cambiada, negación y final quitados): detectó las 3 diferencias como críticas.

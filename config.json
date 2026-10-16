@@ -10,8 +10,8 @@
   "author": "Aura Celeste",
   "author_role": "con ayuda de inteligencia artificial",
   "author_role_en": "with the help of artificial intelligence",
-  "description": "Portal de boletines médicos con la evidencia más reciente y verificada en 19 especialidades: cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología, medicina interna, neurología, oncología, ortopedia, urología, gastroenterología, nefrología, neumología, endocrinología, emergencias, infectología, dermatología, psiquiatría y reumatología. Texto completo y noticiero en audio, en español e inglés.",
-  "description_en": "Medical bulletin portal with the latest verified evidence across 19 specialties: vascular surgery, general surgery, OB/GYN, pediatrics, cardiology, internal medicine, neurology, oncology, orthopedics, urology, gastroenterology, nephrology, pulmonology, endocrinology, emergency medicine, infectious diseases, dermatology, psychiatry and rheumatology. Full text and a short audio newscast for every issue.",
+  "description": "Portal de boletines médicos con la evidencia más reciente y verificada en 20 especialidades: cirugía vascular, cirugía general, ginecología y obstetricia, pediatría, cardiología, medicina interna, neurología, oncología, ortopedia, urología, gastroenterología, nefrología, neumología, endocrinología, emergencias, infectología, dermatología, psiquiatría, reumatología y cirugía plástica. Texto completo y noticiero en audio, en español e inglés.",
+  "description_en": "Medical bulletin portal with the latest verified evidence across 20 specialties: vascular surgery, general surgery, OB/GYN, pediatrics, cardiology, internal medicine, neurology, oncology, orthopedics, urology, gastroenterology, nephrology, pulmonology, endocrinology, emergency medicine, infectious diseases, dermatology, psychiatry, rheumatology and plastic surgery. Full text and a short audio newscast for every issue.",
   "specialties": {
     "vascular": {
       "name": "Cirugía vascular y endovascular",
@@ -312,6 +312,21 @@
       "voice_es": "em_alex",
       "cadence": "Mensual · día 18 · Lo que viene: día 28",
       "cadence_en": "Monthly · 18th · What's next: 28th"
+    },
+    "cirugia-plastica": {
+      "name": "Cirugía plástica",
+      "name_en": "Plastic surgery",
+      "short": "Cirugía plástica",
+      "short_en": "Plastic surgery",
+      "cadence": "Mensual · con «Lo que viene»",
+      "cadence_en": "Monthly · with What's next",
+      "audience": "Profesionales de la especialidad",
+      "audience_en": "Specialists and residents",
+      "blurb": "Reconstrucción mamaria y microcirugía, mano y nervio periférico, quemaduras, cirugía craneofacial, linfedema, contorno corporal y estética facial.",
+      "blurb_en": "Breast reconstruction and microsurgery, hand and peripheral nerve, burns, craniofacial surgery, lymphedema, body contouring and facial aesthetics.",
+      "hue": 15,
+      "slug_en": "plastic-surgery",
+      "voice_es": "em_alex"
     }
   },
   "contact_email": "julioe.castillomercedes@gmail.com",

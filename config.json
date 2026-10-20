@@ -312,6 +312,21 @@
       "voice_es": "em_alex",
       "cadence": "Mensual · día 18 · Lo que viene: día 28",
       "cadence_en": "Monthly · 18th · What's next: 28th"
+    },
+    "anestesiologia": {
+      "name": "Anestesiología",
+      "name_en": "Anesthesiology",
+      "short": "Anestesiología",
+      "short_en": "Anesthesiology",
+      "audience": "Profesionales de la especialidad",
+      "audience_en": "Specialists and residents",
+      "blurb": "Anestesia general y regional, vía aérea, seguridad perioperatoria, dolor agudo y crónico, anestesia obstétrica y pediátrica, nuevos fármacos y monitorización.",
+      "blurb_en": "General and regional anesthesia, airway management, perioperative safety, acute and chronic pain, obstetric and pediatric anesthesia, new drugs and monitoring.",
+      "hue": 120,
+      "slug_en": "anesthesiology",
+      "voice_es": "em_alex",
+      "cadence": "Mensual · día 19",
+      "cadence_en": "Monthly · 19th"
     }
   },
   "contact_email": "julioe.castillomercedes@gmail.com",

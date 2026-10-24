@@ -7,5 +7,14 @@
       "es/texto": "1951696596613dacc92765c21c7c5ab74c9f14229c23d2a292fcfe55f2ff19b7"
     },
     "revision": "20261022T132551Z"
+  },
+  "pediatria/2026-10-23-viene": {
+    "hashes": {
+      "en/guion": "cd560658d2602ae49159428f4616e848eba85cf9413154a190f9428299a51a5e",
+      "en/texto": "8acb88520a335b2e69559bba77199a98d0ca569976d8fc0d3c4594406d5224e4",
+      "es/guion": "56ab64bbd9faa6688ed4a7adc4c978a486633020c64dd06b4fe27ebb739c2d27",
+      "es/texto": "8fddb4e901dafee318b5fcffa7d7466c6ece06879a94fbbb9d858204f4676261"
+    },
+    "revision": "20261023T212202Z"
   }
 }
